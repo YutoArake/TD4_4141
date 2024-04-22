@@ -13,6 +13,10 @@ void GameLoadScene::Update(char keys[256], char oldkeys[256])
 {
 }
 
+void GameLoadScene::GameTransition()
+{
+}
+
 void GameLoadScene::Draw()
 {
 }

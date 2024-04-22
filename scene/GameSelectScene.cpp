@@ -24,6 +24,10 @@ void GameSelectScene::Update(char keys[256] , char oldkeys[256])
 	}
 }
 
+void GameSelectScene::GameTransition()
+{
+}
+
 void GameSelectScene::Draw()
 {
 }
