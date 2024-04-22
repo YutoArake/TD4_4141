@@ -20,6 +20,14 @@ void GameTitleScene::Update(char keys[256], char oldkeys[256])
 	}
 }
 
+void GameTitleScene::GameTransition()
+{
+
+}
+
 void GameTitleScene::Draw()
 {
+
 }
+
+

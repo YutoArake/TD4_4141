@@ -35,6 +35,11 @@ public: // メンバ関数
 	virtual void Draw() = 0;
 
 	/// <summary>
+	///  シーン遷移
+	/// </summary>
+	virtual void GameTransition() = 0;
+
+	/// <summary>
 	/// 終了処理
 	/// </summary>
 	virtual void Finalize() = 0;
