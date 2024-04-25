@@ -1,9 +1,15 @@
 #pragma once
 #include "BaseScene.h"
+#include "GamePlayScene/Player.h"
+#include "GamePlayScene/Background.h"
+#include <list>
 
 /// <summary>
 /// ゲームプレイシーン
 /// </summary>
+
+
+
 class GamePlayScene : public BaseScene
 {
 private: // メンバ変数
@@ -29,4 +35,11 @@ public: // メンバ関数
 	///  描画
 	/// </summary>
 	void Draw() override;
+
+private:
+	Player* player = nullptr;
+
+	std::list <Background*> backgroundlist;
+
+
 };

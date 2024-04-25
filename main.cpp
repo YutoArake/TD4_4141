@@ -16,7 +16,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	const int WIN_WIDTH = 1280;
 
 	// ウィンドウ縦幅
-	const int WIN_HEIGHT = 960;
+	const int WIN_HEIGHT = 720;
 
 	// ウィンドウサイズを手動では変更させず、
 	// かつウィンドウサイズに合わせて拡大できないようにする
@@ -57,7 +57,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	sceneManager_->SetSceneFactory(sceneFactory_);
 
 	// シーンマネージャーに最初のシーンをセット
-	SceneManager::GetInstance()->ChangeScene("TITLE");
+	SceneManager::GetInstance()->ChangeScene("PLAY");
 
 	// 最新のキーボード情報用
 	char keys[256] = { 0 };
