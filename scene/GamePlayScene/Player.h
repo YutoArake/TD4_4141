@@ -1,5 +1,11 @@
 #pragma once
 
+struct PlayerPosition
+{
+	int x;
+	int y;
+};
+
 class Player
 {
 public:
@@ -13,8 +19,17 @@ public:
 
 	void MoveLeft();
 
+	PlayerPosition GetPlayerPosition() {
+		PlayerPosition playerposition;
+
+		playerposition.x = this->x;
+		playerposition.y = this->y;
+
+		return playerposition;
+	}
+
 private:
-	int Texture;
+	int Texture = 0;
 
 	int x = 640;
 	int y = 560;

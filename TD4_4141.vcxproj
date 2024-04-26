@@ -161,6 +161,7 @@
     <ClCompile Include="scene\GameOverScene.cpp" />
     <ClCompile Include="scene\GamePlayScene.cpp" />
     <ClCompile Include="scene\GamePlayScene\Background.cpp" />
+    <ClCompile Include="scene\GamePlayScene\Mob.cpp" />
     <ClCompile Include="scene\GamePlayScene\Player.cpp" />
     <ClCompile Include="scene\GameSelectScene.cpp" />
     <ClCompile Include="scene\GameTitleScene.cpp" />
@@ -176,6 +177,7 @@
     <ClInclude Include="scene\GameOverScene.h" />
     <ClInclude Include="scene\GamePlayScene.h" />
     <ClInclude Include="scene\GamePlayScene\Background.h" />
+    <ClInclude Include="scene\GamePlayScene\Mob.h" />
     <ClInclude Include="scene\GamePlayScene\Player.h" />
     <ClInclude Include="scene\GameSelectScene.h" />
     <ClInclude Include="scene\GameTitleScene.h" />

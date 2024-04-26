@@ -2,6 +2,7 @@
 #include "BaseScene.h"
 #include "GamePlayScene/Player.h"
 #include "GamePlayScene/Background.h"
+#include "GamePlayScene/Mob.h"
 #include <list>
 
 /// <summary>
@@ -41,5 +42,5 @@ private:
 
 	std::list <Background*> backgroundlist;
 
-
+	std::list <Mob> moblist;
 };

@@ -5,8 +5,8 @@ void GamePlayScene::Initialize()
 {
 	player = new Player();
 
-	
-	
+	backgroundlist.push_back(new Background("a", 0, 0));
+
 }
 
 void GamePlayScene::Finalize()
