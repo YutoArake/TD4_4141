@@ -28,4 +28,12 @@ public: // ƒƒ“ƒoŠÖ”
 	///  •`‰æ
 	/// </summary>
 	void Draw() override;
+
+	/// <summary>
+	/// ƒV[ƒ“‘JˆÚ
+	/// </summary>
+	void GameTransition() override;
+
+	int titleGraph = 0;
+
 };

@@ -3,6 +3,7 @@
 
 void GameTitleScene::Initialize()
 {
+	titleGraph = LoadGraph("Resource/gorushi.png");
 }
 
 void GameTitleScene::Finalize()
@@ -20,6 +21,14 @@ void GameTitleScene::Update(char keys[256], char oldkeys[256])
 	}
 }
 
+void GameTitleScene::GameTransition()
+{
+
+}
+
 void GameTitleScene::Draw()
 {
+	DrawGraph(0, 0, titleGraph, FALSE);
 }
+
+

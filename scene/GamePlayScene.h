@@ -1,5 +1,6 @@
 #pragma once
 #include "BaseScene.h"
+#include "Player.h"
 
 /// <summary>
 /// ゲームプレイシーン
@@ -26,7 +27,16 @@ public: // メンバ関数
 	void Update(char keys[256], char oldkeys[256]) override;
 
 	/// <summary>
+	///  シーン遷移
+	/// </summary>
+	void GameTransition() override;
+	/// <summary>
 	///  描画
 	/// </summary>
 	void Draw() override;
+
+private:
+	Player player;
+
+
 };

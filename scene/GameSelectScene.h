@@ -27,6 +27,11 @@ public: // ƒƒ“ƒoŠÖ”
 	void Update(char keys[256], char oldkeys[256]) override;
 
 	/// <summary>
+	///  ƒV[ƒ“‘JˆÚ
+	/// </summary>
+	void GameTransition() override;
+
+	/// <summary>
 	///  •`‰æ
 	/// </summary>
 	void Draw() override;

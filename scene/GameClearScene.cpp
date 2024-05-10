@@ -19,6 +19,10 @@ void GameClearScene::Update(char keys[256], char oldkeys[256])
 	}
 }
 
+void GameClearScene::GameTransition()
+{
+}
+
 void GameClearScene::Draw()
 {
 }
