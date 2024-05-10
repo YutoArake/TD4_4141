@@ -1,15 +1,21 @@
 #include "Player.h"
 #include "DxLib.h"
 
+
+
 void Player::Initialize()
 {
-	Texture = LoadGraph("Resource / ");
+	Texture = LoadGraph("Resource/ ");
+
+	jumpSetting.jumpPower = 0;
+	jumpSetting.gravity = 0;
+	jumpSetting.downForce = true;
+	jumpSetting.jumpdetection = false;
 }
 
 void Player::Update()
 {
-	MoveRight();
-	MoveLeft();
+	JumpProcess();
 }
 
 void Player::Draw()
@@ -25,5 +31,17 @@ void Player::MoveRight()
 
 void Player::MoveLeft()
 {
-	x -= movementY;
+	x -= movementX;
+}
+
+void Player::Jump()
+{
+	ToggleJumpDetection();
+}
+
+void Player::JumpProcess()
+{
+	if (jumpSetting.jumpdetection == true) {
+
+	}
 }

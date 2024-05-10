@@ -42,5 +42,5 @@ private:
 
 	std::list <Background*> backgroundlist;
 
-	std::list <Mob> moblist;
+	std::list <Mob*> moblist;
 };

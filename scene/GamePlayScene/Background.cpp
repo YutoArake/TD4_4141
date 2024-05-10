@@ -23,3 +23,13 @@ void Background::Draw()
 {
 	DrawGraph(x, y, texture, true);
 }
+
+void Background::MoveRight()
+{
+	x += movementX;
+}
+
+void Background::MoveLeft()
+{
+	x -= movementX;
+}

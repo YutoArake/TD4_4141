@@ -17,6 +17,10 @@ public:
 
 	void Draw();
 
+	void MoveRight();
+
+	void MoveLeft();
+
 	Position GetPosion() {
 		Position position;
 
@@ -31,5 +35,8 @@ private:
 
 	int x;
 	int y;
+
+	int movementX = 8;
+	int movementY = 8;
 };
 
