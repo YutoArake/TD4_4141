@@ -3,6 +3,7 @@
 
 void GameLoadScene::Initialize()
 {
+
 }
 
 void GameLoadScene::Finalize()

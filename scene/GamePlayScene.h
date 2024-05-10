@@ -1,5 +1,6 @@
 #pragma once
 #include "BaseScene.h"
+#include "Player.h"
 
 /// <summary>
 /// ゲームプレイシーン
@@ -33,4 +34,9 @@ public: // メンバ関数
 	///  描画
 	/// </summary>
 	void Draw() override;
+
+private:
+	Player player;
+
+
 };
