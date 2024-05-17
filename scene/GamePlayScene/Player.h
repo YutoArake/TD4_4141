@@ -44,6 +44,7 @@ public:
 		}
 	}
 
+
 	PlayerPosition GetPlayerPosition() {
 		PlayerPosition playerposition;
 
@@ -51,6 +52,10 @@ public:
 		playerposition.y = this->y;
 
 		return playerposition;
+	}
+
+	JumpSetting GeJumpSetting() {
+		return jumpSetting;
 	}
 
 private:
