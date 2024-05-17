@@ -3,25 +3,30 @@
 
 
 
+Player::Player()
+{
+
+}
+
 void Player::Initialize()
 {
-	Texture = LoadGraph("Resource/ ");
+	//Texture = LoadGraph("Resource/ ");
 
-	jumpSetting.jumpPower = 0;
-	jumpSetting.gravity = 0;
-	jumpSetting.downForce = true;
-	jumpSetting.jumpdetection = false;
+
 }
 
 void Player::Update()
 {
-	JumpProcess();
+	if (injump == true) {
+		JumpProcess();
+	}
+	Fall();
 }
 
 void Player::Draw()
 {
 	DrawBox(x - sizeX, y - sizeY, x + sizeX, y + sizeY, GetColor(255, 255, 255), true);
-
+	DrawFormatString(0, 0, GetColor(255, 255, 255), "%d", gravity);
 }
 
 void Player::MoveRight()
@@ -34,17 +39,38 @@ void Player::MoveLeft()
 	x -= movementX;
 }
 
-void Player::Jump()
+
+
+void Player::Fall()
 {
-	ToggleJumpDetection();
+	int fallresult;
+	fallresult = movementY * gravity;
+	y += fallresult;
+	gravity += 1;
 }
 
 void Player::JumpProcess()
 {
 	int jumpresultPower = 0;
-	if (jumpSetting.jumpdetection == true) {
-		jumpresultPower = movementY * jumpSetting.jumpPower * jumpSetting.gravity;
-		y -= jumpresultPower;
-		jumpSetting.gravity /= 2;
+	if (onground == false) {
+		jumpresultPower = movementY * jumpPower * gravity;
+		if (downForce == false) {
+			y -= jumpresultPower;
+			gravity -= 1;
+		}
+		if (downForce == true) {
+			y += jumpresultPower;
+			gravity += 2;
+		}
+
+
+		if (gravity <= 1) {
+			downForce = true;
+		}
+	}
+
+	if (onground == true) {
+		gravity = 3/*atode*/;
+		injump = false;
 	}
 }

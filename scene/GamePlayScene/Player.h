@@ -6,17 +6,13 @@ struct PlayerPosition
 	int y;
 };
 
-struct JumpSetting
-{
-	int jumpPower;
-	int gravity;
-	bool downForce;
-	bool jumpdetection;
-};
+
 
 class Player
 {
 public:
+	Player();
+
 	void Initialize();
 
 	void Update();
@@ -27,21 +23,17 @@ public:
 
 	void MoveLeft();
 
-	void Jump();
 
-	void JumpProcess();
 
-	void ToggleJumpDetection() {
-		if (jumpSetting.jumpdetection == true) {
-			jumpSetting.jumpdetection = false;
-			jumpSetting.downForce = false;
-			return;
+	void Fall();
+
+	void ToggleJump() {
+		if (injump == false) {
+			injump = true;
 		}
-		if (jumpSetting.jumpdetection == false) {
-			jumpSetting.jumpdetection = true;
-			jumpSetting.downForce = true;
-			return;
-		}
+	}
+	void TrueOnGround() {
+		onground = true;
 	}
 
 
@@ -54,12 +46,17 @@ public:
 		return playerposition;
 	}
 
-	JumpSetting GeJumpSetting() {
-		return jumpSetting;
-	}
+
 
 private:
-	JumpSetting jumpSetting;
+	void JumpProcess();
+
+private:
+	int jumpPower = 2;
+	int gravity = 5;
+	bool downForce = true;
+	bool onground = true;
+	bool injump = false;
 
 	int Texture = 0;
 
@@ -69,6 +66,6 @@ private:
 	int sizeY = 100;
 
 	int movementX = 8;
-	int movementY = 4;
+	int movementY = 2;
 };
 

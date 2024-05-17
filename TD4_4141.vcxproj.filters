@@ -54,6 +54,18 @@
     <ClCompile Include="scene\SceneManager.cpp">
       <Filter>scene</Filter>
     </ClCompile>
+    <ClCompile Include="scene\GamePlayScene\Background.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="scene\GamePlayScene\Mob.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="scene\GamePlayScene\Player.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="scene\GamePlayScene\Object.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="scene\AbstractSceneFactory.h">
@@ -88,6 +100,18 @@
     </ClInclude>
     <ClInclude Include="scene\SceneManager.h">
       <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="scene\GamePlayScene\Background.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="scene\GamePlayScene\Mob.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="scene\GamePlayScene\Player.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="scene\GamePlayScene\Object.h">
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

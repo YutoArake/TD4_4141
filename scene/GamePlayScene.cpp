@@ -4,6 +4,7 @@
 void GamePlayScene::Initialize()
 {
 	player = new Player();
+	player->Initialize();
 
 	backgroundlist.push_back(new Background("a", 0, 0));
 
@@ -33,6 +34,8 @@ void GamePlayScene::Update(char keys[256], char oldkeys[256])
 	if (keys[KEY_INPUT_A] == 1) {
 		player->MoveLeft();
 	}
+
+	player->Update();
 
 }
 
