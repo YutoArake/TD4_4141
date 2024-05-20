@@ -4,6 +4,8 @@
 class Object
 {
 public:
+	Object(const char* texture, int x, int y);
+
 	void Initialize();
 
 	void Update();
@@ -20,6 +22,4 @@ private:
 	int x;
 	int y;
 
-	int sizeX;
-	int sizeY;
 };
