@@ -4,7 +4,7 @@
 class Object
 {
 public:
-	Object(const char* texture, int x, int y);
+	Object(const char* texture, int x, int y, char objecname);
 
 	void Initialize();
 
@@ -22,4 +22,7 @@ private:
 	int x;
 	int y;
 
+	int movementX = 8;
+
+	char objectname;
 };

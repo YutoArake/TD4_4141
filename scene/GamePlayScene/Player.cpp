@@ -49,6 +49,11 @@ void Player::Fall()
 	gravity += 1;
 }
 
+void Player::ResetGravity()
+{
+	gravity = 5;
+}
+
 void Player::JumpProcess()
 {
 	int jumpresultPower = 0;

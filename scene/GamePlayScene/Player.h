@@ -27,6 +27,8 @@ public:
 
 	void Fall();
 
+	void ResetGravity();
+
 	void ToggleJump() {
 		if (injump == false) {
 			injump = true;
