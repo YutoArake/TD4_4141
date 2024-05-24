@@ -26,7 +26,6 @@ void Player::Update()
 void Player::Draw()
 {
 	DrawBox(x - sizeX, y - sizeY, x + sizeX, y + sizeY, GetColor(255, 255, 255), true);
-	DrawFormatString(0, 0, GetColor(255, 255, 255), "%d", gravity);
 }
 
 void Player::MoveRight()
