@@ -7,7 +7,7 @@ public:
 
 	void Initialize();
 
-	void Update();
+	virtual void Update();
 
 	virtual void Draw();
 

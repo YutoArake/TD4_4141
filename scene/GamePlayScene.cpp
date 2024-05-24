@@ -8,6 +8,9 @@ void GamePlayScene::Initialize()
 
 	backgroundlist.push_back(new Background("a", 0, 0));
 
+	objectlist.push_back(new Object("bruh", "aaaa", 0, 0));
+
+
 }
 
 void GamePlayScene::Finalize()

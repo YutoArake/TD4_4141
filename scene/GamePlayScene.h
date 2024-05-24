@@ -3,7 +3,8 @@
 #include "GamePlayScene/Player.h"
 #include "GamePlayScene/Background.h"
 #include "GamePlayScene/Mob.h"
-#include "GamePlayScene//Object.h"
+#include "GamePlayScene/Object.h"
+#include "GamePlayScene/TestMob.h"
 #include <list>
 
 /// <summary>
@@ -43,7 +44,7 @@ private:
 
 	std::list <Background*> backgroundlist;
 
-	std::list <Mob*> moblist;
+	std::list <Object*> objectlist;
 
-	std::list<Object*> objectlist;
+	std::list <Mob*> moblist;
 };

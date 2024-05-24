@@ -1,10 +1,17 @@
 #pragma once
-
+#include <DxLib.h>
 
 class Object
 {
 public:
-	Object(const char* texture, int x, int y, char objecname);
+	Object(const char* texture, const char* objectname, int x, int y)
+	{
+		this->texture = LoadGraph(texture);
+
+		this->x = x;
+		this->y = y;
+		this->objectname = objectname;
+	}
 
 	void Initialize();
 
@@ -24,5 +31,5 @@ private:
 
 	int movementX = 8;
 
-	char objectname;
+	const char* objectname;
 };
