@@ -9,11 +9,6 @@ Background::Background(const char* texture, int x, int y)
 	this->y = y;
 }
 
-void Background::Initialize()
-{
-
-}
-
 void Background::Update()
 {
 

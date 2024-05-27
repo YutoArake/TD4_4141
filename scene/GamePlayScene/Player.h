@@ -11,9 +11,7 @@ struct PlayerPosition
 class Player
 {
 public:
-	Player();
-
-	void Initialize();
+	Player(const char* texture);
 
 	void Update();
 
@@ -60,7 +58,7 @@ private:
 	bool onground = true;
 	bool injump = false;
 
-	int Texture = 0;
+	int texture = 0;
 
 	int x = 640;
 	int y = 560;

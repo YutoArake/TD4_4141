@@ -3,17 +3,12 @@
 
 
 
-Player::Player()
+Player::Player(const char* texture)
 {
-
+	//this->texture = LoadGraph(texture);
 }
 
-void Player::Initialize()
-{
-	//Texture = LoadGraph("Resource/ ");
 
-
-}
 
 void Player::Update()
 {

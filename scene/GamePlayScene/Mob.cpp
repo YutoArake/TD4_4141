@@ -6,9 +6,6 @@ Mob::Mob()
 
 }
 
-void Mob::Initialize()
-{
-}
 
 void Mob::Update()
 {

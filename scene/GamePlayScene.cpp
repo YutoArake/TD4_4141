@@ -8,7 +8,7 @@ void GamePlayScene::Initialize()
 
 	backgroundlist.push_back(new Background("a", 0, 0));
 
-	objectlist.push_back(new Object("bruh", "aaaa", 0, 0));
+	objectlist.push_back(new Object("aaaa", 0, 0));
 
 
 }
@@ -38,11 +38,39 @@ void GamePlayScene::Update(char keys[256], char oldkeys[256])
 		player->MoveLeft();
 	}
 
-	player->Update();
-
+	AllUpdate();
 }
 
 void GamePlayScene::Draw()
 {
+	for (auto backgrounditr = backgroundlist.begin(); backgrounditr != backgroundlist.end(); ++backgrounditr) {
+		(*backgrounditr)->Draw();
+	}
+
+	for (auto objectitr = objectlist.begin(); objectitr != objectlist.end(); ++objectitr) {
+		(*objectitr)->Draw();
+	}
+
+	for (auto mobitr = moblist.begin(); mobitr != moblist.end(); ++mobitr) {
+		(*mobitr)->Draw();
+	}
+
 	player->Draw();
+}
+
+void GamePlayScene::AllUpdate()
+{
+	for (auto backgrounditr = backgroundlist.begin(); backgrounditr != backgroundlist.end(); ++backgrounditr) {
+		(*backgrounditr)->Update();
+	}
+
+	for (auto objectitr = objectlist.begin(); objectitr != objectlist.end(); ++objectitr) {
+		(*objectitr)->Update();
+	}
+
+	for (auto mobitr = moblist.begin(); mobitr != moblist.end(); ++mobitr) {
+		(*mobitr)->Update();
+	}
+
+	player->Update();
 }

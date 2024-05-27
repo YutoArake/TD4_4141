@@ -2,16 +2,16 @@
 #include "BaseScene.h"
 #include "GamePlayScene/Player.h"
 #include "GamePlayScene/Background.h"
-#include "GamePlayScene/Mob.h"
 #include "GamePlayScene/Object.h"
+#include "GamePlayScene/Mob.h"
 #include "GamePlayScene/TestMob.h"
+#include "GamePlayScene/Ghost.h"
+#include "GamePlayScene/Chainsawman.h"
 #include <list>
 
 /// <summary>
 /// ゲームプレイシーン
 /// </summary>
-
-
 
 class GamePlayScene : public BaseScene
 {
@@ -38,6 +38,8 @@ public: // メンバ関数
 	///  描画
 	/// </summary>
 	void Draw() override;
+
+	void AllUpdate();
 
 private:
 	Player* player = nullptr;

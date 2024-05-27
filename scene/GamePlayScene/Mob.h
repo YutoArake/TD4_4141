@@ -5,8 +5,6 @@ class Mob
 public:
 	Mob();
 
-	void Initialize();
-
 	virtual void Update();
 
 	virtual void Draw();

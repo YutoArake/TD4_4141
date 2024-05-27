@@ -2,9 +2,17 @@
 #include <DxLib.h>
 
 
-void Object::Initialize()
+Object::Object(const char* texture, int x, int y)
 {
+
+	/*this->texture = LoadGraph(texture);
+
+	this->x = x;
+	this->y = y;*/
+
 }
+
+
 
 void Object::Update()
 {
@@ -13,7 +21,7 @@ void Object::Update()
 
 void Object::Draw()
 {
-	DrawGraph(x, y, texture, true);
+	//DrawGraph(x, y, texture, true);
 }
 
 void Object::MoveRight()

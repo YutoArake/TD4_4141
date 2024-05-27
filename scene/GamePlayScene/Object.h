@@ -4,20 +4,11 @@
 class Object
 {
 public:
-	Object(const char* texture, const char* objectname, int x, int y)
-	{
-		this->texture = LoadGraph(texture);
+	Object(const char* texture, int x, int y);
 
-		this->x = x;
-		this->y = y;
-		this->objectname = objectname;
-	}
+	virtual void Update();
 
-	void Initialize();
-
-	void Update();
-
-	void Draw();
+	virtual void Draw();
 
 	void MoveRight();
 
@@ -31,5 +22,4 @@ private:
 
 	int movementX = 8;
 
-	const char* objectname;
 };
