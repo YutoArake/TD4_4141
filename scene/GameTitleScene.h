@@ -1,6 +1,6 @@
 #pragma once
 #include "BaseScene.h"
-
+#include "Menu.h"
 /// <summary>
 ///	 ゲームタイトルシーン
 /// </summary>
@@ -38,4 +38,6 @@ public: // メンバ関数
 	int time = 0;
 
 	int x = 0;
+
+	Menu menu;
 };

@@ -1,9 +1,10 @@
 #include "GameTitleScene.h"
 #include "SceneManager.h"
 
+
 void GameTitleScene::Initialize()
 {
-	titleGraph = LoadGraph("Resource/gorushi.png");
+	titleGraph = LoadGraph("Resource/Title.png");
 }
 
 void GameTitleScene::Finalize()
@@ -12,18 +13,21 @@ void GameTitleScene::Finalize()
 
 void GameTitleScene::Update(char keys[256], char oldkeys[256])
 {
-	// シーン切り替え
-	if (keys[KEY_INPUT_RETURN] && !oldkeys[KEY_INPUT_RETURN])
-	{
-		time++;
-		GameTransition();
+	//// シーン切り替え
+	//if (keys[KEY_INPUT_RETURN] && !oldkeys[KEY_INPUT_RETURN])
+	//{
+	//	time++;
+	//	GameTransition();
 
-		// ゲームセレクトシーンへ
-		SceneManager::GetInstance()->ChangeScene("SELECT");
+	//	// ゲームセレクトシーンへ
+	//	SceneManager::GetInstance()->ChangeScene("SELECT");
 
-		
-		return;
-	}
+	//	
+	//	return;
+	//}
+
+	menu.Menu_Update(keys,oldkeys);
+
 }
 
 void GameTitleScene::GameTransition()
@@ -33,7 +37,15 @@ void GameTitleScene::GameTransition()
 
 void GameTitleScene::Draw()
 {
-	DrawGraph(x, 0, titleGraph, FALSE);
+	DrawExtendGraph(
+		x,
+		0,
+		x + 1279,
+		0 + 799,
+		titleGraph,
+		FALSE
+	);
+	menu.Menu_Draw();
 }
 
 

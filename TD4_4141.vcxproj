@@ -153,6 +153,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="scene\AbstractSceneFactory.cpp" />
     <ClCompile Include="scene\BaseScene.cpp" />
@@ -167,6 +168,7 @@
     <ClCompile Include="scene\SceneManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Menu.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="scene\AbstractSceneFactory.h" />
     <ClInclude Include="scene\BaseScene.h" />
