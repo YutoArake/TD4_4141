@@ -1,7 +1,8 @@
 #include "DxLib.h"
 #include "SceneFactory.h"
 #include "SceneManager.h"
-
+#include <stdlib.h>
+#include <time.h>
 // プログラムは WinMain から始まります
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nCmdShow) {
 
@@ -42,7 +43,6 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 #pragma endregion//Dxlib初期化処理
 
 	// 画像などのリソースデータの変数宣言と読み込み
-
 
 	// ゲームループで使う変数の宣言
 	// シーンマネージャー

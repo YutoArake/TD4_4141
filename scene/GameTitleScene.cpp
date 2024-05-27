@@ -15,20 +15,25 @@ void GameTitleScene::Update(char keys[256], char oldkeys[256])
 	// シーン切り替え
 	if (keys[KEY_INPUT_RETURN] && !oldkeys[KEY_INPUT_RETURN])
 	{
+		time++;
+		GameTransition();
+
 		// ゲームセレクトシーンへ
 		SceneManager::GetInstance()->ChangeScene("SELECT");
+
+		
 		return;
 	}
 }
 
 void GameTitleScene::GameTransition()
 {
-
+	x = 1 * time * time * (50 - 0);
 }
 
 void GameTitleScene::Draw()
 {
-	DrawGraph(0, 0, titleGraph, FALSE);
+	DrawGraph(x, 0, titleGraph, FALSE);
 }
 
 
