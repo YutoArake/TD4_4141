@@ -1,6 +1,6 @@
 #pragma once
 #include "BaseScene.h"
-
+#include "Menu.h"
 /// <summary>
 ///	 ゲームタイトルシーン
 /// </summary>
@@ -35,5 +35,9 @@ public: // メンバ関数
 	void GameTransition() override;
 
 	int titleGraph = 0;
+	int time = 0;
 
+	int x = 0;
+
+	Menu menu;
 };
