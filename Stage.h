@@ -1,6 +1,5 @@
 #pragma once
 #include "Player.h"
-
 /// <summary>
 /// 
 /// </summary>
@@ -9,7 +8,6 @@ class Stage
 private:
 	// マップ画像
 	int mapGraph = 0;
-
 	// 小物
 
 	// スクロール座標
