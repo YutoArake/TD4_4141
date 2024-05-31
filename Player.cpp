@@ -4,7 +4,7 @@ void Player::initialize()
 {
 	x = 0;
 	y = 600;
-	playerGraph = LoadGraph("Resource/gorushi.png");
+	playerGraph = LoadGraph("Resources/gorushi.png");
 }
 
 void Player::Update(char keys[256], char oldkeys[256])

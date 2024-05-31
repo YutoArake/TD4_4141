@@ -3,11 +3,14 @@
 
 void GamePlayScene::Initialize()
 {
-	player.initialize();
+	player = new Player();
+	player->initialize();
+	stage.Initialize();
 }
 
 void GamePlayScene::Finalize()
 {
+	delete player;
 }
 
 void GamePlayScene::Update(char keys[256], char oldkeys[256])
@@ -18,7 +21,8 @@ void GamePlayScene::Update(char keys[256], char oldkeys[256])
 		return;
 	}
 
-	player.Update(keys,oldkeys);
+	player->Update(keys,oldkeys);
+	stage.Update(keys, oldkeys, player);
 
 	if (isClear) {
 		// ゲームクリアシーンへ
@@ -33,6 +37,7 @@ void GamePlayScene::GameTransition()
 
 void GamePlayScene::Draw()
 {
-	player.Draw();
+	stage.Draw();
+	player->Draw();
 }
 

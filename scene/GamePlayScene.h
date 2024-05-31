@@ -1,6 +1,7 @@
 #pragma once
 #include "BaseScene.h"
 #include "Player.h"
+#include "Stage.h"
 
 /// <summary>
 /// ゲームプレイシーン
@@ -36,7 +37,7 @@ public: // メンバ関数
 	void Draw() override;
 
 private:
-	Player player;
-
+	Player* player = nullptr;
+	Stage stage;
 
 };
