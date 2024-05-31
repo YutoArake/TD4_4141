@@ -19,13 +19,17 @@ void Stage::Update(char keys[256], char oldkeys[256], Player* p)
 		scrollX -= p->GetMoveSpeed();
 		p->SetPosX(640);
 	}
-	
+	if (p->GetInteract() == true)
+	{
+		scrollX = 0;
+		p->SetInteract(false);
+	}
 }
 
 void Stage::Draw()
 {
 	DrawExtendGraph(0 - scrollX, 0, 3239 - scrollX, 959, mapGraph, FALSE);
-	
+	DrawFormatString(0, 40, GetColor(255, 255, 255), "%d", scrollX,false);
 }
 
 void Stage::Reset(Player* p)
