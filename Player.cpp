@@ -64,6 +64,19 @@ void Player::Move(char keys[256], char oldkeys[256])
 	{
 		isJumpAction = !isJumpAction;
 	}
+
+	if (x < 50) {
+		x = 50;
+	}
+	if (x > 1150) {
+		x = 1150;
+	}
+	if (y < 265) {
+		y = 265;
+	}
+	if (y > 665) {
+		y = 665;
+	}
 }
 
 void Player::Jump(char keys[256], char oldkeys[256])
