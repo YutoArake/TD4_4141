@@ -21,6 +21,8 @@ public: //メンバ関数
 	int GetPosX() { return x; }
 	void SetPosX(int posX) { x = posX; }
 
+	int GetMoveSpeed() { return moveSpeed; }
+
 private: //メンバ関数
 
 	//移動関数
@@ -37,12 +39,14 @@ private: //メンバ変数
 	int playerGraph;		//プレイヤー画像
 	bool canJump = false;	//プレイヤーが地面にいるか
 	bool isAction = false;	//プレイヤーがアクションを起こしているか
-	int moveSpeed = 5;		//移動スピード設定変数
-	int walkSpeed = 5;		//歩きのスピード
+	int moveSpeed = 6;		//移動スピード設定変数
+	int walkSpeed = 6;		//歩きのスピード
 	int dashSpeed = 10;		//走りのスピード
 	int vel = 0;
 	int acc = 1;
 
 	bool isJumpAction = false;
+
+	bool isDash = false;
 };
 
