@@ -1,5 +1,11 @@
 #pragma once
 #include "Player.h"
+#include <sstream>
+
+struct Vec2 {
+	int x;
+	int y;
+};
 
 /// <summary>
 /// 
@@ -7,6 +13,9 @@
 class Stage
 {
 private:
+	// ファイルコマンド
+	std::stringstream stageCommands_;
+
 	// マップ画像
 	int mapGraph = 0;
 
@@ -35,5 +44,11 @@ public:
 
 	// リセット
 	void Reset(Player* p);
+
+	// ステージロード
+	void LoadStageFile(int stageNum);
+
+	// コマンド読み込み
+	void LoadStageCommands();
 };
 
