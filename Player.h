@@ -15,6 +15,9 @@ public: //メンバ関数
 	//プレイヤー描画
 	void Draw();
 
+	// プレイヤーリセット
+	void Reset();
+
 	int GetPosX() { return x; }
 	void SetPosX(int posX) { x = posX; }
 

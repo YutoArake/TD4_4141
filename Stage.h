@@ -10,6 +10,8 @@ private:
 	// マップ画像
 	int mapGraph = 0;
 
+	// 小物
+
 	// スクロール座標
 	int scrollX = 0;
 
@@ -24,6 +26,6 @@ public:
 	void Draw();
 
 	// リセット
-	void Reset();
+	void Reset(Player* p);
 };
 

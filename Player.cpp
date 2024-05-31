@@ -118,9 +118,15 @@ void Player::Draw()
 {
 	DrawBox(x, y, x + 31, y + 31, GetColor(255, 255, 255), TRUE);
 	DrawFormatString(0, 0, GetColor(255, 255, 255), "%d", isJumpAction);
-	DrawRotaGraph(300, 300,
+	/*DrawRotaGraph(300, 300,
 		1.0, 3.141592 /180 * x,
-		playerGraph, false);
+		playerGraph, false);*/
+}
+
+void Player::Reset()
+{
+	x = 0;
+	y = 600;
 }
 
 

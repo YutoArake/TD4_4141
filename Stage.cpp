@@ -4,7 +4,7 @@
 void Stage::Initialize()
 {
 	// ‰æ‘œ“Ç‚İ‚İ
-	mapGraph = LoadGraph("Resource/textures/’Ê˜H.png");
+	mapGraph = LoadGraph("Resource/textures/road.png");
 	scrollX = 0;
 }
 
@@ -26,7 +26,8 @@ void Stage::Draw()
 	DrawExtendGraph(0 - scrollX, 0, 3239 - scrollX, 959, mapGraph, FALSE);
 }
 
-void Stage::Reset()
+void Stage::Reset(Player* p)
 {
 
+	scrollX = 0;
 }
