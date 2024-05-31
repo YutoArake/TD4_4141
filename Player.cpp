@@ -51,13 +51,15 @@ void Player::Move(char keys[256], char oldkeys[256])
 		x -= moveSpeed;
 	}
 
-	if (keys[KEY_INPUT_LSHIFT] == true)
+	if (keys[KEY_INPUT_LSHIFT] == true && oldkeys[KEY_INPUT_LSHIFT] == true)
 	{
 		moveSpeed = dashSpeed;
+		isDash = true;
 	}
 	else
 	{
 		moveSpeed = walkSpeed;
+		isDash = false;
 	}
 
 	if (keys[KEY_INPUT_J] == true && oldkeys[KEY_INPUT_J] == false)
@@ -117,7 +119,7 @@ void Player::JumpUpdate()
 void Player::Draw()
 {
 	DrawBox(x, y, x + 31, y + 31, GetColor(255, 255, 255), TRUE);
-	DrawFormatString(0, 0, GetColor(255, 255, 255), "%d", isJumpAction);
+	DrawFormatString(0, 0, GetColor(255, 255, 255), "%d", moveSpeed);
 	/*DrawRotaGraph(300, 300,
 		1.0, 3.141592 /180 * x,
 		playerGraph, false);*/

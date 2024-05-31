@@ -1,6 +1,5 @@
 #pragma once
 #include "Player.h"
-
 /// <summary>
 /// 
 /// </summary>
@@ -9,7 +8,6 @@ class Stage
 private:
 	// ƒ}ƒbƒv‰æ‘œ
 	int mapGraph = 0;
-
 	// ¬•¨
 	int post1Graph = 0;
 	int post2Graph = 0;
