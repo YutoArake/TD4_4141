@@ -27,8 +27,6 @@ public:
 	void Reset(Player* p);
 
 	int SetScrollX(int _scrollX)
-	{
-		this->scrollX = _scrollX;
-	}
+	{this->scrollX = _scrollX;}
 };
 

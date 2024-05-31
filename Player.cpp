@@ -117,7 +117,7 @@ void Player::JumpUpdate()
 
 void Player::Interact(char keys[256], char oldkeys[256])
 {
-	if (x >= 88 && y >= 650 && x <= 340 && y <= 665 || x >= 770 && y >=265 && x <= 1070 && y <= 290)
+	if (x >= 88 && y >= 650 && x <= 340 && y <= 665)
 	{
 		if (keys[KEY_INPUT_F] && oldkeys[KEY_INPUT_F])
 		{
@@ -125,6 +125,18 @@ void Player::Interact(char keys[256], char oldkeys[256])
 			y = 461;
 
 			isInteract = true;
+			isEntranceStair = true;
+		}
+	}
+	if (x >= 770 && y >= 265 && x <= 1070 && y <= 290)
+	{
+		if (keys[KEY_INPUT_F] && oldkeys[KEY_INPUT_F])
+		{
+			x = 214;
+			y = 461;
+
+			isInteract = true;
+			isExitStair = true;
 		}
 	}
 

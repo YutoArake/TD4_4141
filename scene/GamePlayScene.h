@@ -2,7 +2,7 @@
 #include "BaseScene.h"
 #include "Player.h"
 #include "Stage.h"
-
+#include "StageOption.h"
 /// <summary>
 /// ゲームプレイシーン
 /// </summary>
@@ -37,7 +37,7 @@ public: // メンバ関数
 	void Draw() override;
 
 private:
-	Player* player = nullptr;
+	Player* player;
 	Stage stage;
-
+	StageOption stageOption;
 };

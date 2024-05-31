@@ -25,6 +25,14 @@ public: //ƒƒ“ƒoŠÖ”
 
 	bool GetInteract() { return isInteract; }
 	void SetInteract(bool _interAct) { this->isInteract = _interAct; }
+
+	bool GetisEntranceStair() { return isEntranceStair; }
+	void SetisEntranceStair(bool _isEntranceStair) { this->isEntranceStair = _isEntranceStair; }
+
+	bool GetisExitStair() { return isExitStair; }
+	void SetisExitStair(bool _isExitStair) { this->isExitStair = _isExitStair; }
+
+
 private: //ƒƒ“ƒoŠÖ”
 
 	//ˆÚ“®ŠÖ”
@@ -55,5 +63,9 @@ private: //ƒƒ“ƒo•Ï”
 	bool isDash = false;
 
 	bool isInteract = false;
+
+	bool isEntranceStair = false;
+
+	bool isExitStair = false;
 };
 

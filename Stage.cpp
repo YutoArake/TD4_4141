@@ -22,7 +22,6 @@ void Stage::Update(char keys[256], char oldkeys[256], Player* p)
 	if (p->GetInteract() == true)
 	{
 		scrollX = 0;
-		p->SetInteract(false);
 	}
 }
 
