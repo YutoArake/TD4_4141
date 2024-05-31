@@ -5,6 +5,15 @@ void Stage::Initialize()
 {
 	// âÊëúì«Ç›çûÇ›
 	mapGraph = LoadGraph("Resource/textures/road.png");
+	post1Graph = LoadGraph("Resource/textures/poster1.png");
+	post2Graph = LoadGraph("Resource/textures/poster2.png");
+	post3Graph = LoadGraph("Resource/textures/poster3.png");
+	post4Graph = LoadGraph("Resource/textures/poster4.png");
+	doorGraph = LoadGraph("Resource/textures/door.png");
+	prantGraph = LoadGraph("Resource/textures/prant.png");
+	machineGraph = LoadGraph("Resource/textures/machine.png");
+	fireExtinGraph = LoadGraph("Resource/textures/fireExtin.png");
+
 	scrollX = 0;
 }
 
