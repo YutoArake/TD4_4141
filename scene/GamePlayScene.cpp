@@ -3,8 +3,8 @@
 
 void GamePlayScene::Initialize()
 {
-	player = new Player();
-	player->Initialize();
+	player = new Player("aaaa");
+
 
 	backgroundlist.push_back(new Background("a", 0, 0));
 

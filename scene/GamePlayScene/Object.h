@@ -4,7 +4,6 @@
 class Object
 {
 public:
-	Object(const char* texture, int x, int y);
 
 	virtual void Update();
 
@@ -15,11 +14,13 @@ public:
 	void MoveLeft();
 
 private:
-	int texture;
 
+
+	int movementX = 8;
+protected:
 	int x;
 	int y;
 
-	int movementX = 8;
-
+	int sizeX;
+	int sizeY;
 };

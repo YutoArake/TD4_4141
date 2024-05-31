@@ -14,5 +14,8 @@ private:
 protected:
 	int x;
 	int y;
+
+	int sizeX;
+	int sizeY;
 };
 

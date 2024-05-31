@@ -2,16 +2,6 @@
 #include <DxLib.h>
 
 
-Object::Object(const char* texture, int x, int y)
-{
-
-	/*this->texture = LoadGraph(texture);
-
-	this->x = x;
-	this->y = y;*/
-
-}
-
 
 
 void Object::Update()

@@ -14,8 +14,5 @@ private:
 	int movementX;
 	int movementY;
 
-	int sizeX;
-	int sizeY;
-
 	int texture;
 };
