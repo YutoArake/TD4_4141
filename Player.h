@@ -23,6 +23,16 @@ public: //メンバ関数
 
 	int GetMoveSpeed() { return moveSpeed; }
 
+	bool GetInteract() { return isInteract; }
+	void SetInteract(bool _interAct) { this->isInteract = _interAct; }
+
+	bool GetisEntranceStair() { return isEntranceStair; }
+	void SetisEntranceStair(bool _isEntranceStair) { this->isEntranceStair = _isEntranceStair; }
+
+	bool GetisExitStair() { return isExitStair; }
+	void SetisExitStair(bool _isExitStair) { this->isExitStair = _isExitStair; }
+
+
 private: //メンバ関数
 
 	//移動関数
@@ -30,8 +40,11 @@ private: //メンバ関数
 
 	//ジャンプ関数
 	void Jump(char keys[256], char oldkeys[256]);
-
+	//ジャンプ更新関数
 	void JumpUpdate();
+
+	//プレイヤーのアクション
+	void Interact(char keys[256], char oldkeys[256]);
 
 private: //メンバ変数
 	int x = 0;				//x座標
@@ -48,5 +61,11 @@ private: //メンバ変数
 	bool isJumpAction = false;
 
 	bool isDash = false;
+
+	bool isInteract = false;
+
+	bool isEntranceStair = false;
+
+	bool isExitStair = false;
 };
 

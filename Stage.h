@@ -13,12 +13,12 @@ struct Vec2 {
 class Stage
 {
 private:
-	// ƒtƒ@ƒCƒ‹ƒRƒ}ƒ“ƒh
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚³ãƒãƒ³ãƒ‰
 	std::stringstream stageCommands_;
 
-	// ƒ}ƒbƒv‰æ‘œ
+	// ãƒãƒƒãƒ—ç”»åƒ
 	int mapGraph[5] = { 0 };
-	// ¬•¨
+	// å°ç‰©
 	int post1Graph = 0;
 	int post2Graph = 0;
 	int post3Graph = 0;
@@ -30,26 +30,31 @@ private:
 
 	int stageNum = 0;
 
-	// ƒXƒNƒ[ƒ‹À•W
+	// ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«åº§æ¨™
 	int scrollX = 0;
 
 public:
-	// ‰Šú‰»
+	// åˆæœŸåŒ–
 	void Initialize();
 
-	// XV
+	// æ›´æ–°
 	void Update(char keys[256], char oldkeys[256], Player* p);
 
-	// •`‰æ
+	// æç”»
 	void Draw();
 
-	// ƒŠƒZƒbƒg
+	// ãƒªã‚»ãƒƒãƒˆ
 	void Reset(Player* p);
 
-	// ƒXƒe[ƒWƒ[ƒh
+
+	int SetScrollX(int _scrollX)
+	{this->scrollX = _scrollX;}
+
+	// ã‚¹ãƒ†ãƒ¼ã‚¸ãƒ­ãƒ¼ãƒ‰
 	void LoadStageFile(int stageNum);
 
-	// ƒRƒ}ƒ“ƒh“Ç‚İ‚İ
+	// ã‚³ãƒãƒ³ãƒ‰èª­ã¿è¾¼ã¿
 	void LoadStageCommands();
+
 };
 

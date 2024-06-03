@@ -4,24 +4,24 @@
 #include <cassert>
 #include <random>
 
-std::random_device rnd;		// ”ñŒˆ’è“I‚È—”¶¬Ší‚ğ¶¬
-std::mt19937 mt(rnd());	//  ƒƒ‹ƒZƒ“ƒkEƒcƒCƒXƒ^‚Ì32ƒrƒbƒg”ÅAˆø”‚Í‰ŠúƒV[ƒh’l
-std::uniform_int_distribution<> rand5(0, 4);	// [0, 4] ”ÍˆÍ‚Ìˆê—l—”
+std::random_device rnd;		// éæ±ºå®šçš„ãªä¹±æ•°ç”Ÿæˆå™¨ã‚’ç”Ÿæˆ
+std::mt19937 mt(rnd());	//  ãƒ¡ãƒ«ã‚»ãƒ³ãƒŒãƒ»ãƒ„ã‚¤ã‚¹ã‚¿ã®32ãƒ“ãƒƒãƒˆç‰ˆã€å¼•æ•°ã¯åˆæœŸã‚·ãƒ¼ãƒ‰å€¤
+std::uniform_int_distribution<> rand5(0, 4);	// [0, 4] ç¯„å›²ã®ä¸€æ§˜ä¹±æ•°
 
 //rand5(mt)
 
 void Stage::Initialize()
 {
-	// ƒoƒbƒtƒ@‚ğƒNƒŠƒA
+	// ãƒãƒƒãƒ•ã‚¡ã‚’ã‚¯ãƒªã‚¢
 	stageCommands_.str("");
-	// ó‘Ô‚ğƒNƒŠƒA
+	// çŠ¶æ…‹ã‚’ã‚¯ãƒªã‚¢
 	stageCommands_.clear(std::stringstream::goodbit);
 
-	// ƒ}ƒbƒv‚ğƒ[ƒh
+	// ãƒãƒƒãƒ—ã‚’ãƒ­ãƒ¼ãƒ‰
 	LoadStageFile(1);
 	LoadStageCommands();
 
-	// ‰æ‘œ“Ç‚İ‚İ
+	// ç”»åƒèª­ã¿è¾¼ã¿
 	mapGraph[0] = LoadGraph("Resource/textures/sample1.png");
 	mapGraph[1] = LoadGraph("Resource/textures/sample2.png");
 	mapGraph[2] = LoadGraph("Resource/textures/sample3.png");
@@ -42,7 +42,7 @@ void Stage::Initialize()
 
 void Stage::Update(char keys[256], char oldkeys[256], Player* p)
 {
-	// ƒvƒŒƒCƒ„[À•W‚©‚çƒXƒNƒ[ƒ‹À•W‚ğŒvZ‚·‚é
+	// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼åº§æ¨™ã‹ã‚‰ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«åº§æ¨™ã‚’è¨ˆç®—ã™ã‚‹
 	if (p->GetPosX() >= 640 && scrollX < 1960 && keys[KEY_INPUT_D]) {
 		scrollX += p->GetMoveSpeed();
 		p->SetPosX(640);
@@ -51,13 +51,19 @@ void Stage::Update(char keys[256], char oldkeys[256], Player* p)
 		scrollX -= p->GetMoveSpeed();
 		p->SetPosX(640);
 	}
-	
+	if (p->GetInteract() == true)
+	{
+		scrollX = 0;
+	}
 }
 
 void Stage::Draw()
 {
+
+
+	DrawFormatString(0, 40, GetColor(255, 255, 255), "%d", scrollX,false);
 	DrawExtendGraph(0 - scrollX, 0, 3239 - scrollX, 959, mapGraph[stageNum], FALSE);
-	
+
 }
 
 void Stage::Reset(Player* p)
@@ -68,36 +74,36 @@ void Stage::Reset(Player* p)
 
 void Stage::LoadStageFile(int stageNum)
 {
-	// ƒtƒ@ƒCƒ‹
+	// ãƒ•ã‚¡ã‚¤ãƒ«
 	std::ifstream file;
-	// ƒpƒX‚ğæ“¾
+	// ãƒ‘ã‚¹ã‚’å–å¾—
 	std::string mapNum;
 	mapNum = std::to_string(stageNum);
 	const std::string mapFolder = "stages/";
 	const std::string filename = "stage" + mapNum + ".txt";
 	const std::string directoryPath = "Resource/" + mapFolder + filename;
-	// ƒtƒ@ƒCƒ‹‚ğŠJ‚­
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
 	file.open(directoryPath);
 	assert(file.is_open());
-	// ƒtƒ@ƒCƒ‹‚Ì“à—e‚ğ•¶š—ñƒXƒgƒŠ[ƒ€‚ÉƒRƒs[
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã®å†…å®¹ã‚’æ–‡å­—åˆ—ã‚¹ãƒˆãƒªãƒ¼ãƒ ã«ã‚³ãƒ”ãƒ¼
 	stageCommands_ << file.rdbuf();
-	// ƒtƒ@ƒCƒ‹‚ğ•Â‚¶‚é
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‰ã˜ã‚‹
 	file.close();
 }
 
 void Stage::LoadStageCommands()
 {
-	// 1s•ª‚Ì•¶š—ñ‚ğ“ü‚ê‚é•Ï”
+	// 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’å…¥ã‚Œã‚‹å¤‰æ•°
 	std::string line;
 
-	// ƒRƒ}ƒ“ƒhÀsƒ‹[ƒv
+	// ã‚³ãƒãƒ³ãƒ‰å®Ÿè¡Œãƒ«ãƒ¼ãƒ—
 	while (getline(stageCommands_, line)) {
-		// 1s•ª‚Ì•¶š—ñ‚ğƒXƒgƒŠ[ƒ€‚É•ÏŠ·‚µ‚Ä‰ğÍ‚µ‚â‚·‚­‚·‚é
+		// 1è¡Œåˆ†ã®æ–‡å­—åˆ—ã‚’ã‚¹ãƒˆãƒªãƒ¼ãƒ ã«å¤‰æ›ã—ã¦è§£æã—ã‚„ã™ãã™ã‚‹
 		std::istringstream line_stream(line);
-		// •¶š—ñ
+		// æ–‡å­—åˆ—
 		std::string word;
 
-		// ƒRƒ“ƒ}‹æØ‚è‚Ås‚Ìæ“ª•¶š—ñ‚ğæ“¾
+		// ã‚³ãƒ³ãƒåŒºåˆ‡ã‚Šã§è¡Œã®å…ˆé ­æ–‡å­—åˆ—ã‚’å–å¾—
 		while (getline(line_stream, word, ',')) {
 			// 
 			if (word.find("0") == 0) {
