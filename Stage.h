@@ -17,7 +17,7 @@ private:
 	std::stringstream stageCommands_;
 
 	// マップ画像
-	int mapGraph = 0;
+	int mapGraph[5] = { 0 };
 	// 小物
 	int post1Graph = 0;
 	int post2Graph = 0;
@@ -27,6 +27,8 @@ private:
 	int prantGraph = 0;
 	int machineGraph = 0;
 	int fireExtinGraph = 0;
+
+	int stageNum = 0;
 
 	// スクロール座標
 	int scrollX = 0;

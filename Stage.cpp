@@ -2,6 +2,13 @@
 #include "DxLib.h"
 #include <fstream>
 #include <cassert>
+#include <random>
+
+std::random_device rnd;		// 非決定的な乱数生成器を生成
+std::mt19937 mt(rnd());	//  メルセンヌ・ツイスタの32ビット版、引数は初期シード値
+std::uniform_int_distribution<> rand5(0, 4);	// [0, 4] 範囲の一様乱数
+
+//rand5(mt)
 
 void Stage::Initialize()
 {
@@ -15,7 +22,11 @@ void Stage::Initialize()
 	LoadStageCommands();
 
 	// 画像読み込み
-	mapGraph = LoadGraph("Resource/textures/road.png");
+	mapGraph[0] = LoadGraph("Resource/textures/sample1.png");
+	mapGraph[1] = LoadGraph("Resource/textures/sample2.png");
+	mapGraph[2] = LoadGraph("Resource/textures/sample3.png");
+	mapGraph[3] = LoadGraph("Resource/textures/sample4.png");
+	mapGraph[4] = LoadGraph("Resource/textures/sample5.png");
 	post1Graph = LoadGraph("Resource/textures/poster1.png");
 	post2Graph = LoadGraph("Resource/textures/poster2.png");
 	post3Graph = LoadGraph("Resource/textures/poster3.png");
@@ -26,6 +37,7 @@ void Stage::Initialize()
 	fireExtinGraph = LoadGraph("Resource/textures/fireExtin.png");
 
 	scrollX = 0;
+	stageNum = 0;
 }
 
 void Stage::Update(char keys[256], char oldkeys[256], Player* p)
@@ -44,12 +56,13 @@ void Stage::Update(char keys[256], char oldkeys[256], Player* p)
 
 void Stage::Draw()
 {
-	DrawExtendGraph(0 - scrollX, 0, 3239 - scrollX, 959, mapGraph, FALSE);
+	DrawExtendGraph(0 - scrollX, 0, 3239 - scrollX, 959, mapGraph[stageNum], FALSE);
 	
 }
 
 void Stage::Reset(Player* p)
 {
+	stageNum = rand5(mt);
 	scrollX = 0;
 }
 
