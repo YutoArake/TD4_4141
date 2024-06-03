@@ -1,32 +1,60 @@
 #pragma once
 #include "Player.h"
+#include <sstream>
+
+struct Vec2 {
+	int x;
+	int y;
+};
+
 /// <summary>
 /// 
 /// </summary>
 class Stage
 {
 private:
-	// ƒ}ƒbƒv‰æ‘œ
-	int mapGraph = 0;
-	// ¬•¨
+	// ãƒ•ã‚¡ã‚¤ãƒ«ã‚³ãƒãƒ³ãƒ‰
+	std::stringstream stageCommands_;
 
-	// ƒXƒNƒ[ƒ‹À•W
+	// ãƒãƒƒãƒ—ç”»åƒ
+	int mapGraph[5] = { 0 };
+	// å°ç‰©
+	int post1Graph = 0;
+	int post2Graph = 0;
+	int post3Graph = 0;
+	int post4Graph = 0;
+	int doorGraph = 0;
+	int prantGraph = 0;
+	int machineGraph = 0;
+	int fireExtinGraph = 0;
+
+	int stageNum = 0;
+
+	// ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«åº§æ¨™
 	int scrollX = 0;
 
 public:
-	// ‰Šú‰»
+	// åˆæœŸåŒ–
 	void Initialize();
 
-	// XV
+	// æ›´æ–°
 	void Update(char keys[256], char oldkeys[256], Player* p);
 
-	// •`‰æ
+	// æç”»
 	void Draw();
 
-	// ƒŠƒZƒbƒg
+	// ãƒªã‚»ãƒƒãƒˆ
 	void Reset(Player* p);
+
 
 	int SetScrollX(int _scrollX)
 	{this->scrollX = _scrollX;}
+
+	// ã‚¹ãƒ†ãƒ¼ã‚¸ãƒ­ãƒ¼ãƒ‰
+	void LoadStageFile(int stageNum);
+
+	// ã‚³ãƒãƒ³ãƒ‰èª­ã¿è¾¼ã¿
+	void LoadStageCommands();
+
 };
 
