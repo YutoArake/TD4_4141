@@ -5,18 +5,21 @@
 
 
 
-Poster::Poster(const char* normaltexture, const char* bigtexture, const char* scratchtexture, const char* eyetexture, int x, int y, int sizeX, int sizeY, int phase)
+Poster::Poster(const char* normaltexture, const char* bigtexture, const char* scratchtexture, const char* eyetexture, int x, int y, int sizeX, int sizeY, int phase, const char* objectname)
 {
 	this->normaltexture = LoadGraph(normaltexture);
 	this->bigtexture = LoadGraph(bigtexture);
 	this->scratchtexture = LoadGraph(scratchtexture);
 	this->eyetexture = LoadGraph(eyetexture);
 
+	this->objectname = objectname;
+
 	this->x = x;
 	this->y = y;
 	this->sizeX = sizeX;
 	this->sizeY = sizeY;
 	this->phase = phase;
+
 }
 
 void Poster::Update()

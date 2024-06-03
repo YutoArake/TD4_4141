@@ -4,7 +4,7 @@
 class Dump : public Object
 {
 public:
-	Dump(const char* texture, int x, int y, int sizeX, int sizeY);
+	Dump(const char* texture, int x, int y, int sizeX, int sizeY, const char* objectname);
 
 	void Update() override;
 

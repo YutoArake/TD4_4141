@@ -4,7 +4,7 @@
 class Poster :public Object
 {
 public:
-	Poster(const char* normaltexture, const char* bigtexture, const char* scratchtexture, const char* eyetexture, int x, int y, int sizeX, int sizeY, int phase);
+	Poster(const char* normaltexture, const char* bigtexture, const char* scratchtexture, const char* eyetexture, int x, int y, int sizeX, int sizeY, int phase, const char* objectname);
 
 	void Update() override;
 

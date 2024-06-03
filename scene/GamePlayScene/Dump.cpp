@@ -1,7 +1,7 @@
 #include "Dump.h"
 #include <DxLib.h>
 
-Dump::Dump(const char* texture, int x, int y, int sizeX, int sizeY)
+Dump::Dump(const char* texture, int x, int y, int sizeX, int sizeY, const char* objectname)
 {
 	this->texture = LoadGraph(texture);
 
@@ -9,6 +9,8 @@ Dump::Dump(const char* texture, int x, int y, int sizeX, int sizeY)
 	this->y = y;
 	this->sizeX = sizeX;
 	this->sizeY = sizeY;
+	this->objectname = objectname;
+
 }
 
 void Dump::Update()

@@ -1,7 +1,7 @@
 #include "Door.h"
 #include <DxLib.h>
 
-Door::Door(const char* normaltexture, const char* shinetexture, int x, int y, int sizeX, int sizeY, int phase)
+Door::Door(const char* normaltexture, const char* shinetexture, int x, int y, int sizeX, int sizeY, int phase, const char* objectname)
 {
 	this->normaltexture = LoadGraph(normaltexture);
 	this->shinetexture = LoadGraph(shinetexture);
@@ -11,6 +11,7 @@ Door::Door(const char* normaltexture, const char* shinetexture, int x, int y, in
 	this->sizeX = sizeX;
 	this->sizeY = sizeY;
 	this->phase = phase;
+	this->objectname = objectname;
 
 }
 

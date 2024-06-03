@@ -1,7 +1,7 @@
 #include "Extinguisher.h"
 #include <DxLib.h>
 
-Extinguisher::Extinguisher(const char* texture, int x, int y, int sizeX, int sizeY)
+Extinguisher::Extinguisher(const char* texture, int x, int y, int sizeX, int sizeY, const char* objectname)
 {
 	this->texture = LoadGraph(texture);
 
@@ -9,6 +9,8 @@ Extinguisher::Extinguisher(const char* texture, int x, int y, int sizeX, int siz
 	this->y = y;
 	this->sizeX = sizeX;
 	this->sizeY = sizeY;
+	this->objectname = objectname;
+
 }
 
 void Extinguisher::Update()

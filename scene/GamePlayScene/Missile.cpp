@@ -1,7 +1,7 @@
 #include "Missile.h"
 #include <DxLib.h>
 
-Missile::Missile(const char* texture, int x, int y, int sizeX, int sizeY)
+Missile::Missile(const char* texture, int x, int y, int sizeX, int sizeY, const char* objectname)
 {
 	this->texture = LoadGraph(texture);
 
@@ -9,6 +9,8 @@ Missile::Missile(const char* texture, int x, int y, int sizeX, int sizeY)
 	this->y = y;
 	this->sizeX = sizeX;
 	this->sizeY = sizeY;
+	this->objectname = objectname;
+
 }
 
 void Missile::Update()

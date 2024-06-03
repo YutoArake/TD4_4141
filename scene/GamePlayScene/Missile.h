@@ -4,7 +4,7 @@
 class Missile : public Object
 {
 public:
-	Missile(const char* texture, int x, int y, int sizeX, int sizeY);
+	Missile(const char* texture, int x, int y, int sizeX, int sizeY, const char* objectname);
 
 	void Update() override;
 
