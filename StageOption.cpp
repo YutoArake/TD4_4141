@@ -1,19 +1,29 @@
 #include "StageOption.h"
+#include <random>
 
-void StageOption::Initialize()
+std::random_device rnd;		// 非決定的な乱数生成器を生成
+std::mt19937 mt(rnd());	//  メルセンヌ・ツイスタの32ビット版、引数は初期シード値
+std::uniform_int_distribution<> rand5(0, 4);	// [0, 4] 範囲の一様乱数
+
+int StageOption::InitializeFloor()
 {
-	srand((unsigned int)time(NULL));
-	if (rand() % 2 == 0)
-	{
-		ExitStair = 1;
-		EntranceStair = 0;
-	}
-	else
+	// 乱数保持
+	int stageNum = rand5(mt);
+
+	// 通常か異変か(0が通常)
+	if (stageNum == 0)
 	{
 		ExitStair = 0;
 		EntranceStair = 1;
 	}
+	else
+	{
+		ExitStair = 1;
+		EntranceStair = 0;
+	}
 
+	// ステージ番号を返す
+	return stageNum;
 }
 
 void StageOption::Update(Player* _player)
@@ -35,13 +45,10 @@ void StageOption::Update(Player* _player)
 
 void StageOption::Judge(Player* _player)
 {
-
-
 	if (_player->GetisEntranceStair() == true && EntranceStair == 1 ||
 		_player->GetisExitStair() == true && ExitStair == 1)
 	{
 		isCorrect = true;
-
 	}
 	else
 	{
@@ -55,24 +62,19 @@ void StageOption::Judge(Player* _player)
 
 void StageOption::FloorReset()
 {
-
 	floor = 0;
 	isInCorrect = false;
-
 }
 
 void StageOption::ClimbTheStairs()
 {
-
 	floor++;
 	isCorrect = false;
-
 }
 
-void StageOption::Draw(Player* _player)
+void StageOption::Draw()
 {
 	DrawFormatString(0, 60, GetColor(255, 255, 255), "floor:%d", floor);
 	DrawFormatString(0, 80, GetColor(255, 255, 255), "Entrance:%d", EntranceStair);
 	DrawFormatString(0, 100, GetColor(255, 255, 255), "Exit:%d", ExitStair);
-	DrawFormatString(0, 120, GetColor(255, 255, 255), "%d", _player->GetInteract());
 }

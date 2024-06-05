@@ -6,7 +6,6 @@ void GamePlayScene::Initialize()
 	player = new Player();
 	player->initialize();
 	stage.Initialize();
-	stageOption.Initialize();
 }
 
 void GamePlayScene::Finalize()
@@ -24,7 +23,6 @@ void GamePlayScene::Update(char keys[256], char oldkeys[256])
 
 	player->Update(keys,oldkeys);
 	stage.Update(keys, oldkeys, player);
-	stageOption.Update(player);
 	if (isClear) {
 		// ゲームクリアシーンへ
 		SceneManager::GetInstance()->ChangeScene("CLEAR");
@@ -40,6 +38,5 @@ void GamePlayScene::Draw()
 {
 	stage.Draw();
 	player->Draw();
-	stageOption.Draw(player);
 }
 

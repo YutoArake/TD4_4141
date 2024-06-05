@@ -1,14 +1,11 @@
 #pragma once
 #include "Player.h"
-#include "Stage.h"
-#include <stdlib.h>
-#include <time.h>
 
 class StageOption
 {
 public:
-	// 初期化
-	void Initialize();
+	// 階層初期化
+	int InitializeFloor();
 
 	// 更新
 	void Update(Player* _player);
@@ -19,16 +16,21 @@ public:
 	void FloorReset();
 
 	void ClimbTheStairs();
+
 	// 描画
-	void Draw(Player* _player);
+	void Draw();
 
 private:
-
+	// 階層
 	int floor = 0;
+	// 正しい
 	bool isCorrect = 0;
+	// 正しくない
 	bool isInCorrect = 0;
 
+	// 入口（手前階段）
 	int EntranceStair = 0;
+	// 出口（奥側階段）
 	int ExitStair = 0;
 };
 

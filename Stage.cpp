@@ -2,13 +2,6 @@
 #include "DxLib.h"
 #include <fstream>
 #include <cassert>
-#include <random>
-
-std::random_device rnd;		// 非決定的な乱数生成器を生成
-std::mt19937 mt(rnd());	//  メルセンヌ・ツイスタの32ビット版、引数は初期シード値
-std::uniform_int_distribution<> rand5(0, 4);	// [0, 4] 範囲の一様乱数
-
-//rand5(mt)
 
 void Stage::Initialize()
 {
@@ -16,6 +9,8 @@ void Stage::Initialize()
 	stageCommands_.str("");
 	// 状態をクリア
 	stageCommands_.clear(std::stringstream::goodbit);
+
+	stageNum = stageOp.InitializeFloor();
 
 	// マップをロード
 	LoadStageFile(1);
@@ -54,21 +49,22 @@ void Stage::Update(char keys[256], char oldkeys[256], Player* p)
 	if (p->GetInteract() == true)
 	{
 		scrollX = 0;
+		Reset(p);
 	}
+	stageOp.Update(p);
 }
 
 void Stage::Draw()
 {
-
-
 	DrawFormatString(0, 40, GetColor(255, 255, 255), "%d", scrollX,false);
 	DrawExtendGraph(0 - scrollX, 0, 3239 - scrollX, 959, mapGraph[stageNum], FALSE);
-
+	DrawFormatString(0, 20, GetColor(255, 255, 255), "%d", stageNum);
+	stageOp.Draw();
 }
 
 void Stage::Reset(Player* p)
 {
-	stageNum = rand5(mt);
+	stageNum = stageOp.InitializeFloor();
 	scrollX = 0;
 }
 

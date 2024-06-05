@@ -2,7 +2,7 @@
 #include "BaseScene.h"
 #include "Player.h"
 #include "Stage.h"
-#include "StageOption.h"
+
 /// <summary>
 /// ゲームプレイシーン
 /// </summary>
@@ -39,5 +39,4 @@ public: // メンバ関数
 private:
 	Player* player;
 	Stage stage;
-	StageOption stageOption;
 };

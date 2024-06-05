@@ -1,5 +1,5 @@
 #pragma once
-#include "Player.h"
+#include "StageOption.h"
 #include <sstream>
 
 struct Vec2 {
@@ -15,6 +15,8 @@ class Stage
 private:
 	// ファイルコマンド
 	std::stringstream stageCommands_;
+
+	StageOption stageOp;
 
 	// マップ画像
 	int mapGraph[5] = { 0 };
