@@ -13,13 +13,13 @@ int StageOption::InitializeFloor()
 	// 通常か異変か(0が通常)
 	if (stageNum == 0)
 	{
-		ExitStair = 0;
-		EntranceStair = 1;
+		ExitStair = 1;
+		EntranceStair = 0;
 	}
 	else
 	{
-		ExitStair = 1;
-		EntranceStair = 0;
+		ExitStair = 0;
+		EntranceStair = 1;
 	}
 
 	// ステージ番号を返す
@@ -77,4 +77,13 @@ void StageOption::Draw()
 	DrawFormatString(0, 60, GetColor(255, 255, 255), "floor:%d", floor);
 	DrawFormatString(0, 80, GetColor(255, 255, 255), "Entrance:%d", EntranceStair);
 	DrawFormatString(0, 100, GetColor(255, 255, 255), "Exit:%d", ExitStair);
+}
+
+bool StageOption::IsClear()
+{
+	if (floor == 8)
+	{
+		return true;
+	}
+	return false;
 }

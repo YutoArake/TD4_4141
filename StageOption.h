@@ -20,6 +20,8 @@ public:
 	// •`‰æ
 	void Draw();
 
+	bool IsClear();
+
 private:
 	// ŠK‘w
 	int floor = 0;

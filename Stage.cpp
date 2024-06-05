@@ -35,7 +35,7 @@ void Stage::Initialize()
 	stageNum = 0;
 }
 
-void Stage::Update(char keys[256], char oldkeys[256], Player* p)
+void Stage::Update(char keys[256], char oldkeys[256], Player* p, bool &isClear)
 {
 	// プレイヤー座標からスクロール座標を計算する
 	if (p->GetPosX() >= 640 && scrollX < 1960 && keys[KEY_INPUT_D]) {
@@ -52,6 +52,7 @@ void Stage::Update(char keys[256], char oldkeys[256], Player* p)
 		Reset(p);
 	}
 	stageOp.Update(p);
+	isClear = stageOp.IsClear();
 }
 
 void Stage::Draw()

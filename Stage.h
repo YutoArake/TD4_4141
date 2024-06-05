@@ -40,7 +40,7 @@ public:
 	void Initialize();
 
 	// 更新
-	void Update(char keys[256], char oldkeys[256], Player* p);
+	void Update(char keys[256], char oldkeys[256], Player* p, bool &isClear);
 
 	// 描画
 	void Draw();
