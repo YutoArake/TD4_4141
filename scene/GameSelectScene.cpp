@@ -7,6 +7,7 @@
 
 void GameSelectScene::Initialize()
 {
+	ruleGraph = LoadGraph("Resource/textures/intro.png");
 }
 
 void GameSelectScene::Finalize()
@@ -30,4 +31,5 @@ void GameSelectScene::GameTransition()
 
 void GameSelectScene::Draw()
 {
+	DrawExtendGraph(0, 0, 1280, 960, ruleGraph, true);
 }

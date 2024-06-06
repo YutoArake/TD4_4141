@@ -9,6 +9,7 @@ class GameSelectScene : public BaseScene
 public: // 静的メンバ変数
 
 private: // メンバ変数
+	int ruleGraph = 0;
 
 public: // メンバ関数
 	/// <summary>

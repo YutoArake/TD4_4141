@@ -7,6 +7,7 @@
 class GameClearScene : public BaseScene
 {
 private: // ƒƒ“ƒo•Ï”
+	int clearGraph = 0;
 
 public: // ƒƒ“ƒoŠÖ”
 	/// <summary>

@@ -3,6 +3,7 @@
 
 void GameClearScene::Initialize()
 {
+	clearGraph = LoadGraph("Resource/textures/clear.png");
 }
 
 void GameClearScene::Finalize()
@@ -25,4 +26,5 @@ void GameClearScene::GameTransition()
 
 void GameClearScene::Draw()
 {
+	DrawExtendGraph(0, 0, 1280, 960, clearGraph, false);
 }
