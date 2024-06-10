@@ -49,4 +49,5 @@ private:
 	std::list <Object*> objectlist;
 
 	std::list <Mob*> moblist;
+
 };
