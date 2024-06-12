@@ -1,5 +1,7 @@
 #pragma once
 #include "GamePlayScene/Mob.h"
+#include "GamePlayScene/Bullet.h"
+#include <list>
 
 class Shooter : public Mob
 {
@@ -10,9 +12,13 @@ public:
 
 	void Draw() override;
 
+	void Shoot();
+
 private:
 	int movementX;
 	int movementY;
 
 	int texture;
+
+	std::list<Bullet*> bullets;
 };

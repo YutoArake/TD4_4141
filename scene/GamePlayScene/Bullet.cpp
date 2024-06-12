@@ -15,4 +15,5 @@ void Bullet::Update()
 
 void Bullet::Draw()
 {
+	DrawGraph(x - sizeX, y - sizeY, texture, true);
 }

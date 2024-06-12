@@ -21,3 +21,8 @@ void Shooter::Draw()
 {
 	DrawGraph(x - sizeX, y - sizeY, texture, true);
 }
+
+void Shooter::Shoot()
+{
+	bullets.push_back(new Bullet(0, 0));
+}

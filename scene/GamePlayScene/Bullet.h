@@ -11,8 +11,8 @@ public:
 	void Draw();
 
 private:
-	int x;
-	int y;
+	int x = 0;
+	int y = 0;
 
 	int sizeX;
 	int sizeY;
