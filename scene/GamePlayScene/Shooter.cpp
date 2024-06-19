@@ -26,3 +26,11 @@ void Shooter::Shoot()
 {
 	bullets.push_back(new Bullet(0, 0));
 }
+
+void Shooter::DeleteBullet()
+{
+	for (auto itr = bullets.begin(); itr != bullets.end(); ++itr) {
+		(*itr)->GetBulletPosition().x;
+		(*itr)->GetBulletPosition().x;
+	}
+}

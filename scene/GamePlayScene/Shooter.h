@@ -14,6 +14,8 @@ public:
 
 	void Shoot();
 
+	void DeleteBullet();
+
 private:
 	int movementX;
 	int movementY;
