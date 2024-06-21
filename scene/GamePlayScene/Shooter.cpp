@@ -24,13 +24,25 @@ void Shooter::Draw()
 
 void Shooter::Shoot()
 {
-	bullets.push_back(new Bullet(0, 0));
+	bullets.push_back(new Bullet(x, y));
 }
 
 void Shooter::DeleteBullet()
 {
-	for (auto itr = bullets.begin(); itr != bullets.end(); ++itr) {
-		(*itr)->GetBulletPosition().x;
-		(*itr)->GetBulletPosition().x;
+	for (auto itr = bullets.begin(); itr != bullets.end();) {
+		//現在のイテレーターの座標を取得
+		int x = (*itr)->GetBulletPosition().x;
+		int y = (*itr)->GetBulletPosition().y;
+
+		//弾削除の判定
+		if (x == 0) {
+			//削除
+			itr = bullets.erase(itr);
+		}
+		else
+		{
+			//削除せず次のイテレーターへ
+			++itr;
+		}
 	}
 }

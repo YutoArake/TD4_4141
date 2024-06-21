@@ -9,6 +9,11 @@ struct Position {
 class Bullet
 {
 public:
+	/// <summary>
+	/// ê∂ê¨
+	/// </summary>
+	/// <param name="x">xç¿ïW</param>
+	/// <param name="y">yç¿ïW</param>
 	Bullet(int x, int y);
 
 	void Update();
@@ -27,6 +32,9 @@ public:
 private:
 	int x = 0;
 	int y = 0;
+
+	int movementX;
+	int movementY;
 
 	int sizeX;
 	int sizeY;

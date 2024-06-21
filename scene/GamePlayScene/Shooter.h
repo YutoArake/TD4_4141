@@ -22,5 +22,7 @@ private:
 
 	int texture;
 
+	int hp;
+
 	std::list<Bullet*> bullets;
 };

@@ -1,5 +1,6 @@
 #include "GamePlayScene.h"
 #include "SceneManager.h"
+#include "GamePlayScene/Collision.h"
 
 void GamePlayScene::Initialize()
 {
@@ -7,8 +8,6 @@ void GamePlayScene::Initialize()
 
 
 	backgroundlist.push_back(new Background("a", 0, 0));
-
-
 
 
 }
