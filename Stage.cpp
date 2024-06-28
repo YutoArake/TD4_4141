@@ -31,6 +31,12 @@ void Stage::Initialize()
 	machineGraph = LoadGraph("Resource/textures/machine.png");
 	fireExtinGraph = LoadGraph("Resource/textures/fireExtin.png");
 
+	
+	for (int i = 1; i < 11; i++)
+	{
+		sprintf_s(filename, "Resource/Floor/%i.png", i);
+		floorGraph[i] = LoadGraph(filename);
+	}
 	scrollX = 0;
 	stageNum = 0;
 }
@@ -46,20 +52,36 @@ void Stage::Update(char keys[256], char oldkeys[256], Player* p, bool &isClear)
 		scrollX -= p->GetMoveSpeed();
 		p->SetPosX(640);
 	}
+
+	if (scrollX >= 320 && scrollX <= 450)
+	{
+		if (p->GetPosY() <= 277 && keys[KEY_INPUT_F] == 1 && oldkeys[KEY_INPUT_F] == 0)
+		{
+			scrollX = 0;
+		}
+	}
+	
+
+	stageOp.Update(p);
+
 	if (p->GetInteract() == true)
 	{
 		scrollX = 0;
 		Reset(p);
+		p->SetInteract(false);
 	}
-	stageOp.Update(p);
+	
 	isClear = stageOp.IsClear();
 }
 
 void Stage::Draw()
 {
-	DrawFormatString(0, 40, GetColor(255, 255, 255), "%d", scrollX,false);
+
 	DrawExtendGraph(0 - scrollX, 0, 3239 - scrollX, 959, mapGraph[stageNum], FALSE);
+	DrawExtendGraph(2590 - scrollX, 100, 2654 - scrollX, 218, floorGraph[stageOp.GetFloor() + 1], true);
 	DrawFormatString(0, 20, GetColor(255, 255, 255), "%d", stageNum);
+	DrawFormatString(0, 140, GetColor(255, 255, 255), "scrollX: %d", scrollX, false);
+	
 	stageOp.Draw();
 }
 

@@ -19,7 +19,11 @@ public: //メンバ関数
 	void Reset();
 
 	int GetPosX() { return x; }
-	void SetPosX(int posX) { x = posX; }
+	void SetPosX(int _posX) { x = _posX; }
+
+	int GetPosY() { return y; }
+	void SetPosY(int _posY) { y = _posY; }
+
 
 	int GetMoveSpeed() { return moveSpeed; }
 
@@ -49,6 +53,8 @@ private: //メンバ関数
 private: //メンバ変数
 	int x = 0;				//x座標
 	int y = 0;				//y座標
+	int oldX = 0;
+	int oldY = 0;
 	int playerGraph;		//プレイヤー画像
 	bool canJump = false;	//プレイヤーが地面にいるか
 	bool isAction = false;	//プレイヤーがアクションを起こしているか
