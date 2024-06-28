@@ -1,9 +1,9 @@
 #include "Shooter.h"
 #include <DxLib.h>
 
-Shooter::Shooter(const char* texture, int x, int y, int sizeX, int sizeY)
+Shooter::Shooter(int x, int y, int sizeX, int sizeY)
 {
-	this->texture = LoadGraph(texture);
+	texture = LoadGraph("");
 
 	this->x = x;
 	this->y = y;

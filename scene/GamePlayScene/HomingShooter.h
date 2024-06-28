@@ -1,12 +1,13 @@
 #pragma once
 #include "GamePlayScene/Mob.h"
-#include "GamePlayScene/Bullet.h"
+#include <DxLib.h>
+#include "GamePlayScene/HomingBullet.h"
 #include <list>
 
-class Shooter : public Mob
+class HomingShooter : public Mob
 {
 public:
-	Shooter(int x, int y, int sizeX, int sizeY);
+	HomingShooter(int x, int y, int sizeX, int sizeY);
 
 	void Update() override;
 
@@ -14,7 +15,7 @@ public:
 
 	void Shoot();
 
-	void DeleteBullet();
+	void DeleteBallet();
 
 private:
 	int movementX;
@@ -28,5 +29,6 @@ private:
 
 	int intervaltime = 0;
 
-	std::list<Bullet*> bullets;
+	std::list<HomingBullet*> homingbullets;
 };
+

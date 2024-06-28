@@ -168,6 +168,8 @@
     <ClCompile Include="scene\GamePlayScene\Dump.cpp" />
     <ClCompile Include="scene\GamePlayScene\Extinguisher.cpp" />
     <ClCompile Include="scene\GamePlayScene\Ghost.cpp" />
+    <ClCompile Include="scene\GamePlayScene\HomingBullet.cpp" />
+    <ClCompile Include="scene\GamePlayScene\HomingShooter.cpp" />
     <ClCompile Include="scene\GamePlayScene\Missile.cpp" />
     <ClCompile Include="scene\GamePlayScene\Mob.cpp" />
     <ClCompile Include="scene\GamePlayScene\Object.cpp" />
@@ -196,6 +198,8 @@
     <ClInclude Include="scene\GamePlayScene\Dump.h" />
     <ClInclude Include="scene\GamePlayScene\Extinguisher.h" />
     <ClInclude Include="scene\GamePlayScene\Ghost.h" />
+    <ClInclude Include="scene\GamePlayScene\HomingBullet.h" />
+    <ClInclude Include="scene\GamePlayScene\HomingShooter.h" />
     <ClInclude Include="scene\GamePlayScene\Missile.h" />
     <ClInclude Include="scene\GamePlayScene\Mob.h" />
     <ClInclude Include="scene\GamePlayScene\Object.h" />
