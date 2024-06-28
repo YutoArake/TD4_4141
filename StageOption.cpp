@@ -35,11 +35,13 @@ void StageOption::Update(Player* _player)
 	if (isInCorrect == true)
 	{
 		FloorReset();
+		
 	}
 
 	if (isCorrect == true)
 	{
 		ClimbTheStairs();
+		
 	}
 }
 
@@ -56,7 +58,7 @@ void StageOption::Judge(Player* _player)
 	}
 	_player->SetisEntranceStair(false);
 	_player->SetisExitStair(false);
-	_player->SetInteract(false);
+
 
 }
 

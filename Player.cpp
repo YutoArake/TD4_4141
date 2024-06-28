@@ -2,7 +2,7 @@
 
 void Player::initialize()
 {
-	x = 0;
+	x = 100;
 	y = 600;
 	playerGraph = LoadGraph("Resources/gorushi.png");
 }
@@ -22,8 +22,8 @@ void Player::Update(char keys[256], char oldkeys[256])
 
 void Player::Move(char keys[256], char oldkeys[256])
 {
-
-
+	oldX = x;
+	oldY = y;
 
 
 	if (isJumpAction == false)
@@ -73,11 +73,23 @@ void Player::Move(char keys[256], char oldkeys[256])
 	if (x > 1150) {
 		x = 1150;
 	}
-	if (y < 265) {
-		y = 265;
+
+	if (x < 794 && x >= 50 || x > 1050)
+	{
+		if (y < 265)
+		{
+			x = oldX;
+			y = oldY;
+		}
 	}
-	if (y > 665) {
-		y = 665;
+
+	if (x < 90 || x > 340)
+	{
+		if (y > 665)
+		{
+			x = oldX;
+			y = oldY;
+		}
 	}
 }
 

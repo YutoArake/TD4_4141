@@ -22,6 +22,10 @@ public:
 
 	bool IsClear();
 
+	int GetFloor() {
+		return floor;
+	}
+
 private:
 	// ŠK‘w
 	int floor = 0;

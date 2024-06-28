@@ -20,6 +20,8 @@ private:
 
 	// マップ画像
 	int mapGraph[5] = { 0 };
+	int floorGraph[10] = { 0 };
+	char filename[50];
 	// 小物
 	int post1Graph = 0;
 	int post2Graph = 0;
@@ -48,7 +50,9 @@ public:
 	// リセット
 	void Reset(Player* p);
 
-
+	int GetScrollX() {
+		return scrollX;
+	}
 	int SetScrollX(int _scrollX)
 	{this->scrollX = _scrollX;}
 
