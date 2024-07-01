@@ -24,6 +24,10 @@ public:
 		return position;
 	}
 
+	void Shoot();
+
+	void DeleteBullet();
+
 
 private:
 	int x;

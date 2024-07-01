@@ -17,3 +17,11 @@ void HomingBullet::Draw()
 {
 	DrawGraph(x - sizeX, y - sizeY, texture, true);
 }
+
+void HomingBullet::Shoot()
+{
+}
+
+void HomingBullet::DeleteBullet()
+{
+}
