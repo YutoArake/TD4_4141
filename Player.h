@@ -55,7 +55,11 @@ private: //メンバ変数
 	int y = 0;				//y座標
 	int oldX = 0;
 	int oldY = 0;
-	int playerGraph;		//プレイヤー画像
+	int playerFrontGraph[11];		//プレイヤー画像
+	int playerLeftGraph[11];
+	int playerRightGraph[11];
+
+	int playerDirection = 2;
 	bool canJump = false;	//プレイヤーが地面にいるか
 	bool isAction = false;	//プレイヤーがアクションを起こしているか
 	int moveSpeed = 6;		//移動スピード設定変数
@@ -63,6 +67,8 @@ private: //メンバ変数
 	int dashSpeed = 10;		//走りのスピード
 	int vel = 0;
 	int acc = 1;
+	int animateTimer = 0;
+	int playerWalkAnime = 0;
 
 	bool isJumpAction = false;
 

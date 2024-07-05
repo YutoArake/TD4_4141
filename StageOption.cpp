@@ -3,18 +3,24 @@
 
 std::random_device rnd;		// 非決定的な乱数生成器を生成
 std::mt19937 mt(rnd());	//  メルセンヌ・ツイスタの32ビット版、引数は初期シード値
-std::uniform_int_distribution<> rand5(0, 4);	// [0, 4] 範囲の一様乱数
+std::uniform_int_distribution<> rand6(0, 5);	// [0, 5] 範囲の一様乱数
 
 int StageOption::InitializeFloor()
 {
 	// 乱数保持
-	int stageNum = rand5(mt);
+	int stageNum = rand6(mt);
 
 	// 通常か異変か(0が通常)
 	if (stageNum == 0)
 	{
 		ExitStair = 1;
 		EntranceStair = 0;
+	}
+	else if (isFirstFloor == true)
+	{
+		ExitStair = 1;
+		EntranceStair = 0;
+		isFirstFloor = false;
 	}
 	else
 	{
