@@ -9,7 +9,7 @@ struct Position
 class HomingBullet
 {
 public:
-	HomingBullet(int x, int y);
+	HomingBullet(float x, float y);
 
 	void Update();
 
@@ -24,14 +24,16 @@ public:
 		return position;
 	}
 
-	void Shoot();
+	void BallisticUpdate();
 
-	void DeleteBullet();
-
+	void SetPlayerPosition(int x, int y) {
+		this->playerPositionX = x;
+		this->playerPositionY = y;
+	};
 
 private:
-	int x;
-	int y;
+	float x;
+	float y;
 
 	int movementX;
 	int movementY;
@@ -40,5 +42,8 @@ private:
 	int sizeY;
 
 	int texture;
+
+	int playerPositionX;
+	int playerPositionY;
 };
 

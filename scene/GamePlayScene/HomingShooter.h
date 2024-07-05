@@ -4,6 +4,8 @@
 #include "GamePlayScene/HomingBullet.h"
 #include <list>
 
+class ShootingPlayer;
+
 class HomingShooter : public Mob
 {
 public:
@@ -16,6 +18,12 @@ public:
 	void Shoot();
 
 	void DeleteBallet();
+
+	void SetShootingPlayer(ShootingPlayer* shootingPlayer) {
+		this->shootingPlayer = shootingPlayer;
+	}
+
+	void SendPlayerPosition();
 
 private:
 	int movementX;
@@ -30,5 +38,7 @@ private:
 	int intervaltime = 0;
 
 	std::list<HomingBullet*> homingbullets;
+
+	ShootingPlayer* shootingPlayer;
 };
 

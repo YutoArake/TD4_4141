@@ -176,6 +176,7 @@
     <ClCompile Include="scene\GamePlayScene\Player.cpp" />
     <ClCompile Include="scene\GamePlayScene\Poster.cpp" />
     <ClCompile Include="scene\GamePlayScene\Shooter.cpp" />
+    <ClCompile Include="scene\GamePlayScene\ShootingPlayer.cpp" />
     <ClCompile Include="scene\GamePlayScene\TestMob.cpp" />
     <ClCompile Include="scene\GameSelectScene.cpp" />
     <ClCompile Include="scene\GameTitleScene.cpp" />
@@ -206,6 +207,7 @@
     <ClInclude Include="scene\GamePlayScene\Player.h" />
     <ClInclude Include="scene\GamePlayScene\Poster.h" />
     <ClInclude Include="scene\GamePlayScene\Shooter.h" />
+    <ClInclude Include="scene\GamePlayScene\ShootingPlayer.h" />
     <ClInclude Include="scene\GamePlayScene\TestMob.h" />
     <ClInclude Include="scene\GameSelectScene.h" />
     <ClInclude Include="scene\GameTitleScene.h" />

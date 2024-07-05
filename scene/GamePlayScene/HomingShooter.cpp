@@ -1,4 +1,5 @@
 #include "HomingShooter.h"
+#include "GamePlayScene/ShootingPlayer.h"
 
 
 HomingShooter::HomingShooter(int x, int y, int sizeX, int sizeY)
@@ -23,10 +24,20 @@ void HomingShooter::Draw()
 
 void HomingShooter::Shoot()
 {
-
+	homingbullets.push_back(new HomingBullet(x, y));
 }
 
 void HomingShooter::DeleteBallet()
 {
+	for (auto itr = homingbullets.begin(); itr != homingbullets.end();) {
+		int x = (*itr)->GetBulletPosition().x;
+		int y = (*itr)->GetBulletPosition().y;
+	}
+}
 
+void HomingShooter::SendPlayerPosition()
+{
+	for (auto itr = homingbullets.begin(); itr != homingbullets.end(); ++itr) {
+		(*itr)->SetPlayerPosition(shootingPlayer->GetPosition().x, shootingPlayer->GetPosition().y);
+	}
 }

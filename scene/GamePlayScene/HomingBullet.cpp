@@ -1,7 +1,8 @@
 #include "HomingBullet.h"
 #include <DxLib.h>
 
-HomingBullet::HomingBullet(int x, int y)
+
+HomingBullet::HomingBullet(float x, float y)
 {
 	texture = LoadGraph("");
 
@@ -11,6 +12,8 @@ HomingBullet::HomingBullet(int x, int y)
 
 void HomingBullet::Update()
 {
+	x += movementX;
+	y += movementY;
 }
 
 void HomingBullet::Draw()
@@ -18,10 +21,10 @@ void HomingBullet::Draw()
 	DrawGraph(x - sizeX, y - sizeY, texture, true);
 }
 
-void HomingBullet::Shoot()
+void HomingBullet::BallisticUpdate()
 {
+
+	float Xlength =
 }
 
-void HomingBullet::DeleteBullet()
-{
-}
+
