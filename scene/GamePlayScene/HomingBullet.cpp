@@ -1,5 +1,6 @@
 #include "HomingBullet.h"
 #include <DxLib.h>
+#include <math.h>
 
 
 HomingBullet::HomingBullet(float x, float y)
@@ -24,7 +25,13 @@ void HomingBullet::Draw()
 void HomingBullet::BallisticUpdate()
 {
 
-	float Xlength =
+	float Xlength = playerPositionX - x;
+	float Ylength = playerPositionY - y;
+
+	float reference = sqrt(static_cast<double>(Xlength * Xlength + Ylength * Ylength));
+
+	movementX = reference * speedX;
+	movementY = reference * speedY;
 }
 
 

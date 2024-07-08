@@ -35,8 +35,11 @@ private:
 	float x;
 	float y;
 
-	int movementX;
-	int movementY;
+	float movementX;
+	float movementY;
+
+	float speedX;
+	float speedY;
 
 	int sizeX;
 	int sizeY;
