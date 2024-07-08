@@ -26,6 +26,7 @@ public:
 		return floor;
 	}
 
+
 private:
 	// ŠK‘w
 	int floor = 0;
@@ -38,5 +39,7 @@ private:
 	int EntranceStair = 0;
 	// oŒûi‰œ‘¤ŠK’ij
 	int ExitStair = 0;
+
+	bool isFirstFloor = true;
 };
 

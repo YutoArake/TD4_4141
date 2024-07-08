@@ -19,7 +19,7 @@ private:
 	StageOption stageOp;
 
 	// マップ画像
-	int mapGraph[5] = { 0 };
+	int mapGraph[6] = { 0 };
 	int floorGraph[10] = { 0 };
 	char filename[50];
 	// 小物
@@ -31,8 +31,13 @@ private:
 	int prantGraph = 0;
 	int machineGraph = 0;
 	int fireExtinGraph = 0;
+	int womanGraph = 0;
+	int womanAnomalyGraph = 0;
 
 	int stageNum = 0;
+	bool isDoorOpen = false;
+	int doorTimer = 0;
+
 
 	// スクロール座標
 	int scrollX = 0;
