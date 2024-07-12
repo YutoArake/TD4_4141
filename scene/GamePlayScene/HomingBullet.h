@@ -41,6 +41,9 @@ private:
 	float speedX;
 	float speedY;
 
+	int homingsecond = 2;
+	int homingtime = homingsecond * 60;
+
 	int sizeX;
 	int sizeY;
 

@@ -1,12 +1,10 @@
 #pragma once
 #include "BaseScene.h"
-#include "GamePlayScene/Player.h"
 #include "GamePlayScene/Background.h"
 #include "GamePlayScene/Object.h"
 #include "GamePlayScene/Mob.h"
 #include "GamePlayScene/TestMob.h"
-#include "GamePlayScene/Ghost.h"
-#include "GamePlayScene/Chainsawman.h"
+#include "GamePlayScene/ShootingPlayer.h"
 #include <list>
 
 /// <summary>
@@ -42,12 +40,10 @@ public: // ÉÅÉìÉoä÷êî
 	void AllUpdate();
 
 private:
-	Player* player = nullptr;
 
-	std::list <Background*> backgroundlist;
-
-	std::list <Object*> objectlist;
 
 	std::list <Mob*> moblist;
+
+	ShootingPlayer* shootingplayer;
 
 };

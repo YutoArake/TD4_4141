@@ -35,7 +35,7 @@ void Shooter::DeleteBullet()
 		int y = (*itr)->GetBulletPosition().y;
 
 		//’eíœ‚Ì”»’è
-		if (x == 0) {
+		if (x > 0) {
 			//íœ
 			itr = bullets.erase(itr);
 		}

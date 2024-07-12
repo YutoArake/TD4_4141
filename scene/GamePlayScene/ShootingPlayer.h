@@ -1,26 +1,32 @@
 #pragma once
 #include <DxLib.h>
 
-struct Position {
-	int x;
-	int y;
-};
 
 class ShootingPlayer
 {
 public:
 	ShootingPlayer();
 
-	Position GetPosition() {
-		Position position;
+	void Update();
 
-		position.x = x;
-		position.y = y;
+	void Draw();
 
-		return position;
+	void Move();
+
+	int GetPositionX() {
+		return x;
+	}
+
+	int GetPositionY() {
+		return y;
 	}
 
 private:
-	int x;
-	int y;
+	int x = 300;
+	int y = 300;
+
+	int sizeX = 15;
+	int sizeY = 15;
+
+	int texture = 0;
 };

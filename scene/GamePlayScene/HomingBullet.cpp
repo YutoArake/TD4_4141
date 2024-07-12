@@ -15,6 +15,11 @@ void HomingBullet::Update()
 {
 	x += movementX;
 	y += movementY;
+
+	if (homingtime > 0) {
+		BallisticUpdate();
+	}
+	homingtime--;
 }
 
 void HomingBullet::Draw()
