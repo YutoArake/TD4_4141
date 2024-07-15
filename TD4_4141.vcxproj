@@ -167,6 +167,7 @@
     <ClCompile Include="scene\GamePlayScene\HomingShooter.cpp" />
     <ClCompile Include="scene\GamePlayScene\Mob.cpp" />
     <ClCompile Include="scene\GamePlayScene\Object.cpp" />
+    <ClCompile Include="scene\GamePlayScene\PlayerBullet.cpp" />
     <ClCompile Include="scene\GamePlayScene\Shooter.cpp" />
     <ClCompile Include="scene\GamePlayScene\ShootingPlayer.cpp" />
     <ClCompile Include="scene\GamePlayScene\TestMob.cpp" />

@@ -1,5 +1,7 @@
 #pragma once
 #include <DxLib.h>
+#include <GamePlayScene/PlayerBullet.h>
+#include <list>
 
 
 class ShootingPlayer
@@ -12,6 +14,10 @@ public:
 	void Draw();
 
 	void Move();
+
+	void Shoot();
+
+	void DeleteBullet();
 
 	int GetPositionX() {
 		return x;
@@ -29,4 +35,9 @@ private:
 	int sizeY = 15;
 
 	int texture = 0;
+
+	char key[256];
+	char oldkey[256];
+
+	std::list<PlayerBullet*> playerbullet;
 };

@@ -40,6 +40,9 @@ void GamePlayScene::Draw()
 
 void GamePlayScene::AllUpdate()
 {
+
+
+
 	for (auto mobitr = moblist.begin(); mobitr != moblist.end(); ++mobitr) {
 		(*mobitr)->Update();
 	}
