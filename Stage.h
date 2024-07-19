@@ -1,5 +1,6 @@
 #pragma once
 #include "StageOption.h"
+#include "MiniGame.h"
 #include <sstream>
 
 struct Vec2 {
@@ -13,10 +14,8 @@ struct Vec2 {
 class Stage
 {
 private:
-	// ファイルコマンド
-	std::stringstream stageCommands_;
-
 	StageOption stageOp;
+	MiniGame miniGame;
 
 	// マップ画像
 	int mapGraph[6] = { 0 };
@@ -60,12 +59,5 @@ public:
 	}
 	int SetScrollX(int _scrollX)
 	{this->scrollX = _scrollX;}
-
-	// ステージロード
-	void LoadStageFile(int stageNum);
-
-	// コマンド読み込み
-	void LoadStageCommands();
-
 };
 

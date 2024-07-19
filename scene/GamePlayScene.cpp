@@ -23,6 +23,7 @@ void GamePlayScene::Update(char keys[256], char oldkeys[256])
 
 	player->Update(keys,oldkeys);
 	stage.Update(keys, oldkeys, player, isClear);
+
 	if (isClear) {
 		// ゲームクリアシーンへ
 		SceneManager::GetInstance()->ChangeScene("CLEAR");
