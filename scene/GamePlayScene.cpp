@@ -26,6 +26,7 @@ void GamePlayScene::Update(char keys[256], char oldkeys[256])
 	player->Update(keys,oldkeys);
 	stage.Update(keys, oldkeys, player, isClear);
 
+
 	if (stage.GetLoadFloor() == 1)
 	{
 		flameTime += 4.0f;
@@ -37,8 +38,9 @@ void GamePlayScene::Update(char keys[256], char oldkeys[256])
 		stage.SetLoadFloor(0);
 	}
 
+
 	if (isClear) {
-		// ゲームクリアシーンへ
+
 		SceneManager::GetInstance()->ChangeScene("CLEAR");
 		return;
 	}
