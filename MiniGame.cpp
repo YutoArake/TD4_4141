@@ -90,9 +90,37 @@ void MiniGame::LoadStageCommands()
 			else if (word.find("1") == 0) {
 				miniGame[y][x] = 1;
 			}
-			// 回収オブジェクト（寿司）
+			// レンガブロック
 			else if (word.find("2") == 0) {
 				miniGame[y][x] = 2;
+			}
+			// ひび割れレンガ
+			else if (word.find("3") == 0) {
+				miniGame[y][x] = 3;
+			}
+			// 落ちるブロック
+			else if (word.find("4") == 0) {
+				miniGame[y][x] = 4;
+			}
+			// すべるブロック
+			else if (word.find("5") == 0) {
+				miniGame[y][x] = 5;
+			}
+			// 回収オブジェクト（寿司：マグロ）
+			else if (word.find("6") == 0) {
+				miniGame[y][x] = 6;
+			}
+			// 回収オブジェクト（寿司：イカ？）
+			else if (word.find("7") == 0) {
+				miniGame[y][x] = 7;
+			}
+			// 回収オブジェクト（寿司：サーモン）
+			else if (word.find("8") == 0) {
+				miniGame[y][x] = 8;
+			}
+			// 回収オブジェクト（寿司：たまご？）
+			else if (word.find("9") == 0) {
+				miniGame[y][x] = 9;
 			}
 			x++;
 		}
