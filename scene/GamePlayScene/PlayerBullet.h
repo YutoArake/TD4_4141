@@ -11,18 +11,18 @@ public:
 	void Draw();
 
 	float GetBulletX() {
-		return y;
+		return x;
 	}
 
 private:
 	float x;
 	float y;
 
-	float movementX;
-	float movementY;
+	float movementX = 10.0;
+	float movementY = 0;
 
-	int sizeX;
-	int sizeY;
+	int sizeX = 15;
+	int sizeY = 15;
 
 	int texture;
 };

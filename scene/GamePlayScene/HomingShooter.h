@@ -9,7 +9,7 @@ class ShootingPlayer;
 class HomingShooter : public Mob
 {
 public:
-	HomingShooter(int x, int y, int sizeX, int sizeY);
+	HomingShooter(int x, int y, int sizeX, int sizeY, ShootingPlayer* shootingPlayer);
 
 	void Update() override;
 
@@ -17,11 +17,11 @@ public:
 
 	void Shoot();
 
-	void DeleteBallet();
+	void UpdateBullet();
 
-	void SetShootingPlayer(ShootingPlayer* shootingPlayer) {
-		this->shootingPlayer = shootingPlayer;
-	}
+	void DrawBullet();
+
+	void DeleteBullet();
 
 	void SendPlayerPosition();
 

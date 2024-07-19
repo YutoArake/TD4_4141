@@ -14,6 +14,10 @@ public:
 
 	void Shoot();
 
+	void UpdateBullet();
+
+	void DrawBullet();
+
 	void DeleteBullet();
 
 private:
@@ -24,9 +28,11 @@ private:
 
 	int hp;
 
+	int intervaltime = 2;
+
 	int shootinterval = intervaltime * 60;
 
-	int intervaltime = 0;
+
 
 	std::list<Bullet*> bullets;
 };

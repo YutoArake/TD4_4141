@@ -3,7 +3,7 @@
 
 PlayerBullet::PlayerBullet(float x, float y)
 {
-	texture = LoadGraph("");
+	texture = LoadGraph("Resources/test.png");
 	this->x = x;
 	this->y = y;
 }

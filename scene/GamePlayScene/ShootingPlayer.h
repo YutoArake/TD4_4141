@@ -17,6 +17,10 @@ public:
 
 	void Shoot();
 
+	void UpdateBullet();
+
+	void DrawBullet();
+
 	void DeleteBullet();
 
 	int GetPositionX() {
@@ -28,8 +32,8 @@ public:
 	}
 
 private:
-	int x = 300;
-	int y = 300;
+	int x = 0;
+	int y = 0;
 
 	int sizeX = 15;
 	int sizeY = 15;

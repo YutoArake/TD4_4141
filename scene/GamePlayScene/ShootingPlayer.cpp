@@ -10,6 +10,9 @@ void ShootingPlayer::Update()
 {
 	GetHitKeyStateAll(key);
 	Move();
+	UpdateBullet();
+	Shoot();
+	DeleteBullet();
 
 	for (int i = 0; i < 256; i++) {
 		oldkey[i] = key[i];
@@ -19,7 +22,8 @@ void ShootingPlayer::Update()
 void ShootingPlayer::Draw()
 {
 	DrawGraph(x - sizeX, y - sizeY, texture, true);
-
+	DrawBullet();
+	//DrawFormatString(0, 0, GetColor(255, 255, 255), "%d", playerbullet.size());
 }
 
 void ShootingPlayer::Move()
@@ -46,10 +50,24 @@ void ShootingPlayer::Shoot()
 	}
 }
 
+void ShootingPlayer::UpdateBullet()
+{
+	for (auto itr = playerbullet.begin(); itr != playerbullet.end(); ++itr) {
+		(*itr)->Update();
+	}
+}
+
+void ShootingPlayer::DrawBullet()
+{
+	for (auto itr = playerbullet.begin(); itr != playerbullet.end(); ++itr) {
+		(*itr)->Draw();
+	}
+}
+
 void ShootingPlayer::DeleteBullet()
 {
 	for (auto itr = playerbullet.begin(); itr != playerbullet.end();) {
-		if ((*itr)->GetBulletX() > 720) {
+		if ((*itr)->GetBulletX() > 1200) {
 			itr = playerbullet.erase(itr);
 		}
 		else

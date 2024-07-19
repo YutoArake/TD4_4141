@@ -6,7 +6,7 @@ void GamePlayScene::Initialize()
 {
 	shootingplayer = new ShootingPlayer();
 
-
+	moblist.push_back(new Shooter(800, 100, 15, 15));
 }
 
 void GamePlayScene::Finalize()
@@ -40,9 +40,6 @@ void GamePlayScene::Draw()
 
 void GamePlayScene::AllUpdate()
 {
-
-
-
 	for (auto mobitr = moblist.begin(); mobitr != moblist.end(); ++mobitr) {
 		(*mobitr)->Update();
 	}

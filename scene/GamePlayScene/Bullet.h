@@ -1,10 +1,7 @@
 #pragma once
 
 
-struct Position {
-	int x;
-	int y;
-};
+
 
 class Bullet
 {
@@ -14,30 +11,25 @@ public:
 	/// </summary>
 	/// <param name="x">xç¿ïW</param>
 	/// <param name="y">yç¿ïW</param>
-	Bullet(int x, int y);
+	Bullet(float x, float y);
 
 	void Update();
 
 	void Draw();
 
-	Position GetBulletPosition() {
-		Position position;
-
-		position.x = this->x;
-		position.y = this->y;
-
-		return position;
+	float GetBulletX() {
+		return x;
 	}
 
 private:
-	int x = 0;
-	int y = 0;
+	float x;
+	float y;
 
-	int movementX;
-	int movementY;
+	float movementX = -10;
+	float movementY = 0;
 
-	int sizeX;
-	int sizeY;
+	int sizeX = 15;
+	int sizeY = 15;
 
 	int texture;
 
