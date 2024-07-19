@@ -16,8 +16,12 @@ void MiniGame::Initialize()
 	blocks[0] = LoadGraph("Resource/blocks/block.png");
 	blocks[1] = LoadGraph("Resource/blocks/brick.png");
 	blocks[2] = LoadGraph("Resource/blocks/broken.png");
-	blocks[3] = LoadGraph("Resource/blocks/ice.png");
-	blocks[4] = LoadGraph("Resource/blocks/fall.png");
+	blocks[3] = LoadGraph("Resource/blocks/fall.png");
+	blocks[4] = LoadGraph("Resource/blocks/ice.png");
+	blocks[5] = LoadGraph("Resource/blocks/sushi1.png");
+	blocks[6] = LoadGraph("Resource/blocks/sushi2.png");
+	blocks[7] = LoadGraph("Resource/blocks/sushi3.png");
+	blocks[8] = LoadGraph("Resource/blocks/sushi4.png");
 }
 
 void MiniGame::Update(char keys[256], char oldkeys[256], Player* p, bool& isClear)

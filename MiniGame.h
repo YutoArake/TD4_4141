@@ -14,7 +14,7 @@ private:
 
 	int miniGame[15][20] = { 0 };
 
-	int blocks[5] = { 0 };
+	int blocks[9] = { 0 };
 public:
 	// ‰Šú‰»
 	void Initialize();
