@@ -34,9 +34,9 @@ void Stage::Initialize()
 	maxTime = 300;
 }
 
-void Stage::Update(char keys[256], char oldkeys[256], Player* p, bool &isClear)
+void Stage::Update(char keys[256], char oldkeys[256], Player* p, bool& isClear)
 {
-	if(miniGameFlag == 0)
+	if (miniGameFlag == 0)
 	{
 		if (loadFloor == 1)
 		{
@@ -113,28 +113,29 @@ void Stage::Draw()
 		DrawFormatString(0, 20, GetColor(255, 255, 255), "%d", stageNum);
 		DrawFormatString(0, 140, GetColor(255, 255, 255), "scrollX: %d", scrollX, false);
 
-	if (stageNum == 6) {
-		miniGame.Draw();
-	}
-	else {
-		DrawExtendGraph(0 - scrollX, 0, 3239 - scrollX, 959, mapGraph[stageNum], FALSE);
-		DrawExtendGraph(2590 - scrollX, 100, 2654 - scrollX, 218, floorGraph[stageOp.GetFloor() + 1], true);
-
-		if (isDoorOpen == true)
-		{
-			DrawExtendGraph(988 - scrollX, 67, 1115 - scrollX, 271, doorGraph, true);
-
-			if (stageNum != 5)
-			{
-				DrawExtendGraph(978 - scrollX, 110, 1145 - scrollX, 271, womanGraph, true);
-			}
-
-			else
-			{
-				DrawExtendGraph(978 - scrollX, 110, 1145 - scrollX, 271, womanAnomalyGraph, true);
-			}
+		if (stageNum == 6) {
+			miniGame.Draw();
 		}
-		stageOp.Draw();
+		else {
+			DrawExtendGraph(0 - scrollX, 0, 3239 - scrollX, 959, mapGraph[stageNum], FALSE);
+			DrawExtendGraph(2590 - scrollX, 100, 2654 - scrollX, 218, floorGraph[stageOp.GetFloor() + 1], true);
+
+			if (isDoorOpen == true)
+			{
+				DrawExtendGraph(988 - scrollX, 67, 1115 - scrollX, 271, doorGraph, true);
+
+				if (stageNum != 5)
+				{
+					DrawExtendGraph(978 - scrollX, 110, 1145 - scrollX, 271, womanGraph, true);
+				}
+
+				else
+				{
+					DrawExtendGraph(978 - scrollX, 110, 1145 - scrollX, 271, womanAnomalyGraph, true);
+				}
+			}
+			stageOp.Draw();
+		}
 	}
 	else if (miniGameFlag == 1)
 	{
@@ -144,19 +145,21 @@ void Stage::Draw()
 
 	}
 
-			else
-			{
-				DrawExtendGraph(978 - scrollX, 110, 1145 - scrollX, 271, womanAnomalyGraph, true);
-			}
-		}
+	else
+	{
+		DrawExtendGraph(978 - scrollX, 110, 1145 - scrollX, 271, womanAnomalyGraph, true);
 	}
 
 	// デバッグテキスト
 	DrawFormatString(0, 20, GetColor(255, 255, 255), "%d", stageNum);
 	DrawFormatString(0, 140, GetColor(255, 255, 255), "scrollX: %d", scrollX, false);
 	stageOp.Draw();
-
 }
+
+
+
+
+
 
 void Stage::Reset(Player* p)
 {
