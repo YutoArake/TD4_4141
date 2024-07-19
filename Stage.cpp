@@ -86,31 +86,39 @@ void Stage::Update(char keys[256], char oldkeys[256], Player* p, bool &isClear)
 
 void Stage::Draw()
 {
+	if (stageNum == 6) {
+		miniGame.Draw();
+	}
+	else {
+		DrawExtendGraph(0 - scrollX, 0, 3239 - scrollX, 959, mapGraph[stageNum], FALSE);
+		DrawExtendGraph(2590 - scrollX, 100, 2654 - scrollX, 218, floorGraph[stageOp.GetFloor() + 1], true);
 
-	DrawExtendGraph(0 - scrollX, 0, 3239 - scrollX, 959, mapGraph[stageNum], FALSE);
-	DrawExtendGraph(2590 - scrollX, 100, 2654 - scrollX, 218, floorGraph[stageOp.GetFloor() + 1], true);
+		if (isDoorOpen == true)
+		{
+			DrawExtendGraph(988 - scrollX, 67, 1115 - scrollX, 271, doorGraph, true);
+			if (stageNum != 5)
+			{
+				DrawExtendGraph(978 - scrollX, 110, 1145 - scrollX, 271, womanGraph, true);
+			}
+			else
+			{
+				DrawExtendGraph(978 - scrollX, 110, 1145 - scrollX, 271, womanAnomalyGraph, true);
+			}
+		}
+	}
 
+	// デバッグテキスト
 	DrawFormatString(0, 20, GetColor(255, 255, 255), "%d", stageNum);
 	DrawFormatString(0, 140, GetColor(255, 255, 255), "scrollX: %d", scrollX, false);
-
-	if (isDoorOpen == true)
-	{
-	 DrawExtendGraph(988 - scrollX, 67, 1115 - scrollX, 271, doorGraph, true);
-	 if (stageNum != 5)
-	 {
-	  DrawExtendGraph(978 - scrollX, 110, 1145 - scrollX, 271, womanGraph, true);
-	 }
-	 else
-	 {
-	DrawExtendGraph(978 - scrollX, 110, 1145 - scrollX, 271, womanAnomalyGraph, true);
-	 }
-	}
 	stageOp.Draw();
-	//miniGame.Draw();
 }
 
 void Stage::Reset(Player* p)
 {
 	stageNum = stageOp.InitializeFloor();
 	scrollX = 0;
+	stageNum = 6;
+	if (stageNum == 6) {
+		miniGame.Reset(1);
+	}
 }
