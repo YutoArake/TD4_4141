@@ -3,12 +3,12 @@
 
 std::random_device rnd;		// 非決定的な乱数生成器を生成
 std::mt19937 mt(rnd());	//  メルセンヌ・ツイスタの32ビット版、引数は初期シード値
-std::uniform_int_distribution<> rand6(0, 5);	// [0, 5] 範囲の一様乱数
+std::uniform_int_distribution<> rand7(0, 6);	// [0, 6] 範囲の一様乱数
 
 int StageOption::InitializeFloor()
 {
 	// 乱数保持
-	int stageNum = rand6(mt);
+	int stageNum = rand7(mt);
 
 	// 通常か異変か(0が通常)
 	if (stageNum == 0)
@@ -34,7 +34,7 @@ int StageOption::InitializeFloor()
 
 void StageOption::Update(Player* _player)
 {
-	if (_player->GetInteract() == true)
+	if (_player->GetMoveFloor() == true)
 	{
 		Judge(_player);
 	}
@@ -48,6 +48,10 @@ void StageOption::Update(Player* _player)
 	{
 		ClimbTheStairs();
 		
+	}
+	if (miniGameFlag == 1)
+	{
+		_player->SetIsMiniGame(miniGameFlag);
 	}
 }
 

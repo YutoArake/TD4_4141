@@ -26,6 +26,15 @@ public:
 		return floor;
 	}
 
+	int GetMiniGameFlag() {
+		return miniGameFlag;
+	}
+
+	void SetMiniGameFlag(int _miniGameFlag)
+	{
+		this->miniGameFlag = _miniGameFlag;
+	}
+
 
 private:
 	// ŠK‘w
@@ -41,5 +50,7 @@ private:
 	int ExitStair = 0;
 
 	bool isFirstFloor = true;
+
+	int miniGameFlag = 0;
 };
 

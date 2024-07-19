@@ -11,6 +11,10 @@ class GamePlayScene : public BaseScene
 private: // ƒƒ“ƒo•Ï”
 	bool isClear = false;
 
+	float flameTime = 0.0f;
+
+	float maxTime = 0.0f;
+
 public: // ƒƒ“ƒoŠÖ”
 	/// <summary>
 	/// ‰Šú‰»
