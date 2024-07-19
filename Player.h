@@ -1,5 +1,6 @@
 #pragma once
 #include "DxLib.h"
+#include<math.h>
 
 class Player
 {
@@ -24,11 +25,10 @@ public: //メンバ関数
 	int GetPosY() { return y; }
 	void SetPosY(int _posY) { y = _posY; }
 
-
 	int GetMoveSpeed() { return moveSpeed; }
 
-	bool GetInteract() { return isInteract; }
-	void SetInteract(bool _interAct) { this->isInteract = _interAct; }
+	bool GetMoveFloor() { return isMoveFloor; }
+	void SetMoveFloor(bool _MoveFloor) { this->isMoveFloor = _MoveFloor; }
 
 	bool GetisEntranceStair() { return isEntranceStair; }
 	void SetisEntranceStair(bool _isEntranceStair) { this->isEntranceStair = _isEntranceStair; }
@@ -36,11 +36,20 @@ public: //メンバ関数
 	bool GetisExitStair() { return isExitStair; }
 	void SetisExitStair(bool _isExitStair) { this->isExitStair = _isExitStair; }
 
+	void SetIsMiniGame(bool _isMiniGame) {
+		this->isMiniGame = _isMiniGame;
+	}
 
 private: //メンバ関数
 
 	//移動関数
 	void Move(char keys[256], char oldkeys[256]);
+
+	//移動禁止エリア関数
+	void KeepOut();
+
+	//アニメーション関数
+	void Animation();
 
 	//ジャンプ関数
 	void Jump(char keys[256], char oldkeys[256]);
@@ -48,7 +57,8 @@ private: //メンバ関数
 	void JumpUpdate();
 
 	//プレイヤーのアクション
-	void Interact(char keys[256], char oldkeys[256]);
+	void MoveFloor(char keys[256], char oldkeys[256]);
+
 
 private: //メンバ変数
 	int x = 0;				//x座標
@@ -58,6 +68,8 @@ private: //メンバ変数
 	int playerFrontGraph[11];		//プレイヤー画像
 	int playerLeftGraph[11];
 	int playerRightGraph[11];
+	int playerBackGraph[11];
+
 
 	int playerDirection = 2;
 	bool canJump = false;	//プレイヤーが地面にいるか
@@ -74,10 +86,12 @@ private: //メンバ変数
 
 	bool isDash = false;
 
-	bool isInteract = false;
+	bool isMoveFloor = false;
 
 	bool isEntranceStair = false;
 
 	bool isExitStair = false;
+
+	bool isMiniGame = false;
 };
 
