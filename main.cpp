@@ -13,7 +13,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	const char TITLE[] = "4141";
 
 	// ウィンドウ横幅
-	const int WIN_WIDTH = 1280;
+	const int WIN_WIDTH = 1080;
 
 	// ウィンドウ縦幅
 	const int WIN_HEIGHT = 720;
