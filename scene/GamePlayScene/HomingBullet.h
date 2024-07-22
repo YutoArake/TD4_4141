@@ -1,10 +1,5 @@
 #pragma once
 
-struct Position
-{
-	int x;
-	int y;
-};
 
 class HomingBullet
 {
@@ -15,13 +10,12 @@ public:
 
 	void Draw();
 
-	Position GetBulletPosition() {
-		Position position;
+	float GetBulletX() {
+		return x;
+	}
 
-		position.x = x;
-		position.y = y;
-
-		return position;
+	float GetBulletY() {
+		return y;
 	}
 
 	void BallisticUpdate();
@@ -35,21 +29,21 @@ private:
 	float x;
 	float y;
 
-	float movementX;
-	float movementY;
+	float movementX = 0;
+	float movementY = 0;
 
-	float speedX;
-	float speedY;
+	float speedX = 10;
+	float speedY = 10;
 
-	int homingsecond = 2;
+	int homingsecond = 1;
 	int homingtime = homingsecond * 60;
 
-	int sizeX;
-	int sizeY;
+	int sizeX = 15;
+	int sizeY = 15;
 
 	int texture;
 
-	int playerPositionX;
-	int playerPositionY;
+	float playerPositionX;
+	float playerPositionY;
 };
 

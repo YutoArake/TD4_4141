@@ -6,6 +6,7 @@
 #include "GamePlayScene/TestMob.h"
 #include "GamePlayScene/ShootingPlayer.h"
 #include "GamePlayScene/Shooter.h";
+#include "GamePlayScene/HomingShooter.h"
 #include <list>
 
 /// <summary>

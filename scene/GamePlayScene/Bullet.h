@@ -20,6 +20,9 @@ public:
 	float GetBulletX() {
 		return x;
 	}
+	float GetBulletY() {
+		return y;
+	}
 
 private:
 	float x;

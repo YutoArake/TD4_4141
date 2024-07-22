@@ -1,16 +1,14 @@
 #pragma once
 #include "GamePlayScene/Mob.h"
+
 #include <DxLib.h>
-#include "GamePlayScene/HomingBullet.h"
-
 #include <list>
-
 class ShootingPlayer;
 
-class HomingShooter : public Mob
+class LaserShooter : public Mob
 {
 public:
-	HomingShooter(int x, int y, int sizeX, int sizeY, ShootingPlayer* shootingPlayer);
+	LaserShooter(int x, int y, int sizeX, int sizeY, ShootingPlayer* shootingPlayer);
 
 	void Update() override;
 
@@ -22,10 +20,6 @@ public:
 
 	void DrawBullet();
 
-	void DeleteBullet();
-
-	void SendPlayerPosition();
-
 private:
 	int movementX;
 	int movementY;
@@ -35,11 +29,13 @@ private:
 	int hp;
 
 	int intervaltime = 2;
-	int shootinterval = intervaltime * 60;
+	int shootinginterval = intervaltime * 60;
 
+	int Reservesecond = 1;
+	int Reservetime = Reservesecond * 60;
 
-
-	std::list<HomingBullet*> homingbullets;
+	int shootingsecond = 2;
+	int shootingtime = shootingsecond * 60;
 
 
 	ShootingPlayer* shootingPlayer;

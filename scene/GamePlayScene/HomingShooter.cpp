@@ -11,6 +11,7 @@ HomingShooter::HomingShooter(int x, int y, int sizeX, int sizeY, ShootingPlayer*
 
 	this->sizeX = sizeX;
 	this->sizeY = sizeY;
+
 	this->shootingPlayer = shootingPlayer;
 }
 
@@ -30,11 +31,13 @@ void HomingShooter::Draw()
 {
 	DrawGraph(x - sizeX, y - sizeY, texture, true);
 	DrawBullet();
+	DrawFormatString(0, 0, GetColor(255, 255, 255), "%d", shootinterval);
+	DrawFormatString(0, 20, GetColor(255, 255, 255), "%d", homingbullets.size());
 }
 
 void HomingShooter::Shoot()
 {
-	homingbullets.push_back(new HomingBullet(x, y));
+	homingbullets.push_back(new HomingBullet(static_cast<float>(x), static_cast<float>(y)));
 }
 
 void HomingShooter::UpdateBullet()
@@ -54,10 +57,10 @@ void HomingShooter::DrawBullet()
 void HomingShooter::DeleteBullet()
 {
 	for (auto itr = homingbullets.begin(); itr != homingbullets.end();) {
-		int x = (*itr)->GetBulletPosition().x;
-		int y = (*itr)->GetBulletPosition().y;
+		int x = (*itr)->GetBulletX();
+		int y = (*itr)->GetBulletY();
 
-		if (x < -100) {
+		if (x < -100 || x > 1200 || y < -10 || y > 750) {
 			itr = homingbullets.erase(itr);
 		}
 		else

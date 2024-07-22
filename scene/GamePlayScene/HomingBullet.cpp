@@ -5,7 +5,7 @@
 
 HomingBullet::HomingBullet(float x, float y)
 {
-	texture = LoadGraph("");
+	texture = LoadGraph("Resources/test.png");
 
 	this->x = x;
 	this->y = y;
@@ -18,13 +18,15 @@ void HomingBullet::Update()
 
 	if (homingtime > 0) {
 		BallisticUpdate();
+		homingtime--;
 	}
-	homingtime--;
+
 }
 
 void HomingBullet::Draw()
 {
 	DrawGraph(x - sizeX, y - sizeY, texture, true);
+	DrawFormatString(0, 40, GetColor(255, 255, 255), "%d", homingtime);
 }
 
 void HomingBullet::BallisticUpdate()
@@ -35,8 +37,11 @@ void HomingBullet::BallisticUpdate()
 
 	float reference = sqrt(static_cast<double>(Xlength * Xlength + Ylength * Ylength));
 
-	movementX = reference * speedX;
-	movementY = reference * speedY;
+	float referenceX = Xlength / reference;
+	float referenceY = Ylength / reference;
+
+	movementX = referenceX * speedX;
+	movementY = referenceY * speedY;
 }
 
 

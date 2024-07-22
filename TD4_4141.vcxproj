@@ -165,6 +165,8 @@
     <ClCompile Include="scene\GamePlayScene\Collision.cpp" />
     <ClCompile Include="scene\GamePlayScene\HomingBullet.cpp" />
     <ClCompile Include="scene\GamePlayScene\HomingShooter.cpp" />
+    <ClCompile Include="scene\GamePlayScene\LaserBullet.cpp" />
+    <ClCompile Include="scene\GamePlayScene\LaserShooter.cpp" />
     <ClCompile Include="scene\GamePlayScene\Mob.cpp" />
     <ClCompile Include="scene\GamePlayScene\Object.cpp" />
     <ClCompile Include="scene\GamePlayScene\PlayerBullet.cpp" />
@@ -189,6 +191,8 @@
     <ClInclude Include="scene\GamePlayScene\Collision.h" />
     <ClInclude Include="scene\GamePlayScene\HomingBullet.h" />
     <ClInclude Include="scene\GamePlayScene\HomingShooter.h" />
+    <ClInclude Include="scene\GamePlayScene\LaserBullet.h" />
+    <ClInclude Include="scene\GamePlayScene\LaserShooter.h" />
     <ClInclude Include="scene\GamePlayScene\Mob.h" />
     <ClInclude Include="scene\GamePlayScene\Object.h" />
     <ClInclude Include="scene\GamePlayScene\PlayerBullet.h" />
