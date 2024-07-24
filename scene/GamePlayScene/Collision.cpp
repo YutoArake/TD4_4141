@@ -11,3 +11,8 @@ bool Collision::SquareToSquare(int mx1, int my1, int mx2, int my2, int ex1, int 
 
 	return false;
 }
+
+bool Collision::LineToSquare()
+{
+	return false;
+}

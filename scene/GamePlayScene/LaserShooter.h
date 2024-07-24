@@ -1,5 +1,6 @@
 #pragma once
 #include "GamePlayScene/Mob.h"
+#include "GamePlayScene/LaserBullet.h"
 
 #include <DxLib.h>
 #include <list>
@@ -20,6 +21,10 @@ public:
 
 	void DrawBullet();
 
+	void DeleteBullet();
+
+	void SendPlayerPosition();
+
 private:
 	int movementX;
 	int movementY;
@@ -31,12 +36,13 @@ private:
 	int intervaltime = 2;
 	int shootinginterval = intervaltime * 60;
 
-	int Reservesecond = 1;
-	int Reservetime = Reservesecond * 60;
+	int reservesecond = 1;
+	int reservetime = reservesecond * 60;
 
 	int shootingsecond = 2;
 	int shootingtime = shootingsecond * 60;
 
+	std::list<LaserBullet*> laserbullets;
 
 	ShootingPlayer* shootingPlayer;
 };

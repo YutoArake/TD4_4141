@@ -19,6 +19,7 @@ public:
 	/// <returns>“–‚½‚Á‚Ä‚é‚©‚Ì¬”Û</returns>
 	bool SquareToSquare(int mx1, int my1, int mx2, int my2, int ex1, int ey1, int ex2, int ey2);
 
+	bool LineToSquare();
 };
 
 
