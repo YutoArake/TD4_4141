@@ -148,10 +148,11 @@ void Stage::Draw()
 		DrawExtendGraph(0, 0, 800, 800, shootGraph, false);
 		miniGame.Draw();
 
-	// デバッグテキスト
-	DrawFormatString(0, 20, GetColor(255, 255, 255), "%d", stageNum);
-	DrawFormatString(0, 140, GetColor(255, 255, 255), "scrollX: %d", scrollX, false);
-	stageOp.Draw();
+		// デバッグテキスト
+		DrawFormatString(0, 20, GetColor(255, 255, 255), "%d", stageNum);
+		DrawFormatString(0, 140, GetColor(255, 255, 255), "scrollX: %d", scrollX, false);
+		stageOp.Draw();
+	}
 }
 
 void Stage::Reset(Player* p)
