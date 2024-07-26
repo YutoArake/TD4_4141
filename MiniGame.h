@@ -26,7 +26,7 @@ public:
 	void Draw();
 
 	// リセット
-	void Reset(int stageNum);
+	void LoadGameMap(int stageNum);
 
 	// ステージロード
 	void LoadStageFile(int stageNum);
