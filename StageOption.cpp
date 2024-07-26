@@ -11,6 +11,7 @@ int StageOption::InitializeFloor()
 	int stageNum = rand7(mt);
 
 	// í èÌÇ©àŸïœÇ©(0Ç™í èÌ)
+
 	if (stageNum == 0)
 	{
 		ExitStair = 1;
@@ -90,6 +91,7 @@ void StageOption::Draw()
 	DrawFormatString(0, 60, GetColor(255, 255, 255), "floor:%d", floor);
 	DrawFormatString(0, 80, GetColor(255, 255, 255), "Entrance:%d", EntranceStair);
 	DrawFormatString(0, 100, GetColor(255, 255, 255), "Exit:%d", ExitStair);
+	DrawFormatString(0, 120, GetColor(255, 255, 255), "isFirst:%d", isFirstFloor);
 }
 
 bool StageOption::IsClear()
