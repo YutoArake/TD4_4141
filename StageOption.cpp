@@ -37,6 +37,7 @@ void StageOption::Update(Player* _player)
 	if (_player->GetMoveFloor() == true)
 	{
 		Judge(_player);
+		
 	}
 	if (isInCorrect == true)
 	{

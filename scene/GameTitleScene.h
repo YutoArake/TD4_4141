@@ -35,9 +35,10 @@ public: // ƒƒ“ƒoŠÖ”
 	void GameTransition() override;
 
 	int titleGraph = 0;
+	int titleBackGraph = 0;
 	int time = 0;
 
-	int x = 0;
+	
 
 	Menu menu;
 };

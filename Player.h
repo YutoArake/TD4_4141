@@ -40,6 +40,10 @@ public: //ƒƒ“ƒoŠÖ”
 		this->isMiniGame = _isMiniGame;
 	}
 
+	void SetMoveSpeed(int _moveSpeed) {
+		this->moveSpeed = _moveSpeed;
+	}
+
 private: //ƒƒ“ƒoŠÖ”
 
 	//ˆÚ“®ŠÖ”

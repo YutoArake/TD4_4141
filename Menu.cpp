@@ -25,9 +25,8 @@ void Menu::Menu_Update(char keys[256], char oldkeys[256])
 
 void Menu::Menu_Draw()
 {
-    DrawString(450, 350, "メニュー画面です。", GetColor(255, 255, 255));
-    DrawString(450, 370, "上下キーを押し、エンターを押して下さい。", GetColor(255, 255, 255));
-    DrawString(550, GAME_Y, "ゲーム", GetColor(255, 255, 255));
+
+    DrawString(550, GAME_Y, "ゲームスタート", GetColor(255, 255, 255));
     DrawString(550, EXIT_Y, "終了", GetColor(255, 255, 255));
     int y = 0;
     switch (NowSelect) {//現在の選択状態に従って処理を分岐

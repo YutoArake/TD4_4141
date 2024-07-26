@@ -40,14 +40,22 @@ void Stage::Update(char keys[256], char oldkeys[256], Player* p, bool& isClear)
 	{
 		if (loadFloor == 1)
 		{
+			directionFlag = 1;
 			flameTime += 4.0f;
 		}
 
+		
 		if (flameTime >= maxTime)
 		{
 			flameTime = 0;
 			loadFloor = 0;
+			directionFlag = 0;
 		}
+		if (flameTime > maxTime / 2)
+		{
+			directionFlag = 2;
+		}
+
 
 		// プレイヤー座標からスクロール座標を計算する
 		if (p->GetPosX() >= 640 && scrollX < 1960 && keys[KEY_INPUT_D]) {
@@ -94,10 +102,13 @@ void Stage::Update(char keys[256], char oldkeys[256], Player* p, bool& isClear)
 
 		if (p->GetMoveFloor() == true)
 		{
-			scrollX = 0;
-			Reset(p);
-			p->SetMoveFloor(false);
 			loadFloor = 1;
+			if (directionFlag == 2)
+			{
+				scrollX = 0;
+				Reset(p);
+				p->SetMoveFloor(false);
+			}
 		}
 	}
 	isClear = stageOp.IsClear();
@@ -113,41 +124,29 @@ void Stage::Draw()
 		DrawFormatString(0, 20, GetColor(255, 255, 255), "%d", stageNum);
 		DrawFormatString(0, 140, GetColor(255, 255, 255), "scrollX: %d", scrollX, false);
 
-		if (stageNum == 6) {
-		}
-		else {
-			DrawExtendGraph(0 - scrollX, 0, 3239 - scrollX, 959, mapGraph[stageNum], FALSE);
-			DrawExtendGraph(2590 - scrollX, 100, 2654 - scrollX, 218, floorGraph[stageOp.GetFloor() + 1], true);
+		DrawExtendGraph(0 - scrollX, 0, 3239 - scrollX, 959, mapGraph[stageNum], FALSE);
+		DrawExtendGraph(2590 - scrollX, 100, 2654 - scrollX, 218, floorGraph[stageOp.GetFloor() + 1], true);
 
-			if (isDoorOpen == true)
+		if (isDoorOpen == true)
+		{
+			DrawExtendGraph(988 - scrollX, 67, 1115 - scrollX, 271, doorGraph, true);
+
+			if (stageNum != 5)
 			{
-				DrawExtendGraph(988 - scrollX, 67, 1115 - scrollX, 271, doorGraph, true);
-
-				if (stageNum != 5)
-				{
-					DrawExtendGraph(978 - scrollX, 110, 1145 - scrollX, 271, womanGraph, true);
-				}
-
-				else
-				{
-					DrawExtendGraph(978 - scrollX, 110, 1145 - scrollX, 271, womanAnomalyGraph, true);
-				}
+				DrawExtendGraph(978 - scrollX, 110, 1145 - scrollX, 271, womanGraph, true);
 			}
-			stageOp.Draw();
+
+			else
+			{
+				DrawExtendGraph(978 - scrollX, 110, 1145 - scrollX, 271, womanAnomalyGraph, true);
+			}
 		}
+		stageOp.Draw();
 	}
 	else if (miniGameFlag == 1)
 	{
-
-		DrawExtendGraph(0, 0, 800, 800, post2Graph, false);
 		DrawExtendGraph(0, 0, 800, 800, shootGraph, false);
 		miniGame.Draw();
-
-	}
-	else
-	{
-		DrawExtendGraph(978 - scrollX, 110, 1145 - scrollX, 271, womanAnomalyGraph, true);
-	}
 
 	// デバッグテキスト
 	DrawFormatString(0, 20, GetColor(255, 255, 255), "%d", stageNum);
@@ -159,7 +158,7 @@ void Stage::Reset(Player* p)
 {
 	stageNum = stageOp.InitializeFloor();
 	scrollX = 0;
-	stageNum = 6;
+	
 	if (stageNum == 6) {
 		miniGame.LoadGameMap(1);
 	}
