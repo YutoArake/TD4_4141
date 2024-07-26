@@ -25,8 +25,8 @@ public: // メンバ関数
 
 private: // メンバ変数
 
-	const int GAME_Y = 440;	//「ゲーム」文字のy位置
-	const int EXIT_Y = 470;		//「設定」文字のy位置
+	const int GAME_Y = 640;	//「ゲーム」文字のy位置
+	const int EXIT_Y = 670;		//「設定」文字のy位置
 
 };
 

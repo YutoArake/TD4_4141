@@ -4,7 +4,8 @@
 
 void GameTitleScene::Initialize()
 {
-	titleGraph = LoadGraph("Resource/Title.png");
+	titleGraph = LoadGraph("Resource/titles/Title.png");
+	titleBackGraph = LoadGraph("Resource/titles/TitleBack.png");
 }
 
 void GameTitleScene::Finalize()
@@ -32,18 +33,26 @@ void GameTitleScene::Update(char keys[256], char oldkeys[256])
 
 void GameTitleScene::GameTransition()
 {
-	x = 1 * time * time * (50 - 0);
+	
 }
 
 void GameTitleScene::Draw()
 {
 	DrawExtendGraph(
-		x,
 		0,
-		x + 1279,
-		0 + 799,
+		0,
+		1280,
+		960,
+		titleBackGraph,
+		false
+	);
+	DrawExtendGraph(
+		320,
+		0,
+		960,
+		640,
 		titleGraph,
-		FALSE
+		true
 	);
 	menu.Menu_Draw();
 }

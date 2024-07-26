@@ -74,32 +74,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="scene\GameClearScene.h">
-      <Filter>scene</Filter>
-    </ClInclude>
-    <ClInclude Include="scene\GameDemoScene.h">
-      <Filter>scene</Filter>
-    </ClInclude>
-    <ClInclude Include="scene\GameLoadScene.h">
-      <Filter>scene</Filter>
-    </ClInclude>
-    <ClInclude Include="scene\GameOverScene.h">
-      <Filter>scene</Filter>
-    </ClInclude>
-    <ClInclude Include="scene\GamePlayScene.h">
-      <Filter>scene</Filter>
-    </ClInclude>
-    <ClInclude Include="scene\GameSelectScene.h">
-      <Filter>scene</Filter>
-    </ClInclude>
-    <ClInclude Include="scene\GameTitleScene.h">
-      <Filter>scene</Filter>
-    </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="scene\SceneManager.h">
-      <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Menu.h">
       <Filter>ヘッダー ファイル</Filter>
@@ -121,6 +97,30 @@
     </ClInclude>
     <ClInclude Include="scene\SceneFactory.h">
       <Filter>scene\base</Filter>
+    </ClInclude>
+    <ClInclude Include="scene\GameTitleScene.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="scene\GameSelectScene.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="scene\GamePlayScene.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="scene\GameOverScene.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="scene\GameLoadScene.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="scene\GameDemoScene.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="scene\GameClearScene.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="scene\SceneManager.h">
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

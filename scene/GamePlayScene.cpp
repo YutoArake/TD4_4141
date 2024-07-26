@@ -56,7 +56,7 @@ void GamePlayScene::Draw()
 	player->Draw();
 	if (stage.GetLoadFloor() == 1)
 	{
-		DrawCircle(640, 480, stage.easeInOutBack(200,1000,flameTime / maxTime), GetColor(255, 255, 255), true);
+		DrawCircle(640, 480, stage.easeInOutBack(200,1000,flameTime / maxTime), GetColor(0, 0, 0), true);
 	}
 }
 
