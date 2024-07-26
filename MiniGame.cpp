@@ -4,15 +4,6 @@
 
 void MiniGame::Initialize()
 {
-	// バッファをクリア
-	stageCommands_.str("");
-	// 状態をクリア
-	stageCommands_.clear(std::stringstream::goodbit);
-
-	// マップをロード
-	LoadStageFile(1);
-	LoadStageCommands();
-
 	blocks[0] = LoadGraph("Resource/blocks/block.png");
 	blocks[1] = LoadGraph("Resource/blocks/brick.png");
 	blocks[2] = LoadGraph("Resource/blocks/broken.png");
@@ -33,14 +24,41 @@ void MiniGame::Draw()
 {
 	for (int y = 0; y < MapY; y++) {
 		for (int x = 0; x < MapX; x++) {
-			if (miniGame[y][x] == 1) {
+			if (miniGame[y][x] == 0) {
+				continue;
+			}
+			else if (miniGame[y][x] == 1) {
 				DrawGraph(x * Size, y * Size, blocks[0], false);
+			}
+			else if (miniGame[y][x] == 2) {
+				DrawGraph(x * Size, y * Size, blocks[1], false);
+			}
+			else if (miniGame[y][x] == 3) {
+				DrawGraph(x * Size, y * Size, blocks[2], false);
+			}
+			else if (miniGame[y][x] == 4) {
+				DrawGraph(x * Size, y * Size, blocks[3], false);
+			}
+			else if (miniGame[y][x] == 5) {
+				DrawGraph(x * Size, y * Size, blocks[4], false);
+			}
+			else if (miniGame[y][x] == 6) {
+				DrawGraph(x * Size, y * Size, blocks[5], false);
+			}
+			else if (miniGame[y][x] == 7) {
+				DrawGraph(x * Size, y * Size, blocks[6], false);
+			}
+			else if (miniGame[y][x] == 8) {
+				DrawGraph(x * Size, y * Size, blocks[7], false);
+			}
+			else if (miniGame[y][x] == 9) {
+				DrawGraph(x * Size, y * Size, blocks[8], false);
 			}
 		}
 	}
 }
 
-void MiniGame::Reset(int stageNum)
+void MiniGame::LoadGameMap(int stageNum)
 {
 	// バッファをクリア
 	stageCommands_.str("");

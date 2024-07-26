@@ -98,12 +98,5 @@ public:
 	: (pow(2 * time - 2, 2) * ((c2 + 1) * (time * 2 - 2) + c2) + 2) / 2 * (end - start);
 	}
 	//イージング関数終わり
-
-	// ステージロード
-	void LoadStageFile(int stageNum);
-
-	// コマンド読み込み
-	void LoadStageCommands();
-
 };
 

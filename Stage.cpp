@@ -105,7 +105,7 @@ void Stage::Update(char keys[256], char oldkeys[256], Player* p, bool& isClear)
 
 void Stage::Draw()
 {
-
+	// ミニゲームかどうか
 	if (miniGameFlag == 0)
 	{
 		DrawExtendGraph(0 - scrollX, 0, 3239 - scrollX, 959, mapGraph[stageNum], FALSE);
@@ -114,7 +114,6 @@ void Stage::Draw()
 		DrawFormatString(0, 140, GetColor(255, 255, 255), "scrollX: %d", scrollX, false);
 
 		if (stageNum == 6) {
-			miniGame.Draw();
 		}
 		else {
 			DrawExtendGraph(0 - scrollX, 0, 3239 - scrollX, 959, mapGraph[stageNum], FALSE);
@@ -142,9 +141,9 @@ void Stage::Draw()
 
 		DrawExtendGraph(0, 0, 800, 800, post2Graph, false);
 		DrawExtendGraph(0, 0, 800, 800, shootGraph, false);
+		miniGame.Draw();
 
 	}
-
 	else
 	{
 		DrawExtendGraph(978 - scrollX, 110, 1145 - scrollX, 271, womanAnomalyGraph, true);
@@ -156,17 +155,12 @@ void Stage::Draw()
 	stageOp.Draw();
 }
 
-
-
-
-
-
 void Stage::Reset(Player* p)
 {
 	stageNum = stageOp.InitializeFloor();
 	scrollX = 0;
 	stageNum = 6;
 	if (stageNum == 6) {
-		miniGame.Reset(1);
+		miniGame.LoadGameMap(1);
 	}
 }
