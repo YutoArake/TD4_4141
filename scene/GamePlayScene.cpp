@@ -6,9 +6,12 @@ void GamePlayScene::Initialize()
 {
 	shootingplayer = new ShootingPlayer();
 
-	moblist.push_back(new Shooter(800, 100, 15, 15));
+	moblist.push_back(new Shooter(800, 100, 15, 15, shootingplayer));
 
 	moblist.push_back(new HomingShooter(800, 200, 15, 15, shootingplayer));
+
+	moblist.push_back(new LaserShooter(800, 300, 15, 15, shootingplayer));
+
 }
 
 void GamePlayScene::Finalize()
@@ -47,3 +50,5 @@ void GamePlayScene::AllUpdate()
 	}
 	shootingplayer->Update();
 }
+
+

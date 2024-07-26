@@ -4,11 +4,21 @@
 class LaserBullet
 {
 public:
-	LaserBullet(int startX, int startY, int endX, int endY);
+	LaserBullet(double startX, double startY, double endX, double endY);
 
 	void Update();
 
 	void Draw();
+
+	void Extension();
+
+	bool GetHit() {
+		return hit;
+	}
+
+	void onCollision() {
+		hit = true;
+	}
 
 	void SetPlayerPosition(int x, int y) {
 		this->playerPositionX = x;
@@ -16,13 +26,20 @@ public:
 	};
 
 private:
-	int startX;
-	int startY;
+	double startX = 0;
+	double startY = 0;
 
-	int endX;
-	int endY;
+	double endX = 0;
+	double endY = 0;
 
-	int playerPositionX;
-	int playerPositionY;
+	double extensionX = 0;
+	double extensionY = 0;
+
+	bool hit = false;
+
+	int distance = 0;
+
+	int playerPositionX = 0;
+	int playerPositionY = 0;
 };
 

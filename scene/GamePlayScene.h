@@ -7,6 +7,8 @@
 #include "GamePlayScene/ShootingPlayer.h"
 #include "GamePlayScene/Shooter.h";
 #include "GamePlayScene/HomingShooter.h"
+
+#include "GamePlayScene/LaserShooter.h"
 #include <list>
 
 /// <summary>
@@ -40,6 +42,8 @@ public: // ÉÅÉìÉoä÷êî
 	void Draw() override;
 
 	void AllUpdate();
+
+
 
 private:
 

@@ -31,6 +31,14 @@ public:
 		return y;
 	}
 
+	int GetSizeX() {
+		return sizeX;
+	}
+
+	int GetSizeY() {
+		return sizeY;
+	}
+
 private:
 	int x = 0;
 	int y = 0;
@@ -44,4 +52,6 @@ private:
 	char oldkey[256];
 
 	std::list<PlayerBullet*> playerbullet;
+
+
 };

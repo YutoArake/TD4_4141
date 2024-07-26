@@ -24,6 +24,10 @@ public:
 
 	void DeleteBullet();
 
+	void HitDeleteBullet();
+
+	void Collision();
+
 	void SendPlayerPosition();
 
 private:
@@ -42,6 +46,6 @@ private:
 	std::list<HomingBullet*> homingbullets;
 
 
-	ShootingPlayer* shootingPlayer;
+	ShootingPlayer* shootingplayer;
 };
 

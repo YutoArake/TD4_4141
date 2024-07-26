@@ -25,6 +25,22 @@ public:
 		this->playerPositionY = y;
 	};
 
+	bool GetHit() {
+		return hit;
+	}
+
+	void onCollision() {
+		hit = true;
+	}
+
+	int GetSizeX() {
+		return sizeX;
+	}
+
+	int GetSizeY() {
+		return sizeY;
+	}
+
 private:
 	float x;
 	float y;
@@ -40,6 +56,8 @@ private:
 
 	int sizeX = 15;
 	int sizeY = 15;
+
+	bool hit = false;
 
 	int texture;
 

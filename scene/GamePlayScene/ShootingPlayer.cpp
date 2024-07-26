@@ -1,5 +1,7 @@
 #include "ShootingPlayer.h"
 
+
+
 ShootingPlayer::ShootingPlayer()
 {
 	texture = LoadGraph("Resources/test.png");

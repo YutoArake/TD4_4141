@@ -17,11 +17,27 @@ public:
 
 	void Draw();
 
+	bool GetHit() {
+		return hit;
+	}
+
+	void onCollision() {
+		hit = true;
+	}
+
 	float GetBulletX() {
 		return x;
 	}
 	float GetBulletY() {
 		return y;
+	}
+
+	int GetSizeX() {
+		return sizeX;
+	}
+
+	int GetSizeY() {
+		return sizeY;
 	}
 
 private:
@@ -33,6 +49,8 @@ private:
 
 	int sizeX = 15;
 	int sizeY = 15;
+
+	bool hit = false;
 
 	int texture;
 

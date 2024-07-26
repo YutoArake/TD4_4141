@@ -3,10 +3,12 @@
 #include "GamePlayScene/Bullet.h"
 #include <list>
 
+class ShootingPlayer;
+
 class Shooter : public Mob
 {
 public:
-	Shooter(int x, int y, int sizeX, int sizeY);
+	Shooter(int x, int y, int sizeX, int sizeY, ShootingPlayer* shootingplayer);
 
 	void Update() override;
 
@@ -19,6 +21,10 @@ public:
 	void DrawBullet();
 
 	void DeleteBullet();
+
+	void HitDeleteBullet();
+
+	void Collision();
 
 private:
 	int movementX;
@@ -35,4 +41,5 @@ private:
 
 
 	std::list<Bullet*> bullets;
+	ShootingPlayer* shootingplayer;
 };

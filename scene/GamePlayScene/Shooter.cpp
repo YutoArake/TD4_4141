@@ -1,7 +1,9 @@
 #include "Shooter.h"
+#include "GamePlayScene/ShootingPlayer.h"
+#include "GamePlayScene/Collision.h"
 #include <DxLib.h>
 
-Shooter::Shooter(int x, int y, int sizeX, int sizeY)
+Shooter::Shooter(int x, int y, int sizeX, int sizeY, ShootingPlayer* shootingplayer)
 {
 	texture = LoadGraph("Resources/test.png");
 
@@ -10,6 +12,7 @@ Shooter::Shooter(int x, int y, int sizeX, int sizeY)
 	this->sizeX = sizeX;
 	this->sizeY = sizeY;
 
+	this->shootingplayer = shootingplayer;
 }
 
 void Shooter::Update()
@@ -19,8 +22,10 @@ void Shooter::Update()
 		Shoot();
 		shootinterval = intervaltime * 60;
 	}
+	Collision();
 	UpdateBullet();
 	DeleteBullet();
+	HitDeleteBullet();
 }
 
 void Shooter::Draw()
@@ -63,6 +68,30 @@ void Shooter::DeleteBullet()
 		{
 			//削除せず次のイテレーターへ
 			++itr;
+		}
+	}
+}
+
+void Shooter::HitDeleteBullet()
+{
+	for (auto itr = bullets.begin(); itr != bullets.end();) {
+		if ((*itr)->GetHit() == true) {
+			itr = bullets.erase(itr); // イテレーターを更新して次の要素に進む
+		}
+		else {
+			++itr; // 次の要素に進む
+		}
+	}
+}
+
+void Shooter::Collision()
+{
+	for (auto itr = bullets.begin(); itr != bullets.end(); ++itr) {
+		if (Collision::SquareToSquare((*itr)->GetBulletX() - (*itr)->GetSizeX(), (*itr)->GetBulletY() - (*itr)->GetSizeY(),
+			(*itr)->GetBulletX() + (*itr)->GetSizeX(), (*itr)->GetBulletY() + (*itr)->GetSizeY(),
+			shootingplayer->GetPositionX() - shootingplayer->GetSizeX(), shootingplayer->GetPositionY() - shootingplayer->GetSizeY(),
+			shootingplayer->GetPositionX() + shootingplayer->GetSizeX(), shootingplayer->GetPositionY() + shootingplayer->GetSizeY())) {
+			(*itr)->onCollision();
 		}
 	}
 }

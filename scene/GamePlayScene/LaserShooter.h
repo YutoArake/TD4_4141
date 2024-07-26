@@ -23,6 +23,8 @@ public:
 
 	void DeleteBullet();
 
+	void HitDeleteBullet();
+
 	void SendPlayerPosition();
 
 private:
@@ -41,6 +43,8 @@ private:
 
 	int shootingsecond = 2;
 	int shootingtime = shootingsecond * 60;
+
+	int phase = 0;//0:発射待機 1:発射準備 2:発射中 3:リセット
 
 	std::list<LaserBullet*> laserbullets;
 

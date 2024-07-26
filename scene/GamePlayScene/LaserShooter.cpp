@@ -16,35 +16,41 @@ LaserShooter::LaserShooter(int x, int y, int sizeX, int sizeY, ShootingPlayer* s
 
 void LaserShooter::Update()
 {
-	if (intervaltime >= 0) {
-		//発射前
-		intervaltime--;
-		if (intervaltime < 0) {
-			//発射準備
-			reservetime--;
-			if (reservetime == 0) {
-				//発射
-				Shoot();
-			}
-
-			if (reservetime < 0) {
-				//発射中
-				shootingtime--;
-				if (shootingtime < 0) {
-					//発射終了
-					shootinginterval = intervaltime * 60;
-					reservetime = reservesecond * 60;
-					shootingtime = shootingsecond * 60;
-				}
-			}
+	if (phase == 0) {
+		shootinginterval--;
+		if (shootinginterval < 0) {
+			phase = 1;
 		}
 	}
+	if (phase == 1) {
+		reservetime--;
+		if (reservetime < 0) {
+			Shoot();
+			phase = 2;
+		}
+	}
+	if (phase == 2) {
+		shootingtime--;
+		if (shootingtime < 0) {
+			DeleteBullet();
+			phase = 3;
+		}
+	}
+	if (phase == 3) {
+		shootinginterval = intervaltime * 60;
+		reservetime = reservesecond * 60;
+		shootingtime = shootingsecond * 60;
+		phase = 0;
+	}
+
 	UpdateBullet();
+	HitDeleteBullet();
 }
 
 void LaserShooter::Draw()
 {
 	DrawGraph(x - sizeX, y - sizeY, texture, true);
+	DrawFormatString(0, 100, GetColor(255, 255, 255), "%d", phase);
 	DrawBullet();
 }
 
@@ -69,6 +75,19 @@ void LaserShooter::DrawBullet()
 
 void LaserShooter::DeleteBullet()
 {
+	laserbullets.clear();
+}
+
+void LaserShooter::HitDeleteBullet()
+{
+	for (auto itr = laserbullets.begin(); itr != laserbullets.end();) {
+		if ((*itr)->GetHit() == true) {
+			itr = laserbullets.erase(itr); // イテレーターを更新して次の要素に進む
+		}
+		else {
+			++itr; // 次の要素に進む
+		}
+	}
 }
 
 void LaserShooter::SendPlayerPosition()

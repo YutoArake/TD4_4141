@@ -1,5 +1,6 @@
 #include "HomingShooter.h"
 #include "GamePlayScene/ShootingPlayer.h"
+#include "GamePlayScene/Collision.h"
 
 
 HomingShooter::HomingShooter(int x, int y, int sizeX, int sizeY, ShootingPlayer* shootingPlayer)
@@ -12,7 +13,7 @@ HomingShooter::HomingShooter(int x, int y, int sizeX, int sizeY, ShootingPlayer*
 	this->sizeX = sizeX;
 	this->sizeY = sizeY;
 
-	this->shootingPlayer = shootingPlayer;
+	this->shootingplayer = shootingPlayer;
 }
 
 void HomingShooter::Update()
@@ -22,9 +23,11 @@ void HomingShooter::Update()
 		Shoot();
 		shootinterval = intervaltime * 60;
 	}
+	Collision();
 	UpdateBullet();
 	SendPlayerPosition();
 	DeleteBullet();
+	HitDeleteBullet();
 }
 
 void HomingShooter::Draw()
@@ -70,9 +73,33 @@ void HomingShooter::DeleteBullet()
 	}
 }
 
+void HomingShooter::HitDeleteBullet()
+{
+	for (auto itr = homingbullets.begin(); itr != homingbullets.end();) {
+		if ((*itr)->GetHit() == true) {
+			itr = homingbullets.erase(itr); // イテレーターを更新して次の要素に進む
+		}
+		else {
+			++itr; // 次の要素に進む
+		}
+	}
+}
+
+void HomingShooter::Collision()
+{
+	for (auto itr = homingbullets.begin(); itr != homingbullets.end(); ++itr) {
+		if (Collision::SquareToSquare((*itr)->GetBulletX() - (*itr)->GetSizeX(), (*itr)->GetBulletY() - (*itr)->GetSizeY(),
+			(*itr)->GetBulletX() + (*itr)->GetSizeX(), (*itr)->GetBulletY() + (*itr)->GetSizeY(),
+			shootingplayer->GetPositionX() - shootingplayer->GetSizeX(), shootingplayer->GetPositionY() - shootingplayer->GetSizeY(),
+			shootingplayer->GetPositionX() + shootingplayer->GetSizeX(), shootingplayer->GetPositionY() + shootingplayer->GetSizeY())) {
+			(*itr)->onCollision();
+		}
+	}
+}
+
 void HomingShooter::SendPlayerPosition()
 {
 	for (auto itr = homingbullets.begin(); itr != homingbullets.end(); ++itr) {
-		(*itr)->SetPlayerPosition(shootingPlayer->GetPositionX(), shootingPlayer->GetPositionY());
+		(*itr)->SetPlayerPosition(shootingplayer->GetPositionX(), shootingplayer->GetPositionY());
 	}
 }
