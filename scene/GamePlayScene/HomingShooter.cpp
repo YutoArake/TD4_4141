@@ -93,6 +93,7 @@ void HomingShooter::Collision()
 			shootingplayer->GetPositionX() - shootingplayer->GetSizeX(), shootingplayer->GetPositionY() - shootingplayer->GetSizeY(),
 			shootingplayer->GetPositionX() + shootingplayer->GetSizeX(), shootingplayer->GetPositionY() + shootingplayer->GetSizeY())) {
 			(*itr)->onCollision();
+			shootingplayer->Damage();
 		}
 	}
 }

@@ -1,5 +1,6 @@
 #include "LaserShooter.h"
 #include "GamePlayScene/ShootingPlayer.h"
+#include "GamePlayScene/Collision.h"
 
 LaserShooter::LaserShooter(int x, int y, int sizeX, int sizeY, ShootingPlayer* shootingPlayer)
 {
@@ -11,7 +12,7 @@ LaserShooter::LaserShooter(int x, int y, int sizeX, int sizeY, ShootingPlayer* s
 	this->sizeX = sizeX;
 	this->sizeY = sizeY;
 
-	this->shootingPlayer = shootingPlayer;
+	this->shootingplayer = shootingPlayer;
 }
 
 void LaserShooter::Update()
@@ -56,7 +57,7 @@ void LaserShooter::Draw()
 
 void LaserShooter::Shoot()
 {
-	laserbullets.push_back(new LaserBullet(x, y, shootingPlayer->GetPositionX(), shootingPlayer->GetPositionY()));
+	laserbullets.push_back(new LaserBullet(x, y, shootingplayer->GetPositionX(), shootingplayer->GetPositionY()));
 }
 
 void LaserShooter::UpdateBullet()
@@ -90,9 +91,17 @@ void LaserShooter::HitDeleteBullet()
 	}
 }
 
+void LaserShooter::Collision()
+{
+	for (auto itr = laserbullets.begin(); itr != laserbullets.end(); ++itr) {
+		if (Collision::LineToSquare(shootingplayer->GetPositionX() - shootingplayer->GetSizeX(), shootingplayer->GetPositionY() - shootingplayer->GetSizeY(),
+			))
+	}
+}
+
 void LaserShooter::SendPlayerPosition()
 {
 	for (auto itr = laserbullets.begin(); itr != laserbullets.end(); ++itr) {
-		(*itr)->SetPlayerPosition(shootingPlayer->GetPositionX(), shootingPlayer->GetPositionY());
+		(*itr)->SetPlayerPosition(shootingplayer->GetPositionX(), shootingplayer->GetPositionY());
 	}
 }

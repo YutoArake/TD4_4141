@@ -23,6 +23,14 @@ public:
 
 	void DeleteBullet();
 
+	void Damage() {
+		if (condition == 0) {
+			hp--;
+			condition = 1;
+			invitime = invisecond * 60;
+		}
+	}
+
 	int GetPositionX() {
 		return x;
 	}
@@ -42,6 +50,12 @@ public:
 private:
 	int x = 0;
 	int y = 0;
+
+	int invisecond = 3;
+	int invitime = invisecond * 60;
+
+	int condition = 0;
+	int hp = 10;
 
 	int sizeX = 15;
 	int sizeY = 15;

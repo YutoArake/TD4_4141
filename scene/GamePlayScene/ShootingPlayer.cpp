@@ -11,6 +11,13 @@ ShootingPlayer::ShootingPlayer()
 void ShootingPlayer::Update()
 {
 	GetHitKeyStateAll(key);
+	if (condition == 1) {
+		invitime--;
+		if (invitime < 0) {
+			condition = 0;
+		}
+	}
+
 	Move();
 	UpdateBullet();
 	Shoot();
@@ -25,7 +32,7 @@ void ShootingPlayer::Draw()
 {
 	DrawGraph(x - sizeX, y - sizeY, texture, true);
 	DrawBullet();
-	//DrawFormatString(0, 0, GetColor(255, 255, 255), "%d", playerbullet.size());
+	DrawFormatString(0, 200, GetColor(255, 255, 255), "%d", hp);
 }
 
 void ShootingPlayer::Move()

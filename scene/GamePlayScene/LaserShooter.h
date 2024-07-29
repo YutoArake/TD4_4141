@@ -25,6 +25,8 @@ public:
 
 	void HitDeleteBullet();
 
+	void Collision();
+
 	void SendPlayerPosition();
 
 private:
@@ -48,6 +50,6 @@ private:
 
 	std::list<LaserBullet*> laserbullets;
 
-	ShootingPlayer* shootingPlayer;
+	ShootingPlayer* shootingplayer;
 };
 
