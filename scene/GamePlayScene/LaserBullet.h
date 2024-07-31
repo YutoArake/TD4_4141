@@ -25,6 +25,22 @@ public:
 		this->playerPositionY = y;
 	};
 
+	double GetstartX() {
+		return startX;
+	}
+
+	double GetstartY() {
+		return startY;
+	}
+
+	double GetextensionX() {
+		return extensionX;
+	}
+
+	double GetextensionY() {
+		return extensionY;
+	}
+
 private:
 	double startX = 0;
 	double startY = 0;

@@ -45,6 +45,7 @@ void LaserShooter::Update()
 	}
 
 	UpdateBullet();
+	Collision();
 	HitDeleteBullet();
 }
 
@@ -95,7 +96,14 @@ void LaserShooter::Collision()
 {
 	for (auto itr = laserbullets.begin(); itr != laserbullets.end(); ++itr) {
 		if (Collision::LineToSquare(shootingplayer->GetPositionX() - shootingplayer->GetSizeX(), shootingplayer->GetPositionY() - shootingplayer->GetSizeY(),
-			))
+			shootingplayer->GetPositionX() - shootingplayer->GetSizeX(), shootingplayer->GetPositionY() + shootingplayer->GetSizeY(),
+			shootingplayer->GetPositionX() + shootingplayer->GetSizeX(), shootingplayer->GetPositionY() - shootingplayer->GetSizeY(),
+			shootingplayer->GetPositionX() + shootingplayer->GetSizeX(), shootingplayer->GetPositionY() + shootingplayer->GetSizeY(),
+			(*itr)->GetstartX(), (*itr)->GetstartY(), (*itr)->GetextensionX(), (*itr)->GetextensionY())) {
+			(*itr)->onCollision();
+			shootingplayer->Damage();
+
+		}
 	}
 }
 

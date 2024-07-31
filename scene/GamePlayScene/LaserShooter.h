@@ -37,6 +37,9 @@ private:
 
 	int hp;
 
+	int targetX;
+	int targetY;
+
 	int intervaltime = 2;
 	int shootinginterval = intervaltime * 60;
 
