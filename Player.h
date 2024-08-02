@@ -89,6 +89,8 @@ private: //ƒƒ“ƒo•Ï”
 	int acc = 1;
 	int animateTimer = 0;
 	int playerWalkAnime = 0;
+	int walkSE = 0;
+	int dashSE = 0;
 
 	bool isJumpAction = false;
 

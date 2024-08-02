@@ -56,6 +56,11 @@ private:
 
 	int saveEntranceFloorFlag = 0;
 	int saveExitFloorFlag = 0;
+
+	int doorOpenSE = 0;
+	int doorCloseSE = 0;
+
+	int onceSEPlay = 0;
 public:
 	// 初期化
 	void Initialize();
