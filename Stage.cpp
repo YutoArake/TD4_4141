@@ -24,6 +24,9 @@ void Stage::Initialize()
 
 	shootGraph = LoadGraph("Resource/textures/show.png");
 
+	doorOpenSE = LoadSoundMem("Resource/sounds/opendoor.mp3");
+	doorCloseSE = LoadSoundMem("Resource/sounds/closedoor.mp3");
+
 	for (int i = 0; i < 10; i++)
 	{
 		sprintf_s(filename, "Resource/Floor/%i.png", i);
@@ -100,6 +103,11 @@ void Stage::Update(char keys[256], char oldkeys[256], Player* p, bool& isClear)
 		if (isDoorOpen == true)
 		{
 			doorTimer++;
+			if (CheckSoundMem(doorOpenSE) == 0 && onceSEPlay == 0)
+			{
+				PlaySoundMem(doorOpenSE, DX_PLAYTYPE_BACK, true);
+				onceSEPlay = 1;
+			}
 		}
 
 		//ドアタイマーが一定の値に達したらドアのフラグを戻し、タイマーの値も戻す
@@ -107,6 +115,11 @@ void Stage::Update(char keys[256], char oldkeys[256], Player* p, bool& isClear)
 		{
 			isDoorOpen = false;
 			doorTimer = 0;
+			if (CheckSoundMem(doorCloseSE) == 0)
+			{
+				PlaySoundMem(doorCloseSE, DX_PLAYTYPE_BACK, true);
+			}
+			onceSEPlay = 0;
 		}
 
 		if (p->GetisEntranceStair() == true)
@@ -160,11 +173,11 @@ void Stage::Draw()
 	{
 		DrawExtendGraph(0 - scrollX, 0, 3239 - scrollX, 959, mapGraph[stageNum], FALSE);
 		DrawExtendGraph(2590 - scrollX, 100, 2654 - scrollX, 218, floorGraph[stageOp.GetFloor()], true);
-		DrawFormatString(0, 20, GetColor(255, 255, 255), "%d", stageNum);
-		DrawFormatString(0, 140, GetColor(255, 255, 255), "scrollX: %d", scrollX, false);
+		//DrawFormatString(0, 20, GetColor(255, 255, 255), "%d", stageNum);
+		//DrawFormatString(0, 140, GetColor(255, 255, 255), "scrollX: %d", scrollX, false);
 
 
-		DrawFormatString(0, 350, GetColor(255, 255, 255), "flameTime:%f", flameTime);
+		//DrawFormatString(0, 350, GetColor(255, 255, 255), "flameTime:%f", flameTime);
 
 		if (isDoorOpen == true)
 		{
@@ -187,9 +200,9 @@ void Stage::Draw()
 		//DrawExtendGraph(0, 0, 800, 800, shootGraph, false);
 		miniGame.Draw();
 
-		// デバッグテキスト
-		DrawFormatString(0, 20, GetColor(255, 255, 255), "%d", stageNum);
-		DrawFormatString(0, 140, GetColor(255, 255, 255), "scrollX: %d", scrollX, false);
+		//// デバッグテキスト
+		//DrawFormatString(0, 20, GetColor(255, 255, 255), "%d", stageNum);
+		//DrawFormatString(0, 140, GetColor(255, 255, 255), "scrollX: %d", scrollX, false);
 		stageOp.Draw();
 	}
 }

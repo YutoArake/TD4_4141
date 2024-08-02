@@ -9,6 +9,8 @@ void Player::initialize()
 	LoadDivGraph("Resource/player/playerLeft.png", 11, 11, 1, 1114, 1114, playerLeftGraph);
 	LoadDivGraph("Resource/player/playerRight.png", 11, 11, 1, 1114, 1114, playerRightGraph);
 	LoadDivGraph("Resource/player/playerBack.png", 11, 11, 1, 1114, 1114, playerBackGraph);
+	walkSE = LoadSoundMem("Resource/sounds/walk.mp3");
+	dashSE = LoadSoundMem("Resource/sounds/dash.mp3");
 	playerMiniGraph[0] = LoadGraph("Resource/player/miniGameRight.png", true);
 	playerMiniGraph[1] = LoadGraph("Resource/player/miniGameLeft.png", true);
 }
@@ -88,9 +90,29 @@ void Player::Move(char keys[256], char oldkeys[256])
 		isDash = false;
 	}
 
-	if (keys[KEY_INPUT_J] == true && oldkeys[KEY_INPUT_J] == false)
+	if (x != oldX || y != oldY)
 	{
-		isJumpAction = !isJumpAction;
+		if (isDash == true)
+		{
+			StopSoundMem(walkSE);
+			if (CheckSoundMem(dashSE) == 0)
+			{
+				PlaySoundMem(dashSE, DX_PLAYTYPE_BACK, true);
+			}
+
+		}
+		else {
+			StopSoundMem(dashSE);
+			if (CheckSoundMem(walkSE) == 0)
+			{
+				PlaySoundMem(walkSE,DX_PLAYTYPE_BACK,true);
+			}
+		}
+	}
+	else
+	{
+		StopSoundMem(walkSE);
+		StopSoundMem(dashSE);
 	}
 
 }

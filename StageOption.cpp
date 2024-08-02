@@ -91,9 +91,9 @@ void StageOption::ClimbTheStairs()
 
 void StageOption::Draw()
 {
-	DrawFormatString(0, 60, GetColor(255, 255, 255), "floor:%d", floor);
-	DrawFormatString(0, 80, GetColor(255, 255, 255), "Entrance:%d", EntranceStair);
-	DrawFormatString(0, 100, GetColor(255, 255, 255), "Exit:%d", ExitStair);
+	//DrawFormatString(0, 60, GetColor(255, 255, 255), "floor:%d", floor);
+	//DrawFormatString(0, 80, GetColor(255, 255, 255), "Entrance:%d", EntranceStair);
+	//DrawFormatString(0, 100, GetColor(255, 255, 255), "Exit:%d", ExitStair);
 }
 
 bool StageOption::IsClear()
