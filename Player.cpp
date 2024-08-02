@@ -294,9 +294,9 @@ void Player::Draw()
 
 	}
 	
-	DrawBox(x, y, x + 31, y + 31, GetColor(255, 255, 255), TRUE);
-	DrawFormatString(0, 0, GetColor(255, 255, 255), "%d,%d", x, y);
-	DrawFormatString(0, 300, GetColor(255, 255, 255), "animateTimer:%d",playerWalkAnime);
+	//DrawBox(x, y, x + 31, y + 31, GetColor(255, 255, 255), TRUE);
+	//DrawFormatString(0, 0, GetColor(255, 255, 255), "%d,%d", x, y);
+	//DrawFormatString(0, 300, GetColor(255, 255, 255), "animateTimer:%d",playerWalkAnime);
 }
 
 void Player::Reset()
