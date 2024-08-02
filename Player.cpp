@@ -9,45 +9,59 @@ void Player::initialize()
 	LoadDivGraph("Resource/player/playerLeft.png", 11, 11, 1, 1114, 1114, playerLeftGraph);
 	LoadDivGraph("Resource/player/playerRight.png", 11, 11, 1, 1114, 1114, playerRightGraph);
 	LoadDivGraph("Resource/player/playerBack.png", 11, 11, 1, 1114, 1114, playerBackGraph);
+	playerMiniGraph[0] = LoadGraph("Resource/player/miniGameRight.png", true);
+	playerMiniGraph[1] = LoadGraph("Resource/player/miniGameLeft.png", true);
 }
 
 void Player::Update(char keys[256], char oldkeys[256])
 {
+	// ミニゲームなら
+	if (isMiniGame == true) {
+		// ジャンプ中なら
+		if (isJumpAction == true)
+		{
+			Jump(keys, oldkeys);
+			JumpUpdate();
+		}
 
-	if (isJumpAction == true)
-	{
+		// プレイヤーの移動
+		Move(keys, oldkeys);
 
-		Jump(keys, oldkeys);
-		JumpUpdate();
+		// ミニゲームの更新が終わったら抜ける
+		return;
 	}
+
+	// 階層移動の判定
 	MoveFloor(keys, oldkeys);
 
+	// プレイヤーの移動
 	Move(keys, oldkeys);
+	// 移動範囲指定
 	KeepOut();
+	// アニメーション
 	Animation();
 }
 
 void Player::Move(char keys[256], char oldkeys[256])
 {
+	// 前フレームの座標保持
 	oldX = x;
 	oldY = y;
 	
-	if (isJumpAction == false)
+	// ジャンプ中じゃないかつ、ミニゲーム中でもないなら
+	if (isMiniGame == false)
 	{
 		if (keys[KEY_INPUT_W] == true)
 		{
 			y -= moveSpeed;
 			playerDirection = 2;
 		}
-
 		if (keys[KEY_INPUT_S] == true)
 		{
 			y += moveSpeed;
 			playerDirection = 1;
 		}
 	}
-	
-
 
 	if (keys[KEY_INPUT_D] == true)
 	{
@@ -55,7 +69,6 @@ void Player::Move(char keys[256], char oldkeys[256])
 		x += moveSpeed;
 		
 	}
-
 	if (keys[KEY_INPUT_A] == true)
 	{
 		playerDirection = 3;
@@ -77,8 +90,6 @@ void Player::Move(char keys[256], char oldkeys[256])
 	{
 		isJumpAction = !isJumpAction;
 	}
-
-
 }
 
 void Player::KeepOut()
@@ -169,9 +180,9 @@ void Player::JumpUpdate()
 	vel += acc;
 	y += vel;
 
-	if (y > 600)
+	if (y > BLOCK_SIZE * 14 - radius)
 	{
-		y = 600;
+		y = BLOCK_SIZE *14 - radius;
 		vel = 0;
 		canJump = true;
 	}
@@ -208,6 +219,20 @@ void Player::MoveFloor(char keys[256], char oldkeys[256])
 
 void Player::Draw()
 {
+	if (isMiniGame == true) {
+		switch (playerDirection)
+		{
+		case 3:
+			DrawExtendGraph(x - 31, y - 31, x + 31, y + 31, playerMiniGraph[1], true);
+			break;
+		case 4:
+			DrawExtendGraph(x - 31, y - 31, x + 31, y + 31, playerMiniGraph[0], true);
+			break;
+		}
+		return;
+	}
+
+
 	//プレイヤーの向き(1＝前、2＝後ろ、3＝左、4＝右)
 	switch (playerDirection)
 	{
@@ -235,10 +260,6 @@ void Player::Draw()
 	DrawBox(x, y, x + 31, y + 31, GetColor(255, 255, 255), TRUE);
 	DrawFormatString(0, 0, GetColor(255, 255, 255), "%d,%d", x, y);
 	DrawFormatString(0, 300, GetColor(255, 255, 255), "animateTimer:%d",playerWalkAnime);
-	/*DrawRotaGraph(300, 300,
-		1.0, 3.141592 /180 * x,
-		playerGraph, false);*/
-	
 }
 
 void Player::Reset()

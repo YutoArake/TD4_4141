@@ -78,7 +78,8 @@ void Stage::Update(char keys[256], char oldkeys[256], Player* p, bool& isClear)
 				if (stageNum == 6)
 				{
 					miniGameFlag = 1;
-					stageOp.SetMiniGameFlag(miniGameFlag);
+					p->SetPosX(64 * 2 + 32);
+					p->SetPosY(64 * 13 + 32);
 
 				}
 
@@ -111,6 +112,11 @@ void Stage::Update(char keys[256], char oldkeys[256], Player* p, bool& isClear)
 			}
 		}
 	}
+	else {
+		miniGame.Update(keys, oldkeys, p, miniGameFlag);
+	}
+	p->SetIsMiniGame(miniGameFlag);
+	stageOp.SetMiniGameFlag(miniGameFlag);
 	isClear = stageOp.IsClear();
 }
 
@@ -145,7 +151,7 @@ void Stage::Draw()
 	}
 	else if (miniGameFlag == 1)
 	{
-		DrawExtendGraph(0, 0, 800, 800, shootGraph, false);
+		//DrawExtendGraph(0, 0, 800, 800, shootGraph, false);
 		miniGame.Draw();
 
 		// デバッグテキスト
@@ -159,8 +165,8 @@ void Stage::Reset(Player* p)
 {
 	stageNum = stageOp.InitializeFloor();
 	scrollX = 0;
-	
+	stageNum = 6;
 	if (stageNum == 6) {
-		miniGame.LoadGameMap(1);
+		miniGame.LoadGameMap(1, p);
 	}
 }

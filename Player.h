@@ -67,13 +67,16 @@ private: //メンバ関数
 private: //メンバ変数
 	int x = 0;				//x座標
 	int y = 0;				//y座標
+
+	int radius = 32;
+
 	int oldX = 0;
 	int oldY = 0;
 	int playerFrontGraph[11];		//プレイヤー画像
 	int playerLeftGraph[11];
 	int playerRightGraph[11];
 	int playerBackGraph[11];
-
+	int playerMiniGraph[2];
 
 	int playerDirection = 2;
 	bool canJump = false;	//プレイヤーが地面にいるか
@@ -97,5 +100,7 @@ private: //メンバ変数
 	bool isExitStair = false;
 
 	bool isMiniGame = false;
+
+	const int BLOCK_SIZE = 64;
 };
 
