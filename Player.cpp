@@ -26,6 +26,8 @@ void Player::Update(char keys[256], char oldkeys[256])
 
 		// プレイヤーの移動
 		Move(keys, oldkeys);
+		// 移動範囲指定
+		KeepOut();
 
 		// ミニゲームの更新が終わったら抜ける
 		return;
@@ -122,6 +124,14 @@ void Player::KeepOut()
 			}
 		}
 		//進入禁止エリアここまで
+	}
+	else {
+		if (x < BLOCK_SIZE + 32) {
+			x = BLOCK_SIZE + 32;
+		}
+		if (x > BLOCK_SIZE * 19 - 32) {
+			x = BLOCK_SIZE * 19 - 32;
+		}
 	}
 }
 
