@@ -5,18 +5,18 @@
 class Player
 {
 
-public: //ƒƒ“ƒoŠÖ”
+public: //ãƒ¡ãƒ³ãƒé–¢æ•°
 
-	//ƒvƒŒƒCƒ„[‰Šú‰»
+	//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼åˆæœŸåŒ–
 	void initialize();
 
-	//ƒvƒŒƒCƒ„[XV
+	//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼æ›´æ–°
 	void Update(char keys[256], char oldkeys[256]);
 
-	//ƒvƒŒƒCƒ„[•`‰æ
+	//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼æç”»
 	void Draw();
 
-	// ƒvƒŒƒCƒ„[ƒŠƒZƒbƒg
+	// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãƒªã‚»ãƒƒãƒˆ
 	void Reset();
 
 	int GetPosX() { return x; }
@@ -36,6 +36,10 @@ public: //ƒƒ“ƒoŠÖ”
 	bool GetisExitStair() { return isExitStair; }
 	void SetisExitStair(bool _isExitStair) { this->isExitStair = _isExitStair; }
 
+	int GetIsResetOnce() { return isResetOnce; }
+	void SetIsResetOnce(int _isResetOnce) { this->isResetOnce = _isResetOnce; }
+
+
 	void SetIsMiniGame(bool _isMiniGame) {
 		this->isMiniGame = _isMiniGame;
 	}
@@ -44,46 +48,46 @@ public: //ƒƒ“ƒoŠÖ”
 		this->moveSpeed = _moveSpeed;
 	}
 
-private: //ƒƒ“ƒoŠÖ”
+private: //ãƒ¡ãƒ³ãƒé–¢æ•°
 
-	//ˆÚ“®ŠÖ”
+	//ç§»å‹•é–¢æ•°
 	void Move(char keys[256], char oldkeys[256]);
 
-	//ˆÚ“®‹Ö~ƒGƒŠƒAŠÖ”
+	//ç§»å‹•ç¦æ­¢ã‚¨ãƒªã‚¢é–¢æ•°
 	void KeepOut();
 
-	//ƒAƒjƒ[ƒVƒ‡ƒ“ŠÖ”
+	//ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³é–¢æ•°
 	void Animation();
 
-	//ƒWƒƒƒ“ƒvŠÖ”
+	//ã‚¸ãƒ£ãƒ³ãƒ—é–¢æ•°
 	void Jump(char keys[256], char oldkeys[256]);
-	//ƒWƒƒƒ“ƒvXVŠÖ”
+	//ã‚¸ãƒ£ãƒ³ãƒ—æ›´æ–°é–¢æ•°
 	void JumpUpdate();
 
-	//ƒvƒŒƒCƒ„[‚ÌƒAƒNƒVƒ‡ƒ“
+	//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ã‚¢ã‚¯ã‚·ãƒ§ãƒ³
 	void MoveFloor(char keys[256], char oldkeys[256]);
 
 
-private: //ƒƒ“ƒo•Ï”
-	int x = 0;				//xÀ•W
-	int y = 0;				//yÀ•W
+private: //ãƒ¡ãƒ³ãƒå¤‰æ•°
+	int x = 0;				//xåº§æ¨™
+	int y = 0;				//yåº§æ¨™
 
 	int radius = 32;
 
 	int oldX = 0;
 	int oldY = 0;
-	int playerFrontGraph[11];		//ƒvƒŒƒCƒ„[‰æ‘œ
+	int playerFrontGraph[11];		//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ç”»åƒ
 	int playerLeftGraph[11];
 	int playerRightGraph[11];
 	int playerBackGraph[11];
 	int playerMiniGraph[2];
 
 	int playerDirection = 2;
-	bool canJump = false;	//ƒvƒŒƒCƒ„[‚ª’n–Ê‚É‚¢‚é‚©
-	bool isAction = false;	//ƒvƒŒƒCƒ„[‚ªƒAƒNƒVƒ‡ƒ“‚ğ‹N‚±‚µ‚Ä‚¢‚é‚©
-	int moveSpeed = 6;		//ˆÚ“®ƒXƒs[ƒhİ’è•Ï”
-	int walkSpeed = 6;		//•à‚«‚ÌƒXƒs[ƒh
-	int dashSpeed = 10;		//‘–‚è‚ÌƒXƒs[ƒh
+	bool canJump = false;	//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒåœ°é¢ã«ã„ã‚‹ã‹
+	bool isAction = false;	//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ãŒã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚’èµ·ã“ã—ã¦ã„ã‚‹ã‹
+	int moveSpeed = 6;		//ç§»å‹•ã‚¹ãƒ”ãƒ¼ãƒ‰è¨­å®šå¤‰æ•°
+	int walkSpeed = 6;		//æ­©ãã®ã‚¹ãƒ”ãƒ¼ãƒ‰
+	int dashSpeed = 10;		//èµ°ã‚Šã®ã‚¹ãƒ”ãƒ¼ãƒ‰
 	int vel = 0;
 	int acc = 1;
 	int animateTimer = 0;
@@ -101,6 +105,10 @@ private: //ƒƒ“ƒo•Ï”
 
 	bool isMiniGame = false;
 
+
+	int isResetOnce = false;
+
 	const int BLOCK_SIZE = 64;
+
 };
 

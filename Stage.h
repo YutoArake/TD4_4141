@@ -52,6 +52,10 @@ private:
 
 	int directionFlag = 0;
 
+	int isMaxTime = 0;
+
+	int saveEntranceFloorFlag = 0;
+	int saveExitFloorFlag = 0;
 public:
 	// 初期化
 	void Initialize();
@@ -80,6 +84,14 @@ public:
 	void SetLoadFloor(int _loadFloor)
 	{
 		this->loadFloor = _loadFloor;
+	}
+
+	int GetisMaxTime() {
+		return isMaxTime;
+	}
+
+	void SetisMaxTime(int _isMaxTime) {
+		this->isMaxTime = _isMaxTime;
 	}
 
 	//イージング関数

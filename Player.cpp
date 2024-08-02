@@ -15,42 +15,42 @@ void Player::initialize()
 
 void Player::Update(char keys[256], char oldkeys[256])
 {
-	// ƒ~ƒjƒQ[ƒ€‚È‚ç
+	// ãƒŸãƒ‹ã‚²ãƒ¼ãƒ ãªã‚‰
 	if (isMiniGame == true) {
-		// ƒWƒƒƒ“ƒv’†‚È‚ç
+		// ã‚¸ãƒ£ãƒ³ãƒ—ä¸­ãªã‚‰
 		if (isJumpAction == true)
 		{
 			Jump(keys, oldkeys);
 			JumpUpdate();
 		}
 
-		// ƒvƒŒƒCƒ„[‚ÌˆÚ“®
+		// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ç§»å‹•
 		Move(keys, oldkeys);
-		// ˆÚ“®”ÍˆÍw’è
+		// ç§»å‹•ç¯„å›²æŒ‡å®š
 		KeepOut();
 
-		// ƒ~ƒjƒQ[ƒ€‚ÌXV‚ªI‚í‚Á‚½‚ç”²‚¯‚é
+		// ãƒŸãƒ‹ã‚²ãƒ¼ãƒ ã®æ›´æ–°ãŒçµ‚ã‚ã£ãŸã‚‰æŠœã‘ã‚‹
 		return;
 	}
 
-	// ŠK‘wˆÚ“®‚Ì”»’è
+	// éšå±¤ç§»å‹•ã®åˆ¤å®š
 	MoveFloor(keys, oldkeys);
 
-	// ƒvƒŒƒCƒ„[‚ÌˆÚ“®
+	// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ç§»å‹•
 	Move(keys, oldkeys);
-	// ˆÚ“®”ÍˆÍw’è
+	// ç§»å‹•ç¯„å›²æŒ‡å®š
 	KeepOut();
-	// ƒAƒjƒ[ƒVƒ‡ƒ“
+	// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
 	Animation();
 }
 
 void Player::Move(char keys[256], char oldkeys[256])
 {
-	// ‘OƒtƒŒ[ƒ€‚ÌÀ•W•Û
+	// å‰ãƒ•ãƒ¬ãƒ¼ãƒ ã®åº§æ¨™ä¿æŒ
 	oldX = x;
 	oldY = y;
 	
-	// ƒWƒƒƒ“ƒv’†‚¶‚á‚È‚¢‚©‚ÂAƒ~ƒjƒQ[ƒ€’†‚Å‚à‚È‚¢‚È‚ç
+	// ã‚¸ãƒ£ãƒ³ãƒ—ä¸­ã˜ã‚ƒãªã„ã‹ã¤ã€ãƒŸãƒ‹ã‚²ãƒ¼ãƒ ä¸­ã§ã‚‚ãªã„ãªã‚‰
 	if (isMiniGame == false)
 	{
 		if (keys[KEY_INPUT_W] == true)
@@ -92,13 +92,14 @@ void Player::Move(char keys[256], char oldkeys[256])
 	{
 		isJumpAction = !isJumpAction;
 	}
+
 }
 
 void Player::KeepOut()
 {
 	if (isMiniGame == false)
 	{
-		//i“ü‹Ö~ƒGƒŠƒA
+		//é€²å…¥ç¦æ­¢ã‚¨ãƒªã‚¢
 		if (x < 50) {
 			x = 50;
 		}
@@ -123,7 +124,7 @@ void Player::KeepOut()
 				y = oldY;
 			}
 		}
-		//i“ü‹Ö~ƒGƒŠƒA‚±‚±‚Ü‚Å
+		//é€²å…¥ç¦æ­¢ã‚¨ãƒªã‚¢ã“ã“ã¾ã§
 	}
 	else {
 		if (x < BLOCK_SIZE + 32) {
@@ -137,7 +138,7 @@ void Player::KeepOut()
 
 void Player::Animation()
 {
-	//ƒ_ƒbƒVƒ…‚È‚çƒAƒjƒ[ƒVƒ‡ƒ“‚ğ”{‚Ì‘¬‚³‚Å“®‚©‚·
+	//ãƒ€ãƒƒã‚·ãƒ¥æ™‚ãªã‚‰ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å€ã®é€Ÿã•ã§å‹•ã‹ã™
 	if (isDash == true)
 	{
 		animateTimer += 2;
@@ -146,20 +147,20 @@ void Player::Animation()
 	{
 		animateTimer++;
 	}
-	//ƒAƒjƒƒ^ƒCƒ}[‚ªˆê’è‚Ì’lˆÈã‚ÅƒAƒjƒƒ^ƒCƒ}[‚ğƒŠƒZƒbƒgAƒAƒjƒ[ƒVƒ‡ƒ“‚ğis‚³‚¹‚é
+	//ã‚¢ãƒ‹ãƒ¡ã‚¿ã‚¤ãƒãƒ¼ãŒä¸€å®šã®å€¤ä»¥ä¸Šã§ã‚¢ãƒ‹ãƒ¡ã‚¿ã‚¤ãƒãƒ¼ã‚’ãƒªã‚»ãƒƒãƒˆã€ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’é€²è¡Œã•ã›ã‚‹
 	if (animateTimer >= 5)
 	{
 		animateTimer = 0;
 		playerWalkAnime++;
 	}
 
-	//ƒAƒjƒ[ƒVƒ‡ƒ“‚ª11ˆÈ~‚Å0‚ÉƒŠƒZƒbƒg
+	//ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ãŒ11ä»¥é™ã§0ã«ãƒªã‚»ãƒƒãƒˆ
 	if (playerWalkAnime == 11)
 	{
 		playerWalkAnime = 0;
 	}
 
-	//ˆÚ“®‚ª–³‚¯‚ê‚ÎƒAƒjƒ[ƒVƒ‡ƒ“‚ğ~‚ß‚é
+	//ç§»å‹•ãŒç„¡ã‘ã‚Œã°ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’æ­¢ã‚ã‚‹
 	if (x - oldX == 0 && y - oldY == 0)
 	{
 		playerWalkAnime = 0;
@@ -205,22 +206,26 @@ void Player::MoveFloor(char keys[256], char oldkeys[256])
 	{
 		if (y <= 0)
 		{
-			x = 214;
-			y = 500;
-
 			isMoveFloor = true;
 			isExitStair = true;
+			if (isResetOnce == 0)
+			{
+				isResetOnce = 1;
+			}
 		}
 	}
 
-	//ŠK’i“üŒû‚ÉˆÚ“®‚·‚é‚Æ”»’è‚ªs‚í‚ê‚é
+	//éšæ®µå…¥å£ã«ç§»å‹•ã™ã‚‹ã¨åˆ¤å®šãŒè¡Œã‚ã‚Œã‚‹
 	if (x >= 90 && x <= 340)
 	{
 		if (y >= 940)
 		{
 			isMoveFloor = true;
 			isEntranceStair = true;
-			y = 500;
+			if (isResetOnce == 0)
+			{
+				isResetOnce = 1;
+			}
 		}
 	}
 }
@@ -243,7 +248,7 @@ void Player::Draw()
 	}
 
 
-	//ƒvƒŒƒCƒ„[‚ÌŒü‚«(1‘OA2Œã‚ëA3¶A4‰E)
+	//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®å‘ã(1ï¼å‰ã€2ï¼å¾Œã‚ã€3ï¼å·¦ã€4ï¼å³)
 	switch (playerDirection)
 	{
 	case 1:

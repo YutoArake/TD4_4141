@@ -30,7 +30,7 @@ void Stage::Initialize()
 		floorGraph[i] = LoadGraph(filename);
 	}
 	scrollX = 0;
-	stageNum = 0;
+	
 	maxTime = 300;
 }
 
@@ -38,19 +38,29 @@ void Stage::Update(char keys[256], char oldkeys[256], Player* p, bool& isClear)
 {
 	if (miniGameFlag == 0)
 	{
-		if (loadFloor == 1)
+		//GamePlaySceneの変数で処理を行うこと
+
+		if (isMaxTime == 1)
+		{
+			directionFlag = 0;
+			isMaxTime = 0;
+			p->SetIsResetOnce(0);
+		}
+
+
+		if (directionFlag == 0)
+		{
+			flameTime = 0;
+			
+		}
+		 if (loadFloor == 1)
 		{
 			directionFlag = 1;
 			flameTime += 4.0f;
 		}
 
 		
-		if (flameTime >= maxTime)
-		{
-			flameTime = 0;
-			loadFloor = 0;
-			directionFlag = 0;
-		}
+
 		if (flameTime > maxTime / 2)
 		{
 			directionFlag = 2;
@@ -99,16 +109,39 @@ void Stage::Update(char keys[256], char oldkeys[256], Player* p, bool& isClear)
 			doorTimer = 0;
 		}
 
+		if (p->GetisEntranceStair() == true)
+		{
+			saveEntranceFloorFlag = 1;
+		}
+
+		if (p->GetisExitStair() == true)
+		{
+			saveExitFloorFlag = 1;
+		}
+
 		stageOp.Update(p);
 
 		if (p->GetMoveFloor() == true)
 		{
 			loadFloor = 1;
+
 			if (directionFlag == 2)
 			{
 				scrollX = 0;
 				Reset(p);
 				p->SetMoveFloor(false);
+				
+				if (saveEntranceFloorFlag == 1)
+				{
+					p->SetPosY(500);
+					saveEntranceFloorFlag = 0;
+				}
+				else if (saveExitFloorFlag == 1)
+				{
+					p->SetPosX(214);
+					p->SetPosY(500);
+					saveExitFloorFlag = 0;
+				}
 			}
 		}
 	}
@@ -126,12 +159,12 @@ void Stage::Draw()
 	if (miniGameFlag == 0)
 	{
 		DrawExtendGraph(0 - scrollX, 0, 3239 - scrollX, 959, mapGraph[stageNum], FALSE);
-		DrawExtendGraph(2590 - scrollX, 100, 2654 - scrollX, 218, floorGraph[stageOp.GetFloor() + 1], true);
+		DrawExtendGraph(2590 - scrollX, 100, 2654 - scrollX, 218, floorGraph[stageOp.GetFloor()], true);
 		DrawFormatString(0, 20, GetColor(255, 255, 255), "%d", stageNum);
 		DrawFormatString(0, 140, GetColor(255, 255, 255), "scrollX: %d", scrollX, false);
 
-		DrawExtendGraph(0 - scrollX, 0, 3239 - scrollX, 959, mapGraph[stageNum], FALSE);
-		DrawExtendGraph(2590 - scrollX, 100, 2654 - scrollX, 218, floorGraph[stageOp.GetFloor() + 1], true);
+
+		DrawFormatString(0, 350, GetColor(255, 255, 255), "flameTime:%f", flameTime);
 
 		if (isDoorOpen == true)
 		{
