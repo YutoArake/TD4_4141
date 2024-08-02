@@ -36,6 +36,7 @@ void GamePlayScene::Update(char keys[256], char oldkeys[256])
 	{
 		flameTime = 0;
 		stage.SetLoadFloor(0);
+		stage.SetisMaxTime(1);
 	}
 
 

@@ -18,6 +18,7 @@ int StageOption::InitializeFloor()
 	}
 	else if (isFirstFloor == true)
 	{
+		stageNum = 0;
 		ExitStair = 1;
 		EntranceStair = 0;
 		isFirstFloor = false;
@@ -36,19 +37,18 @@ void StageOption::Update(Player* _player)
 {
 	if (_player->GetMoveFloor() == true)
 	{
+
 		Judge(_player);
 		
 	}
 	if (isInCorrect == true)
 	{
 		FloorReset();
-		
 	}
 
 	if (isCorrect == true)
 	{
 		ClimbTheStairs();
-		
 	}
 	if (miniGameFlag == 1)
 	{
@@ -58,18 +58,22 @@ void StageOption::Update(Player* _player)
 
 void StageOption::Judge(Player* _player)
 {
-	if (_player->GetisEntranceStair() == true && EntranceStair == 1 ||
-		_player->GetisExitStair() == true && ExitStair == 1)
+	if (_player->GetIsResetOnce() == 1)
 	{
-		isCorrect = true;
+		if (_player->GetisEntranceStair() == true && EntranceStair == 1 ||
+			_player->GetisExitStair() == true && ExitStair == 1)
+		{
+			isCorrect = true;
+			
+		}
+		else
+		{
+			isInCorrect = true;
+		}
+		_player->SetisEntranceStair(false);
+		_player->SetisExitStair(false);
+		_player->SetIsResetOnce(2);
 	}
-	else
-	{
-		isInCorrect = true;
-	}
-	_player->SetisEntranceStair(false);
-	_player->SetisExitStair(false);
-
 
 }
 

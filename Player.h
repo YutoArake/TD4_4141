@@ -36,6 +36,10 @@ public: //ƒƒ“ƒoŠÖ”
 	bool GetisExitStair() { return isExitStair; }
 	void SetisExitStair(bool _isExitStair) { this->isExitStair = _isExitStair; }
 
+	int GetIsResetOnce() { return isResetOnce; }
+	void SetIsResetOnce(int _isResetOnce) { this->isResetOnce = _isResetOnce; }
+
+
 	void SetIsMiniGame(bool _isMiniGame) {
 		this->isMiniGame = _isMiniGame;
 	}
@@ -97,5 +101,7 @@ private: //ƒƒ“ƒo•Ï”
 	bool isExitStair = false;
 
 	bool isMiniGame = false;
+
+	int isResetOnce = false;
 };
 

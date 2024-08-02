@@ -48,7 +48,6 @@ void Player::Move(char keys[256], char oldkeys[256])
 	}
 	
 
-
 	if (keys[KEY_INPUT_D] == true)
 	{
 		playerDirection = 4;
@@ -77,7 +76,6 @@ void Player::Move(char keys[256], char oldkeys[256])
 	{
 		isJumpAction = !isJumpAction;
 	}
-
 
 }
 
@@ -184,11 +182,12 @@ void Player::MoveFloor(char keys[256], char oldkeys[256])
 	{
 		if (y <= 0)
 		{
-			x = 214;
-			y = 500;
-
 			isMoveFloor = true;
 			isExitStair = true;
+			if (isResetOnce == 0)
+			{
+				isResetOnce = 1;
+			}
 		}
 	}
 
@@ -199,7 +198,10 @@ void Player::MoveFloor(char keys[256], char oldkeys[256])
 		{
 			isMoveFloor = true;
 			isEntranceStair = true;
-			y = 500;
+			if (isResetOnce == 0)
+			{
+				isResetOnce = 1;
+			}
 		}
 	}
 }
