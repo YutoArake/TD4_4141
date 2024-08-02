@@ -6,10 +6,12 @@ void GamePlayScene::Initialize()
 {
 	shootingplayer = new ShootingPlayer();
 
+	//追加例
+	//通常                           x    y  sizeX sizeY  target
 	/*moblist.push_back(new Shooter(800, 100, 32, 32, shootingplayer));
-
+	//ホーミング
 	moblist.push_back(new HomingShooter(800, 200, 32, 32, shootingplayer));
-
+	//レーザー
 	moblist.push_back(new LaserShooter(800, 300, 32, 32, shootingplayer));*/
 
 }
