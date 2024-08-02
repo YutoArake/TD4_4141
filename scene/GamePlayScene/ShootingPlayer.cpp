@@ -22,6 +22,7 @@ void ShootingPlayer::Update()
 	UpdateBullet();
 	Shoot();
 	DeleteBullet();
+	HitDeleteBullet();
 
 	for (int i = 0; i < 256; i++) {
 		oldkey[i] = key[i];
@@ -32,7 +33,7 @@ void ShootingPlayer::Draw()
 {
 	DrawGraph(x - sizeX, y - sizeY, texture, true);
 	DrawBullet();
-	DrawFormatString(0, 200, GetColor(255, 255, 255), "%d", hp);
+	//DrawFormatString(0, 200, GetColor(255, 255, 255), "%d", hp);
 }
 
 void ShootingPlayer::Move()
@@ -55,33 +56,45 @@ void ShootingPlayer::Move()
 void ShootingPlayer::Shoot()
 {
 	if (key[KEY_INPUT_SPACE] == 1 && oldkey[KEY_INPUT_SPACE] == 0) {
-		playerbullet.push_back(new PlayerBullet(static_cast<float>(x), static_cast<float>(y)));
+		playerbullets.push_back(new PlayerBullet(static_cast<float>(x), static_cast<float>(y)));
 	}
 }
 
 void ShootingPlayer::UpdateBullet()
 {
-	for (auto itr = playerbullet.begin(); itr != playerbullet.end(); ++itr) {
+	for (auto itr = playerbullets.begin(); itr != playerbullets.end(); ++itr) {
 		(*itr)->Update();
 	}
 }
 
 void ShootingPlayer::DrawBullet()
 {
-	for (auto itr = playerbullet.begin(); itr != playerbullet.end(); ++itr) {
+	for (auto itr = playerbullets.begin(); itr != playerbullets.end(); ++itr) {
 		(*itr)->Draw();
 	}
 }
 
 void ShootingPlayer::DeleteBullet()
 {
-	for (auto itr = playerbullet.begin(); itr != playerbullet.end();) {
+	for (auto itr = playerbullets.begin(); itr != playerbullets.end();) {
 		if ((*itr)->GetBulletX() > 1200) {
-			itr = playerbullet.erase(itr);
+			itr = playerbullets.erase(itr);
 		}
 		else
 		{
 			++itr;
+		}
+	}
+}
+
+void ShootingPlayer::HitDeleteBullet()
+{
+	for (auto itr = playerbullets.begin(); itr != playerbullets.end();) {
+		if ((*itr)->GetHit() == true) {
+			itr = playerbullets.erase(itr); // イテレーターを更新して次の要素に進む
+		}
+		else {
+			++itr; // 次の要素に進む
 		}
 	}
 }

@@ -43,10 +43,13 @@ public: // メンバ関数
 
 	void AllUpdate();
 
+	void Collision();
 
 
 private:
+	int phase = 0; //状態　0:待機 1:出現中
 
+	int turn = 2; //0:通常 1:ホーミング 2:レーザー
 
 	std::list <Mob*> moblist;
 

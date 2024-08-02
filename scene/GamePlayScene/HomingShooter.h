@@ -36,7 +36,7 @@ private:
 
 	int texture;
 
-	int hp;
+
 
 	int intervaltime = 2;
 	int shootinterval = intervaltime * 60;

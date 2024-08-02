@@ -5,13 +5,15 @@
 
 HomingShooter::HomingShooter(int x, int y, int sizeX, int sizeY, ShootingPlayer* shootingPlayer)
 {
-	texture = LoadGraph("Resources/test.png");
+	texture = LoadGraph("Resources/HomingShooter.png");
 
 	this->x = x;
 	this->y = y;
 
 	this->sizeX = sizeX;
 	this->sizeY = sizeY;
+	this->hp = 4;
+	this->hit = false;
 
 	this->shootingplayer = shootingPlayer;
 }
@@ -34,8 +36,7 @@ void HomingShooter::Draw()
 {
 	DrawGraph(x - sizeX, y - sizeY, texture, true);
 	DrawBullet();
-	DrawFormatString(0, 0, GetColor(255, 255, 255), "%d", shootinterval);
-	DrawFormatString(0, 20, GetColor(255, 255, 255), "%d", homingbullets.size());
+	//DrawFormatString(0, 20, GetColor(255, 255, 255), "%d", hp);
 }
 
 void HomingShooter::Shoot()

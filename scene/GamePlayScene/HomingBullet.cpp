@@ -26,7 +26,7 @@ void HomingBullet::Update()
 void HomingBullet::Draw()
 {
 	DrawGraph(x - sizeX, y - sizeY, texture, true);
-	DrawFormatString(0, 40, GetColor(255, 255, 255), "%d", homingtime);
+	//DrawFormatString(0, 40, GetColor(255, 255, 255), "%d", homingtime);
 }
 
 void HomingBullet::BallisticUpdate()

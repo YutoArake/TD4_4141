@@ -1,9 +1,11 @@
 #pragma once
 #include "GamePlayScene/Mob.h"
 #include "GamePlayScene/Bullet.h"
+#include "GamePlayScene/PlayerBullet.h"
 #include <list>
 
 class ShootingPlayer;
+
 
 class Shooter : public Mob
 {
@@ -26,20 +28,32 @@ public:
 
 	void Collision();
 
+	void GotPlayerShot();
+
+	/*void Damage() {
+		hp--;
+	}
+
+	bool Gethit() {
+		return hit;
+	}*/
+
 private:
 	int movementX;
 	int movementY;
 
 	int texture;
 
-	int hp;
+	//int hp = 4;
 
 	int intervaltime = 2;
 
 	int shootinterval = intervaltime * 60;
 
-
+	//bool hit = false;
 
 	std::list<Bullet*> bullets;
 	ShootingPlayer* shootingplayer;
+
+
 };

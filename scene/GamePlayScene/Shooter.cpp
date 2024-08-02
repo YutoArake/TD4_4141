@@ -5,14 +5,17 @@
 
 Shooter::Shooter(int x, int y, int sizeX, int sizeY, ShootingPlayer* shootingplayer)
 {
-	texture = LoadGraph("Resources/test.png");
+	texture = LoadGraph("Resources/Shooter.png");
 
 	this->x = x;
 	this->y = y;
 	this->sizeX = sizeX;
 	this->sizeY = sizeY;
+	this->hp = 4;
+	this->hit = false;
 
 	this->shootingplayer = shootingplayer;
+
 }
 
 void Shooter::Update()
@@ -26,14 +29,15 @@ void Shooter::Update()
 	UpdateBullet();
 	DeleteBullet();
 	HitDeleteBullet();
+
+
 }
 
 void Shooter::Draw()
 {
 	DrawGraph(x - sizeX, y - sizeY, texture, true);
 	DrawBullet();
-	//DrawFormatString(0, 0, GetColor(255, 255, 255), "%d", shootinterval);
-	//DrawFormatString(0, 20, GetColor(255, 255, 255), "%d", bullets.size());
+	//DrawFormatString(0, 0, GetColor(255, 255, 255), "%d", hp);
 }
 
 void Shooter::Shoot()
@@ -93,6 +97,22 @@ void Shooter::Collision()
 			shootingplayer->GetPositionX() + shootingplayer->GetSizeX(), shootingplayer->GetPositionY() + shootingplayer->GetSizeY())) {
 			(*itr)->onCollision();
 			shootingplayer->Damage();
+		}
+	}
+}
+
+void Shooter::GotPlayerShot()
+{
+
+	for (auto itr = shootingplayer->GetPlayerBullet().begin(); itr != shootingplayer->GetPlayerBullet().end(); ++itr) {
+		if (Collision::SquareToSquare(x - sizeX, y - sizeY, x + sizeX, y + sizeY,
+			(*itr)->GetBulletX() - (*itr)->GetSizeX(), (*itr)->GetBulletY() - (*itr)->GetSizeY(),
+			(*itr)->GetBulletX() + (*itr)->GetSizeX(), (*itr)->GetBulletY() + (*itr)->GetSizeY())) {
+			if (hit == false) {
+				(*itr)->onCollision();
+				hp--;
+				hit = true;
+			}
 		}
 	}
 }

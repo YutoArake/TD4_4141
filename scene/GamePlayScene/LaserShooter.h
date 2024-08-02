@@ -35,10 +35,10 @@ private:
 
 	int texture;
 
-	int hp;
 
-	int targetX;
-	int targetY;
+
+	int targetX = 0;
+	int targetY = 0;
 
 	int intervaltime = 2;
 	int shootinginterval = intervaltime * 60;
@@ -49,7 +49,7 @@ private:
 	int shootingsecond = 2;
 	int shootingtime = shootingsecond * 60;
 
-	int phase = 0;//0:発射待機 1:発射準備 2:発射中 3:リセット
+	int phase = 0; //0:発射待機 1:発射準備 2:発射中 3:リセット
 
 	std::list<LaserBullet*> laserbullets;
 

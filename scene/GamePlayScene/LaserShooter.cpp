@@ -4,13 +4,16 @@
 
 LaserShooter::LaserShooter(int x, int y, int sizeX, int sizeY, ShootingPlayer* shootingPlayer)
 {
-	texture = LoadGraph("Resources/test.png");
+	texture = LoadGraph("Resources/LaserShooter.png");
 
 	this->x = x;
 	this->y = y;
 
 	this->sizeX = sizeX;
 	this->sizeY = sizeY;
+
+	this->hp = 4;
+	this->hit = false;
 
 	this->shootingplayer = shootingPlayer;
 }
@@ -20,6 +23,8 @@ void LaserShooter::Update()
 	if (phase == 0) {
 		shootinginterval--;
 		if (shootinginterval < 0) {
+			targetX = shootingplayer->GetPositionX();
+			targetY = shootingplayer->GetPositionY();
 			phase = 1;
 		}
 	}
@@ -52,13 +57,13 @@ void LaserShooter::Update()
 void LaserShooter::Draw()
 {
 	DrawGraph(x - sizeX, y - sizeY, texture, true);
-	DrawFormatString(0, 100, GetColor(255, 255, 255), "%d", phase);
+	//DrawFormatString(0, 100, GetColor(255, 255, 255), "%d", phase);
 	DrawBullet();
 }
 
 void LaserShooter::Shoot()
 {
-	laserbullets.push_back(new LaserBullet(x, y, shootingplayer->GetPositionX(), shootingplayer->GetPositionY()));
+	laserbullets.push_back(new LaserBullet(x, y, targetX, targetY));
 }
 
 void LaserShooter::UpdateBullet()

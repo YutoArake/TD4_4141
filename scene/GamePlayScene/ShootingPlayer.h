@@ -23,6 +23,8 @@ public:
 
 	void DeleteBullet();
 
+	void HitDeleteBullet();
+
 	void Damage() {
 		if (condition == 0) {
 			hp--;
@@ -47,6 +49,14 @@ public:
 		return sizeY;
 	}
 
+	int GetHp() {
+		return hp;
+	}
+
+	std::list<PlayerBullet*> GetPlayerBullet() {
+		return playerbullets;
+	}
+
 private:
 	int x = 0;
 	int y = 0;
@@ -65,7 +75,7 @@ private:
 	char key[256];
 	char oldkey[256];
 
-	std::list<PlayerBullet*> playerbullet;
+	std::list<PlayerBullet*> playerbullets;
 
 
 };

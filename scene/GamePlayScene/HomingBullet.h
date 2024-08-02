@@ -52,7 +52,7 @@ private:
 	float speedY = 10;
 
 	int homingsecond = 1;
-	int homingtime = homingsecond * 60;
+	int homingtime = homingsecond * 45;
 
 	int sizeX = 15;
 	int sizeY = 15;

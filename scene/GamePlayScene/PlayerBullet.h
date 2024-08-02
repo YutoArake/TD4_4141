@@ -10,13 +10,34 @@ public:
 
 	void Draw();
 
+	bool GetHit() {
+		return hit;
+	}
+
+	void onCollision() {
+		hit = true;
+	}
+
 	float GetBulletX() {
 		return x;
+	}
+	float GetBulletY() {
+		return y;
+	}
+
+	int GetSizeX() {
+		return sizeX;
+	}
+
+	int GetSizeY() {
+		return sizeY;
 	}
 
 private:
 	float x;
 	float y;
+
+	bool hit = false;
 
 	float movementX = 10.0;
 	float movementY = 0;

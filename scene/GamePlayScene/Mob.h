@@ -41,6 +41,21 @@ public:
 		return y + sizeY;
 	}
 
+	bool Gethit() {
+		return hit;
+	}
+
+	int GetHp() {
+		return hp;
+	}
+
+	void GetShot() {
+		if (hit == false) {
+			hp--;
+			//hit = true;
+		}
+	}
+
 private:
 
 protected:
@@ -49,5 +64,8 @@ protected:
 
 	int sizeX;
 	int sizeY;
+
+	int hp;
+	bool hit;
 };
 

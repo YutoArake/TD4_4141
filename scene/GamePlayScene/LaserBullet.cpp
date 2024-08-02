@@ -19,8 +19,8 @@ void LaserBullet::Draw()
 {
 	//DrawLineAA(startX, startY, endX, endY, GetColor(255, 0, 0), true);
 	DrawLineAA(startX, startY, extensionX, extensionY, GetColor(255, 0, 0), true);
-	DrawFormatString(0, 140, GetColor(255, 255, 255), "%f", extensionX);
-	DrawFormatString(0, 160, GetColor(255, 255, 255), "%f", extensionY);
+	//DrawFormatString(0, 140, GetColor(255, 255, 255), "%f", extensionX);
+	//DrawFormatString(0, 160, GetColor(255, 255, 255), "%f", extensionY);
 }
 
 void LaserBullet::Extension()
