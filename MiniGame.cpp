@@ -15,9 +15,34 @@ void MiniGame::Initialize()
 	blocks[8] = LoadGraph("Resource/blocks/sushi4.png");
 }
 
-void MiniGame::Update(char keys[256], char oldkeys[256], Player* p, bool& isClear)
+void MiniGame::Update(char keys[256], char oldkeys[256], Player* p, int& isMiniGame)
 {
+	int x = p->GetPosX(), y = p->GetPosY();
 
+	mapNumX = x / Size;
+	mapNumY = y / Size;
+
+	if (miniGame[mapNumY][mapNumX] == 6 ||
+		miniGame[mapNumY][mapNumX] == 7 ||
+		miniGame[mapNumY][mapNumX] == 8 ||
+		miniGame[mapNumY][mapNumX] == 9) {
+		miniGame[mapNumY][mapNumX] = 0;
+	}
+
+	for (int y = 0; y < 15; y++) {
+		for (int x = 0; x < 20; x++) {
+			if (miniGame[y][x] == 6 ||
+				miniGame[y][x] == 7 ||
+				miniGame[y][x] == 8 ||
+				miniGame[y][x] == 9) {
+				return;
+			}
+		}
+	}
+
+	p->SetPosX(Size * 10);
+	p->SetPosY(Size * 7);
+	isMiniGame = 0;
 }
 
 void MiniGame::Draw()
@@ -58,7 +83,7 @@ void MiniGame::Draw()
 	}
 }
 
-void MiniGame::LoadGameMap(int stageNum)
+void MiniGame::LoadGameMap(int stageNum, Player* p)
 {
 	// バッファをクリア
 	stageCommands_.str("");

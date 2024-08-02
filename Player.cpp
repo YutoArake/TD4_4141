@@ -11,44 +11,61 @@ void Player::initialize()
 	LoadDivGraph("Resource/player/playerBack.png", 11, 11, 1, 1114, 1114, playerBackGraph);
 	walkSE = LoadSoundMem("Resource/sounds/walk.mp3");
 	dashSE = LoadSoundMem("Resource/sounds/dash.mp3");
+	playerMiniGraph[0] = LoadGraph("Resource/player/miniGameRight.png", true);
+	playerMiniGraph[1] = LoadGraph("Resource/player/miniGameLeft.png", true);
 }
 
 void Player::Update(char keys[256], char oldkeys[256])
 {
+	// ãƒŸãƒ‹ã‚²ãƒ¼ãƒ ãªã‚‰
+	if (isMiniGame == true) {
+		// ã‚¸ãƒ£ãƒ³ãƒ—ä¸­ãªã‚‰
+		if (isJumpAction == true)
+		{
+			Jump(keys, oldkeys);
+			JumpUpdate();
+		}
 
-	if (isJumpAction == true)
-	{
+		// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ç§»å‹•
+		Move(keys, oldkeys);
+		// ç§»å‹•ç¯„å›²æŒ‡å®š
+		KeepOut();
 
-		Jump(keys, oldkeys);
-		JumpUpdate();
+		// ãƒŸãƒ‹ã‚²ãƒ¼ãƒ ã®æ›´æ–°ãŒçµ‚ã‚ã£ãŸã‚‰æŠœã‘ã‚‹
+		return;
 	}
+
+	// éšå±¤ç§»å‹•ã®åˆ¤å®š
 	MoveFloor(keys, oldkeys);
 
+	// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®ç§»å‹•
 	Move(keys, oldkeys);
+	// ç§»å‹•ç¯„å›²æŒ‡å®š
 	KeepOut();
+	// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³
 	Animation();
 }
 
 void Player::Move(char keys[256], char oldkeys[256])
 {
+	// å‰ãƒ•ãƒ¬ãƒ¼ãƒ ã®åº§æ¨™ä¿æŒ
 	oldX = x;
 	oldY = y;
 	
-	if (isJumpAction == false)
+	// ã‚¸ãƒ£ãƒ³ãƒ—ä¸­ã˜ã‚ƒãªã„ã‹ã¤ã€ãƒŸãƒ‹ã‚²ãƒ¼ãƒ ä¸­ã§ã‚‚ãªã„ãªã‚‰
+	if (isMiniGame == false)
 	{
 		if (keys[KEY_INPUT_W] == true)
 		{
 			y -= moveSpeed;
 			playerDirection = 2;
 		}
-
 		if (keys[KEY_INPUT_S] == true)
 		{
 			y += moveSpeed;
 			playerDirection = 1;
 		}
 	}
-	
 
 	if (keys[KEY_INPUT_D] == true)
 	{
@@ -56,7 +73,6 @@ void Player::Move(char keys[256], char oldkeys[256])
 		x += moveSpeed;
 		
 	}
-
 	if (keys[KEY_INPUT_A] == true)
 	{
 		playerDirection = 3;
@@ -105,7 +121,7 @@ void Player::KeepOut()
 {
 	if (isMiniGame == false)
 	{
-		//i“ü‹Ö~ƒGƒŠƒA
+		//é€²å…¥ç¦æ­¢ã‚¨ãƒªã‚¢
 		if (x < 50) {
 			x = 50;
 		}
@@ -130,13 +146,21 @@ void Player::KeepOut()
 				y = oldY;
 			}
 		}
-		//i“ü‹Ö~ƒGƒŠƒA‚±‚±‚Ü‚Å
+		//é€²å…¥ç¦æ­¢ã‚¨ãƒªã‚¢ã“ã“ã¾ã§
+	}
+	else {
+		if (x < BLOCK_SIZE + 32) {
+			x = BLOCK_SIZE + 32;
+		}
+		if (x > BLOCK_SIZE * 19 - 32) {
+			x = BLOCK_SIZE * 19 - 32;
+		}
 	}
 }
 
 void Player::Animation()
 {
-	//ƒ_ƒbƒVƒ…‚È‚çƒAƒjƒ[ƒVƒ‡ƒ“‚ğ”{‚Ì‘¬‚³‚Å“®‚©‚·
+	//ãƒ€ãƒƒã‚·ãƒ¥æ™‚ãªã‚‰ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å€ã®é€Ÿã•ã§å‹•ã‹ã™
 	if (isDash == true)
 	{
 		animateTimer += 2;
@@ -145,20 +169,20 @@ void Player::Animation()
 	{
 		animateTimer++;
 	}
-	//ƒAƒjƒƒ^ƒCƒ}[‚ªˆê’è‚Ì’lˆÈã‚ÅƒAƒjƒƒ^ƒCƒ}[‚ğƒŠƒZƒbƒgAƒAƒjƒ[ƒVƒ‡ƒ“‚ğis‚³‚¹‚é
+	//ã‚¢ãƒ‹ãƒ¡ã‚¿ã‚¤ãƒãƒ¼ãŒä¸€å®šã®å€¤ä»¥ä¸Šã§ã‚¢ãƒ‹ãƒ¡ã‚¿ã‚¤ãƒãƒ¼ã‚’ãƒªã‚»ãƒƒãƒˆã€ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’é€²è¡Œã•ã›ã‚‹
 	if (animateTimer >= 5)
 	{
 		animateTimer = 0;
 		playerWalkAnime++;
 	}
 
-	//ƒAƒjƒ[ƒVƒ‡ƒ“‚ª11ˆÈ~‚Å0‚ÉƒŠƒZƒbƒg
+	//ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ãŒ11ä»¥é™ã§0ã«ãƒªã‚»ãƒƒãƒˆ
 	if (playerWalkAnime == 11)
 	{
 		playerWalkAnime = 0;
 	}
 
-	//ˆÚ“®‚ª–³‚¯‚ê‚ÎƒAƒjƒ[ƒVƒ‡ƒ“‚ğ~‚ß‚é
+	//ç§»å‹•ãŒç„¡ã‘ã‚Œã°ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ã‚’æ­¢ã‚ã‚‹
 	if (x - oldX == 0 && y - oldY == 0)
 	{
 		playerWalkAnime = 0;
@@ -189,9 +213,9 @@ void Player::JumpUpdate()
 	vel += acc;
 	y += vel;
 
-	if (y > 600)
+	if (y > BLOCK_SIZE * 14 - radius)
 	{
-		y = 600;
+		y = BLOCK_SIZE *14 - radius;
 		vel = 0;
 		canJump = true;
 	}
@@ -213,7 +237,7 @@ void Player::MoveFloor(char keys[256], char oldkeys[256])
 		}
 	}
 
-	//ŠK’i“üŒû‚ÉˆÚ“®‚·‚é‚Æ”»’è‚ªs‚í‚ê‚é
+	//éšæ®µå…¥å£ã«ç§»å‹•ã™ã‚‹ã¨åˆ¤å®šãŒè¡Œã‚ã‚Œã‚‹
 	if (x >= 90 && x <= 340)
 	{
 		if (y >= 940)
@@ -232,7 +256,21 @@ void Player::MoveFloor(char keys[256], char oldkeys[256])
 
 void Player::Draw()
 {
-	//ƒvƒŒƒCƒ„[‚ÌŒü‚«(1‘OA2Œã‚ëA3¶A4‰E)
+	if (isMiniGame == true) {
+		switch (playerDirection)
+		{
+		case 3:
+			DrawExtendGraph(x - 31, y - 31, x + 31, y + 31, playerMiniGraph[1], true);
+			break;
+		case 4:
+			DrawExtendGraph(x - 31, y - 31, x + 31, y + 31, playerMiniGraph[0], true);
+			break;
+		}
+		return;
+	}
+
+
+	//ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®å‘ã(1ï¼å‰ã€2ï¼å¾Œã‚ã€3ï¼å·¦ã€4ï¼å³)
 	switch (playerDirection)
 	{
 	case 1:
@@ -256,12 +294,9 @@ void Player::Draw()
 
 	}
 	
-	//DrawFormatString(0, 0, GetColor(255, 255, 255), "%d,%d", x, y);
-	//DrawFormatString(0, 300, GetColor(255, 255, 255), "animateTimer:%d",playerWalkAnime);
-	/*DrawRotaGraph(300, 300,
-		1.0, 3.141592 /180 * x,
-		playerGraph, false);*/
-	
+	DrawBox(x, y, x + 31, y + 31, GetColor(255, 255, 255), TRUE);
+	DrawFormatString(0, 0, GetColor(255, 255, 255), "%d,%d", x, y);
+	DrawFormatString(0, 300, GetColor(255, 255, 255), "animateTimer:%d",playerWalkAnime);
 }
 
 void Player::Reset()
