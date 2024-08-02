@@ -60,12 +60,6 @@
     <ClCompile Include="scene\GamePlayScene\Mob.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="scene\GamePlayScene\Object.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="scene\GamePlayScene\TestMob.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="scene\GamePlayScene\Shooter.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -132,12 +126,6 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="scene\GamePlayScene\Mob.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="scene\GamePlayScene\Object.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="scene\GamePlayScene\TestMob.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="scene\GamePlayScene\Shooter.h">

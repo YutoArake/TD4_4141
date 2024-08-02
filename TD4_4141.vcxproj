@@ -168,11 +168,9 @@
     <ClCompile Include="scene\GamePlayScene\LaserBullet.cpp" />
     <ClCompile Include="scene\GamePlayScene\LaserShooter.cpp" />
     <ClCompile Include="scene\GamePlayScene\Mob.cpp" />
-    <ClCompile Include="scene\GamePlayScene\Object.cpp" />
     <ClCompile Include="scene\GamePlayScene\PlayerBullet.cpp" />
     <ClCompile Include="scene\GamePlayScene\Shooter.cpp" />
     <ClCompile Include="scene\GamePlayScene\ShootingPlayer.cpp" />
-    <ClCompile Include="scene\GamePlayScene\TestMob.cpp" />
     <ClCompile Include="scene\GameSelectScene.cpp" />
     <ClCompile Include="scene\GameTitleScene.cpp" />
     <ClCompile Include="scene\SceneFactory.cpp" />
@@ -194,11 +192,9 @@
     <ClInclude Include="scene\GamePlayScene\LaserBullet.h" />
     <ClInclude Include="scene\GamePlayScene\LaserShooter.h" />
     <ClInclude Include="scene\GamePlayScene\Mob.h" />
-    <ClInclude Include="scene\GamePlayScene\Object.h" />
     <ClInclude Include="scene\GamePlayScene\PlayerBullet.h" />
     <ClInclude Include="scene\GamePlayScene\Shooter.h" />
     <ClInclude Include="scene\GamePlayScene\ShootingPlayer.h" />
-    <ClInclude Include="scene\GamePlayScene\TestMob.h" />
     <ClInclude Include="scene\GameSelectScene.h" />
     <ClInclude Include="scene\GameTitleScene.h" />
     <ClInclude Include="scene\SceneFactory.h" />
